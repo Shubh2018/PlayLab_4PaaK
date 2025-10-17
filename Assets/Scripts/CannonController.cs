@@ -1,5 +1,8 @@
 using System;
+using System.Net.Sockets;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class CannonController : MonoBehaviour
 {
@@ -19,13 +22,19 @@ public class CannonController : MonoBehaviour
 
     private void Update()
     {
+        RotateCannon();
+        Shoot();
+    }
+
+    private void RotateCannon()
+    {
         float angle = InputManager.GetTeamCannonDirection(_shipController.Team);
 
-        Vector3 eulerAngles = transform.localEulerAngles;
-        eulerAngles.z += angle * Time.deltaTime * _angularSpeed;
-        transform.localEulerAngles = eulerAngles;
-
-        Shoot();
+        // Vector3 eulerAngles = transform.eulerAngles;
+        // eulerAngles.z += angle * Time.deltaTime * _angularSpeed;
+        // transform.eulerAngles = eulerAngles;
+        
+        transform.Rotate(Vector3.forward * (angle * _angularSpeed * Time.deltaTime), Space.Self);
     }
 
     private void Shoot()

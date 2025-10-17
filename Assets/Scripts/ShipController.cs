@@ -9,13 +9,17 @@ public class ShipController : MonoBehaviour
 {
     [SerializeField] private Island _island;
     [SerializeField] private float _angularSpeed = 180.0f;
+    [SerializeField] private float _speed = 10.0f;
     [SerializeField] private InputManager.Team _team;
+    [SerializeField] private Transform _shipGFX;
 
     public InputManager.Team Team => _team;
-    
+
     private Vector2 _positionOnCircumference;
     private Vector2 _tangentDir;
     private float _angle;
+
+    private CannonController _cannon;
 
     void Start()
     {
@@ -24,35 +28,60 @@ public class ShipController : MonoBehaviour
 
     private void Update()
     {
+        MoveAroundIsland();
+        LeaveIsland();
+    }
+
+    private void MoveAroundIsland()
+    {
+        if (!_island)
+        {
+            transform.Translate(transform.up * (_speed * Time.deltaTime), Space.World);
+            return;
+        }
+        
         Vector2 center = _island.Center;
         float radius = _island.Radius;
-
-        Vector3 currentPosition = transform.position;
 
         _angle += (Mathf.Abs(_angularSpeed) * InputManager.GetTeamRotationDirection(_team)) * Time.deltaTime;
 
         _positionOnCircumference = new Vector2(Mathf.Cos(_angle), Mathf.Sin(_angle)) * radius;
         Vector2 offset = center + _positionOnCircumference;
 
-        Vector3 centerDir =  offset - center;
+        Vector3 centerDir = offset - center;
 
         _tangentDir = Vector3.Cross(centerDir, Vector3.back) *
                       InputManager.GetTeamRotationDirection(_team);
 
-        currentPosition = new Vector3(offset.x, offset.y, 0.0f);
-
+        Vector3 currentPosition = new Vector3(offset.x, offset.y, 0.0f);
+        
         transform.position = currentPosition;
         transform.up = Vector3.Normalize(_tangentDir);
+    }
+
+    private void LeaveIsland()
+    {
+        if (InputManager.GetLaunchPressed((_team)) == 0) return;
+        
+        _island = null;
+    }
+
+    public void SetIsland(Island island)
+    {
+        _island = island;
+        Vector3 directionVector = transform.position - new Vector3(_island.Center.x, _island.Center.y, 0);
+        _angle = Mathf.Atan2(directionVector.y, directionVector.x);
+        Debug.Log($"{_angle}");
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, _island.Center - new Vector2(transform.position.x, transform.position.y));
-        
-        Gizmos.color = Color.green; 
+
+        Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, transform.up * 2.0f);
-        
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, Vector3.back * 2.0f);
     }

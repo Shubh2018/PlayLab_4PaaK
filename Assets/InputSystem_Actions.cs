@@ -143,7 +143,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""5c32189f-7087-41ad-abfb-243d83132db4"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -154,7 +154,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""9118c8a1-5ec4-4e35-9266-1ed0fc8582ee"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -275,7 +275,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""e8075707-57ae-4b97-bc15-2e21e9bb7351"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/0"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -286,7 +286,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""8668b83c-6e16-427e-b5b8-1a267e733c43"",
-                    ""path"": ""<Keyboard>/0"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

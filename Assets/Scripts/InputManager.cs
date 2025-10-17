@@ -13,10 +13,12 @@ public static class InputManager
     private static Vector2 _team1Rotation = Vector2.one;
     private static Vector2 _team1CannonRotation = Vector2.zero;
     private static float _shootTeam1 = 0;
+    private static float _launchTeam1 = 0;
     
     private static Vector2 _team2Rotation = Vector2.one;
     private static Vector2 _team2CannonRotation = Vector2.zero;
     private static float _shootTeam2 = 0;
+    private static float _launchTeam2 = 0;
     
     
     //private static 
@@ -111,6 +113,11 @@ public static class InputManager
     {
         return team == Team.Team1 ? _shootTeam1 : _shootTeam2;
     }
+
+    public static float GetLaunchPressed(Team team)
+    {
+        return team == Team.Team1 ? _launchTeam1 : _launchTeam2;
+    }
     
 #region Team1 Methods
 
@@ -136,12 +143,12 @@ public static class InputManager
     
     private static void Launch_Team1_Started(InputAction.CallbackContext obj)
     {
-        //Debug.Log(obj.ReadValue<float>());
+        _launchTeam1 = obj.ReadValue<float>();
     }
     
     private static void Launch_Team1_Canceled(InputAction.CallbackContext obj)
     {
-        
+        _launchTeam1 = 0;
     }
     
     private static void Shoot_Team1_Started(InputAction.CallbackContext obj)
@@ -180,12 +187,12 @@ public static class InputManager
     
     private static void Launch_Team2_Started(InputAction.CallbackContext obj)
     {
-        
+        _launchTeam2 = obj.ReadValue<float>();
     }
     
     private static void Launch_Team2_Canceled(InputAction.CallbackContext obj)
     {
-        
+        _launchTeam2 = 0;
     }
     
     private static void Shoot_Team2_Started(InputAction.CallbackContext obj)

@@ -30,7 +30,8 @@ public class CannonController : MonoBehaviour
     {
         float angle = InputManager.GetTeamCannonDirection(_shipController.Team);
 
-        // Vector3 eulerAngles = transform.eulerAngles;
+        // Vector3 eulerAngles = transform.TransformVector(transform.eulerAngles);
+        // eulerAngles.x = eulerAngles.y = 0;
         // eulerAngles.z += angle * Time.deltaTime * _angularSpeed;
         // transform.eulerAngles = eulerAngles;
         

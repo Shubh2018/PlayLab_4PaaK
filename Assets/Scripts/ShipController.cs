@@ -1,6 +1,7 @@
 using System;
 using System.Numerics;
 using Unity.VisualScripting;
+using UnityEditor.UIElements;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -28,15 +29,30 @@ public class ShipController : MonoBehaviour
 
     private void Update()
     {
-        MoveAroundIsland();
+        CircleIsland();
         LeaveIsland();
     }
 
-    private void MoveAroundIsland()
+    private void CircleIsland()
     {
         if (!_island)
         {
             transform.Translate(transform.up * (_speed * Time.deltaTime), Space.World);
+
+            if (transform.position.x >= 10 || transform.position.x <= -10)
+            {
+                Vector3 pos = transform.position;
+                pos.x *= -1;
+                transform.position = pos;
+            }
+            
+            if (transform.position.y >= 5 || transform.position.y <= -5)
+            {
+                Vector3 pos = transform.position;
+                pos.y *= -1;
+                transform.position = pos;
+            }
+                
             return;
         }
         

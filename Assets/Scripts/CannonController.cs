@@ -1,8 +1,4 @@
-using System;
-using System.Net.Sockets;
-using System.Numerics;
 using UnityEngine;
-using Vector3 = UnityEngine.Vector3;
 
 public class CannonController : MonoBehaviour
 {
@@ -12,16 +8,14 @@ public class CannonController : MonoBehaviour
     [SerializeField] private float _fireRate = 0.5f;
     [SerializeField] private Transform _bulletSpawn;
 
-    private ShipController _shipController;
+    [SerializeField] private ShipController _shipController;
     private float _nextTimeToFire = 0;
-
-    private void Start()
-    {
-        _shipController = GetComponentInParent<ShipController>();
-    }
+    
+    private float currentAngle = 0;
 
     private void Update()
     {
+        transform.position = _shipController.transform.position;
         RotateCannon();
         Shoot();
     }
@@ -30,12 +24,7 @@ public class CannonController : MonoBehaviour
     {
         float angle = InputManager.GetTeamCannonDirection(_shipController.Team);
 
-        // Vector3 eulerAngles = transform.TransformVector(transform.eulerAngles);
-        // eulerAngles.x = eulerAngles.y = 0;
-        // eulerAngles.z += angle * Time.deltaTime * _angularSpeed;
-        // transform.eulerAngles = eulerAngles;
-        
-        transform.Rotate(Vector3.forward * (angle * _angularSpeed * Time.deltaTime), Space.Self);
+        transform.Rotate(Vector3.forward * (angle * _angularSpeed * Time.deltaTime));
     }
 
     private void Shoot()

@@ -167,17 +167,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1449839964714903803, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+    - target: {fileID: 3180088240761076275, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: _island
       value: 
       objectReference: {fileID: 540728711}
     - target: {fileID: 5083508555873910602, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: m_Name
       value: Team1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6536762588711069177, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -776,14 +772,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1449839964714903803, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
+    - target: {fileID: 4743769636647892059, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
       propertyPath: _island
       value: 
       objectReference: {fileID: 2098085621}
-    - target: {fileID: 1449839964714903803, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
-      propertyPath: _angularSpeed
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 5083508555873910602, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
       propertyPath: m_Name
       value: Team2

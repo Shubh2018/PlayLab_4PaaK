@@ -24,7 +24,7 @@ public class ShipController : MonoBehaviour
 
     void Start()
     {
-        transform.position = _island.Center;
+        _shipGFX.transform.position = _island.Center;
     }
 
     private void Update()
@@ -37,20 +37,20 @@ public class ShipController : MonoBehaviour
     {
         if (!_island)
         {
-            transform.Translate(transform.up * (_speed * Time.deltaTime), Space.World);
+            _shipGFX.transform.Translate(_shipGFX.transform.up * (_speed * Time.deltaTime), Space.World);
 
             if (transform.position.x >= 10 || transform.position.x <= -10)
             {
                 Vector3 pos = transform.position;
                 pos.x *= -1;
-                transform.position = pos;
+                _shipGFX.transform.position = pos;
             }
             
             if (transform.position.y >= 5 || transform.position.y <= -5)
             {
                 Vector3 pos = transform.position;
                 pos.y *= -1;
-                transform.position = pos;
+                _shipGFX.transform.position = pos;
             }
                 
             return;
@@ -71,8 +71,8 @@ public class ShipController : MonoBehaviour
 
         Vector3 currentPosition = new Vector3(offset.x, offset.y, 0.0f);
         
-        transform.position = currentPosition;
-        transform.up = Vector3.Normalize(_tangentDir);
+        _shipGFX.transform.position = currentPosition;
+        _shipGFX.transform.up = Vector3.Normalize(_tangentDir);
     }
 
     private void LeaveIsland()
@@ -87,7 +87,6 @@ public class ShipController : MonoBehaviour
         _island = island;
         Vector3 directionVector = transform.position - new Vector3(_island.Center.x, _island.Center.y, 0);
         _angle = Mathf.Atan2(directionVector.y, directionVector.x);
-        Debug.Log($"{_angle}");
     }
 
     private void OnDrawGizmos()

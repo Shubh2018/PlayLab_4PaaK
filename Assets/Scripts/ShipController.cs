@@ -1,10 +1,5 @@
-using System;
-using System.Numerics;
-using Unity.VisualScripting;
-using UnityEditor.UIElements;
 using UnityEngine;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
+using System.Collections.Generic;
 
 public class ShipController : MonoBehaviour
 {
@@ -20,7 +15,12 @@ public class ShipController : MonoBehaviour
     private Vector2 _tangentDir;
     private float _angle;
 
-    private CannonController _cannon;
+    [SerializeField] private Color _teamColor;
+    public Color TeamColor => _teamColor;
+
+    [SerializeField] private CannonController _cannon;
+
+    private List<Island> _conquredIslands = new List<Island>();
 
     void Start()
     {
@@ -87,6 +87,28 @@ public class ShipController : MonoBehaviour
         _island = island;
         Vector3 directionVector = transform.position - new Vector3(_island.Center.x, _island.Center.y, 0);
         _angle = Mathf.Atan2(directionVector.y, directionVector.x);
+    }
+
+    public void AddConquredIslandToList()
+    {
+        if (!_island) return;
+
+        InputManager.Team controllingTeam = InputManager.Team.None;
+        
+        if (_island.CurrentlyControlledBy)
+            controllingTeam = _island.CurrentlyControlledBy.Team;
+            
+        if (controllingTeam == _team)
+            return;
+        
+        _conquredIslands.Add(_island);
+    }
+
+    public void RemoveConqueredIslandFromList(Island island)
+    {
+        if (!_conquredIslands.Contains(island)) return;
+        
+        _conquredIslands.Remove(island);
     }
 
     private void OnDrawGizmos()

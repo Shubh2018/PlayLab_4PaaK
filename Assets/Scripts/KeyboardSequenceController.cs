@@ -19,7 +19,7 @@ public class KeyboardSequenceController : MonoBehaviour
         //GenerateRandomSequence();
         // Subscribe to text input
 
-        islandArray = FindObjectsByType<Island>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        islandArray = FindObjectsByType<Island>(FindObjectsSortMode.None);
         Keyboard.current.onTextInput += OnTextInput;
     }
 
@@ -36,17 +36,18 @@ public class KeyboardSequenceController : MonoBehaviour
         foreach (var island in islandArray)
         {
             count++;
-            if (island.ArrayPointer >= island.keyboardSequence.Length)
+            if (island.ArrayPointer >= island.KeyboardSequence.Length)
             {
                 return;
             }
-            else if (c == island.keyboardSequence[island.ArrayPointer])
+            
+            if (c == island.KeyboardSequence[island.ArrayPointer])
             {
                 Debug.Log($"Key typed: {c}");
                 
                 island.ArrayPointer += 1;
 
-                if (island.ArrayPointer == island.keyboardSequence.Length)
+                if (island.ArrayPointer == island.KeyboardSequence.Length)
                 {
                     Debug.Log("Full sequence completed!");
 
@@ -56,16 +57,17 @@ public class KeyboardSequenceController : MonoBehaviour
                         Debug.Log(islandClear.ArrayPointer);
                     }
                     // Run "go to island" method
+                    
+                    island.ConquerIsland();
 
                     return;
                 }
             }
-            else
+            /*else
             {
-                Debug.Log($"Wrong key! Expected {island.keyboardSequence[island.ArrayPointer]}, got {c}");
+                Debug.Log($"Wrong key! Expected {island.KeyboardSequence[island.ArrayPointer]}, got {c}");
                 //Debug.Log(island.keyboardSequence[count]);
-            }
-            
+            }*/
         }
 
         /*

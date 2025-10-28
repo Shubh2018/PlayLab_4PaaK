@@ -5,7 +5,7 @@ public static class InputManager
 {
     public enum Team : byte
     {
-        Team1, Team2 
+        None, Team1, Team2 
     }
     
     private static InputSystem_Actions _inputActions;

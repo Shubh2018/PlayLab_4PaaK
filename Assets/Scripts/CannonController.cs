@@ -11,7 +11,7 @@ public class CannonController : MonoBehaviour
     [SerializeField] private ShipController _shipController;
     private float _nextTimeToFire = 0;
     
-    private float currentAngle = 0;
+    //private float currentAngle = 0;
 
     private void Update()
     {

@@ -171,6 +171,22 @@ PrefabInstance:
       propertyPath: _island
       value: 
       objectReference: {fileID: 540728711}
+    - target: {fileID: 3180088240761076275, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: _teamColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180088240761076275, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: _teamColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180088240761076275, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: _teamColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180088240761076275, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: _teamColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5083508555873910602, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: m_Name
       value: Team1
@@ -325,22 +341,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: KeyboardSequence.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[0]'
-      value: 103
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[1]'
-      value: 104
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[2]'
-      value: 105
-      objectReference: {fileID: 0}
     - target: {fileID: 5688151578356962152, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -384,10 +384,6 @@ PrefabInstance:
     - target: {fileID: 6934913487612940675, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: m_Name
       value: Island
-      objectReference: {fileID: 0}
-    - target: {fileID: 8625910648762386034, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: m_Radius
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -499,7 +495,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: _radius
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: KeyboardSequence.Array.size
@@ -638,22 +634,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: KeyboardSequence.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[0]'
-      value: 106
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[1]'
-      value: 107
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[2]'
-      value: 108
-      objectReference: {fileID: 0}
     - target: {fileID: 5688151578356962152, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5
@@ -697,10 +677,6 @@ PrefabInstance:
     - target: {fileID: 6934913487612940675, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: m_Name
       value: Island (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8625910648762386034, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: m_Radius
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -762,7 +738,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: _radius
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: KeyboardSequence.Array.size
@@ -885,6 +861,22 @@ PrefabInstance:
       propertyPath: _island
       value: 
       objectReference: {fileID: 2098085621}
+    - target: {fileID: 4743769636647892059, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
+      propertyPath: _teamColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743769636647892059, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
+      propertyPath: _teamColor.b
+      value: 0.0022239685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743769636647892059, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
+      propertyPath: _teamColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743769636647892059, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
+      propertyPath: _teamColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5083508555873910602, guid: e5c1827f166578d48b9d2e38c95ba5e6, type: 3}
       propertyPath: m_Name
       value: Team2
@@ -904,23 +896,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: _radius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: KeyboardSequence.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[0]'
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[1]'
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: 'KeyboardSequence.Array.data[2]'
-      value: 102
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5688151578356962152, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: m_LocalPosition.x
@@ -965,10 +941,6 @@ PrefabInstance:
     - target: {fileID: 6934913487612940675, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
       propertyPath: m_Name
       value: Island (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8625910648762386034, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
-      propertyPath: m_Radius
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

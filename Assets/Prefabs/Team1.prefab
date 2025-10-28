@@ -472,5 +472,6 @@ MonoBehaviour:
   _island: {fileID: 0}
   _angularSpeed: 1
   _speed: 2
-  _team: 0
+  _team: 1
   _shipGFX: {fileID: 3107740439192465126}
+  _cannon: {fileID: 5780864616045821027}

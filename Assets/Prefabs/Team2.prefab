@@ -96,8 +96,9 @@ MonoBehaviour:
   _island: {fileID: 0}
   _angularSpeed: -1
   _speed: 2
-  _team: 1
+  _team: 2
   _shipGFX: {fileID: 2995376527829774162}
+  _cannon: {fileID: 5780864616045821027}
 --- !u!1 &615469892092679794
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,8 @@ public class KeyboardSequenceController : MonoBehaviour
         //island5.KeyboardSequence = GenerateRandomSequence();
         //GenerateRandomSequence();
         // Subscribe to text input
+
+        islandArray = FindObjectsByType<Island>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         Keyboard.current.onTextInput += OnTextInput;
     }
 
@@ -57,7 +59,6 @@ public class KeyboardSequenceController : MonoBehaviour
 
                     return;
                 }
-
             }
             else
             {

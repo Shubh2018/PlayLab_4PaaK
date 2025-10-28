@@ -4,7 +4,7 @@ using UnityEngine;
 public class Island : MonoBehaviour
 {
     [SerializeField] private float _radius;
-    [SerializeField] KeyboardSequenceController keyboardSequenceController;
+    [SerializeField] private KeyboardSequenceController keyboardSequenceController;
     [SerializeField] public char[] keyboardSequence;
 
     public Vector2 Center => transform.position;
@@ -14,8 +14,8 @@ public class Island : MonoBehaviour
     public int ArrayPointer{get; set;} = 0;
     void Start()
     {
+        keyboardSequenceController = FindAnyObjectByType<KeyboardSequenceController>();
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)

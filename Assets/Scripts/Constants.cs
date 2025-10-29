@@ -3,5 +3,7 @@ using UnityEngine;
 public static class Constants
 {
     public const string Player = "Player";
-    public static readonly char[] KeyboardSequenceOptions = {'s','d','f','g','h','j','w','e','r','t','y','u','i','2','3','4','5','6','7','8','9'};
+    public static readonly char[] Team1KeyboardSequenceOptions = {'z','x','c','a','s','d','q','w','e','1','2','3'};
+    public static readonly char[] Team2KeyboardSequenceOptions = {'b','n','m','h','j','k','u','i','o','8','9','0'};
+
 }

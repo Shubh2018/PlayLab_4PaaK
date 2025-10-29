@@ -25,10 +25,11 @@ public static class InputManager
 
     public static void EnableInput()
     {
-        _inputActions = new InputSystem_Actions();
+        return;
+        //_inputActions = new InputSystem_Actions();
         
-        _inputActions.Team1.Enable();
-        _inputActions.Team2.Enable();
+        //_inputActions.Team1.Enable();
+        //_inputActions.Team2.Enable();
         
     #region Team1 Delegates Subscribe
 
@@ -65,6 +66,7 @@ public static class InputManager
 
     public static void DisableInput()
     {
+        return;
     #region Team1 Delegates Unsubscribe
     
         _inputActions.Team1.ShipControls_Rotation.started -= ShipControls_Team1_Rotation_Started;
@@ -95,8 +97,8 @@ public static class InputManager
         _inputActions.Team2.Shoot.canceled -= Shoot_Team2_Canceled;
     #endregion
         
-        _inputActions.Team1.Disable();
-        _inputActions.Team2.Disable();
+        //_inputActions.Team1.Disable();
+        //_inputActions.Team2.Disable();
     }
 
     public static float GetTeamRotationDirection(Team team)

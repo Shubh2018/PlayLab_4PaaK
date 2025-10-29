@@ -6,8 +6,10 @@ public class Island : MonoBehaviour
 {
     [SerializeField] private float _radius;
     [SerializeField] private KeyboardSequenceController keyboardSequenceController;
-    [SerializeField] private char[] keyboardSequence;
-    [SerializeField] private TMP_Text _sequenceText;
+    [SerializeField] private char[] keyboardSequenceTeam1;
+    [SerializeField] private char[] keyboardSequenceTeam2;
+    [SerializeField] private TMP_Text _sequenceTextTeam1;
+    [SerializeField] private TMP_Text _sequenceTextTeam2;
 
     private SpriteRenderer _renderer;
 
@@ -18,7 +20,9 @@ public class Island : MonoBehaviour
 
     public Vector2 Center => transform.position;
     public float Radius => _radius;
-    public char[] KeyboardSequence => keyboardSequence;
+    public char[] KeyboardSequenceTeam1 => keyboardSequenceTeam1;
+    public char[] KeyboardSequenceTeam2 => keyboardSequenceTeam2;
+    
     public int ArrayPointer{get; set;} = 0;
     
     void Start()
@@ -26,20 +30,22 @@ public class Island : MonoBehaviour
         _renderer = GetComponent<SpriteRenderer>();
         
         keyboardSequenceController = FindAnyObjectByType<KeyboardSequenceController>();
-        keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+        keyboardSequenceTeam1 = keyboardSequenceController.GenerateRandomSequence(Constants.Team1KeyboardSequenceOptions);
+        keyboardSequenceTeam2 = keyboardSequenceController.GenerateRandomSequence(Constants.Team2KeyboardSequenceOptions);
         
-        UpdateSequenceText(keyboardSequence);
+        UpdateSequenceText(_sequenceTextTeam1, keyboardSequenceTeam1);
+        UpdateSequenceText(_sequenceTextTeam2, keyboardSequenceTeam2);
     }
 
-    private void UpdateSequenceText(char[] sequence)
+    private void UpdateSequenceText(TMP_Text sequenceText, char[] sequence)
     {
-        _sequenceText.text = String.Empty;
+        sequenceText.text = String.Empty;
         
         if (sequence.Length == 0) return;
 
         foreach (char c in sequence)
         {
-            _sequenceText.text += c + " ";
+            sequenceText.text += c + " ";
         }
     }
 

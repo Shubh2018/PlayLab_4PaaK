@@ -22,6 +22,8 @@ public class ShipController : MonoBehaviour
 
     private List<Island> _conquredIslands = new List<Island>();
 
+    private Island _targetIsland;
+
     void Start()
     {
         _shipGFX.transform.position = _island.Center;
@@ -35,7 +37,7 @@ public class ShipController : MonoBehaviour
 
     private void CircleIsland()
     {
-        if (!_island)
+        /*if (!_island)
         {
             _shipGFX.transform.Translate(_shipGFX.transform.up * (_speed * Time.deltaTime), Space.World);
 
@@ -53,6 +55,22 @@ public class ShipController : MonoBehaviour
                 _shipGFX.transform.position = pos;
             }
                 
+            return;
+        }*/
+
+        if (_targetIsland)
+        {
+            Vector3 dir = _targetIsland.transform.position - _shipGFX.transform.position;
+            
+            _shipGFX.transform.up = Vector3.Normalize(dir);
+            _shipGFX.transform.Translate(_shipGFX.transform.up * (_speed * Time.deltaTime), Space.World);
+
+            if (Vector3.Distance(_targetIsland.transform.position, _shipGFX.transform.position) < _targetIsland.Radius)
+            {
+                _island = _targetIsland;
+                _targetIsland = null;
+            }
+
             return;
         }
         
@@ -80,6 +98,11 @@ public class ShipController : MonoBehaviour
         if (InputManager.GetLaunchPressed((_team)) == 0) return;
         
         _island = null;
+    }
+
+    public void SetTarget(Island island)
+    {
+        _targetIsland = island;
     }
 
     public void SetIsland(Island island)

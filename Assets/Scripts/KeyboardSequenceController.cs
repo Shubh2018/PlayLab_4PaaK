@@ -36,33 +36,8 @@ public class KeyboardSequenceController : MonoBehaviour
         foreach (var island in islandArray)
         {
             count++;
-            if (island.ArrayPointer >= island.KeyboardSequence.Length)
-            {
-                return;
-            }
-            
-            if (c == island.KeyboardSequence[island.ArrayPointer])
-            {
-                Debug.Log($"Key typed: {c}");
-                
-                island.ArrayPointer += 1;
-
-                if (island.ArrayPointer == island.KeyboardSequence.Length)
-                {
-                    Debug.Log("Full sequence completed!");
-
-                    foreach (var islandClear in islandArray)
-                    {
-                        islandClear.ArrayPointer = 0;
-                        Debug.Log(islandClear.ArrayPointer);
-                    }
-                    // Run "go to island" method
-                    
-                    island.ConquerIsland();
-
-                    return;
-                }
-            }
+            CheckSequence(island, island.KeyboardSequenceTeam1, c, InputManager.Team.Team1);
+            CheckSequence(island, island.KeyboardSequenceTeam2, c, InputManager.Team.Team2);
             /*else
             {
                 Debug.Log($"Wrong key! Expected {island.KeyboardSequence[island.ArrayPointer]}, got {c}");
@@ -94,13 +69,49 @@ public class KeyboardSequenceController : MonoBehaviour
 
     }
 
-    public char[] GenerateRandomSequence()
+    private void CheckSequence(Island island, char[] characters, char c, InputManager.Team team)
+    {
+        if (island.ArrayPointer >= characters.Length)
+        {
+            return;
+        }
+            
+        if (c == characters[island.ArrayPointer])
+        {
+            Debug.Log($"Key typed: {c}");
+                
+            island.ArrayPointer += 1;
+
+            if (island.ArrayPointer == characters.Length)
+            {
+                Debug.Log("Full sequence completed!");
+
+                foreach (var islandClear in islandArray)
+                {
+                    islandClear.ArrayPointer = 0;
+                    Debug.Log(islandClear.ArrayPointer);
+                }
+                // Run "go to island" method
+                    
+                //island.ConquerIsland();
+
+                ShipController ship = GameManager.Instance.ReturnShip(team);
+                Debug.Log(ship.transform.parent.name);
+                
+                ship.SetTarget(island);
+
+                return;
+            }
+        }
+    }
+
+    public char[] GenerateRandomSequence(char[] randomSequenceContainer)
     {
         randomKeyboardSequence = new char[10];
         for (int i = 0; i < randomKeyboardSequence.Length; i++)
         {
             randomKeyboardSequence[i] =
-                Constants.KeyboardSequenceOptions[Random.Range(0, Constants.KeyboardSequenceOptions.Length)];
+                randomSequenceContainer[Random.Range(0, randomSequenceContainer.Length)];
         }
 
         Debug.Log("Random sequence: " + new string(randomKeyboardSequence));

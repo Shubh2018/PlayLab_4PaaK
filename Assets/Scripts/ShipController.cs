@@ -6,10 +6,9 @@ public class ShipController : MonoBehaviour
     [SerializeField] private Island _island;
     [SerializeField] private float _angularSpeed = 180.0f;
     [SerializeField] private float _speed = 10.0f;
-    [SerializeField] private InputManager.Team _team;
-    [SerializeField] private Transform _shipGFX;
+    [SerializeField] private InputManager.Player _player;
 
-    public InputManager.Team Team => _team;
+    public InputManager.Player Player => _player;
 
     private Vector2 _positionOnCircumference;
     private Vector2 _tangentDir;
@@ -24,7 +23,7 @@ public class ShipController : MonoBehaviour
 
     void Start()
     {
-        _shipGFX.transform.position = _island.Center;
+        transform.position = _island.Center;
     }
 
     private void Update()
@@ -37,20 +36,20 @@ public class ShipController : MonoBehaviour
     {
         if (!_island)
         {
-            _shipGFX.transform.Translate(_shipGFX.transform.up * (_speed * Time.deltaTime), Space.World);
+            transform.Translate(transform.up * (_speed * Time.deltaTime), Space.World);
 
             if (transform.position.x >= 10 || transform.position.x <= -10)
             {
                 Vector3 pos = transform.position;
                 pos.x *= -1;
-                _shipGFX.transform.position = pos;
+                transform.position = pos;
             }
             
             if (transform.position.y >= 5 || transform.position.y <= -5)
             {
                 Vector3 pos = transform.position;
                 pos.y *= -1;
-                _shipGFX.transform.position = pos;
+                transform.position = pos;
             }
                 
             return;
@@ -59,7 +58,9 @@ public class ShipController : MonoBehaviour
         Vector2 center = _island.Center;
         float radius = _island.Radius;
 
-        _angle += (Mathf.Abs(_angularSpeed) * InputManager.GetTeamRotationDirection(_team)) * Time.deltaTime;
+        float angularSpeed = _angularSpeed * InputManager.GetPlayerRotationDirection(_player);
+        
+        _angle += angularSpeed * Time.deltaTime;
 
         _positionOnCircumference = new Vector2(Mathf.Cos(_angle), Mathf.Sin(_angle)) * radius;
         Vector2 offset = center + _positionOnCircumference;
@@ -67,17 +68,17 @@ public class ShipController : MonoBehaviour
         Vector3 centerDir = offset - center;
 
         _tangentDir = Vector3.Cross(centerDir, Vector3.back) *
-                      InputManager.GetTeamRotationDirection(_team);
+                      angularSpeed;
 
         Vector3 currentPosition = new Vector3(offset.x, offset.y, 0.0f);
         
-        _shipGFX.transform.position = currentPosition;
-        _shipGFX.transform.up = Vector3.Normalize(_tangentDir);
+        transform.position = currentPosition;
+        transform.up = Vector3.Normalize(_tangentDir);
     }
 
     private void LeaveIsland()
     {
-        if (InputManager.GetLaunchPressed((_team)) == 0) return;
+        if (InputManager.GetLaunchPressed((_player)) == 0) return;
         
         _island = null;
     }
@@ -93,12 +94,12 @@ public class ShipController : MonoBehaviour
     {
         if (!_island) return;
 
-        InputManager.Team controllingTeam = InputManager.Team.None;
+        InputManager.Player controllingPlayer = InputManager.Player.None;
         
         if (_island.CurrentlyControlledBy)
-            controllingTeam = _island.CurrentlyControlledBy.Team;
+            controllingPlayer = _island.CurrentlyControlledBy.Player;
             
-        if (controllingTeam == _team)
+        if (controllingPlayer == _player)
             return;
         
         _conquredIslands.Add(_island);

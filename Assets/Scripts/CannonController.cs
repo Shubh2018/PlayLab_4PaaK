@@ -15,27 +15,27 @@ public class CannonController : MonoBehaviour
 
     private void Update()
     {
-        transform.position = _shipController.transform.position;
-        RotateCannon();
-        Shoot();
+        // transform.position = _shipController.transform.position;
+        // RotateCannon();
+        // Shoot();
     }
 
     private void RotateCannon()
     {
-        float angle = InputManager.GetTeamCannonDirection(_shipController.Team);
-
-        transform.Rotate(Vector3.forward * (angle * _angularSpeed * Time.deltaTime));
+        // float angle = InputManager.GetTeamCannonDirection(_shipController.Team);
+        //
+        // transform.Rotate(Vector3.forward * (angle * _angularSpeed * Time.deltaTime));
     }
 
     private void Shoot()
     {
-        if (InputManager.GetShootPressed(_shipController.Team) == 0) return;
-
-        if (_nextTimeToFire < Time.time)
-        {
-            Fire();
-            _nextTimeToFire = Time.time + _fireRate;
-        }
+        // if (InputManager.GetShootPressed(_shipController.Team) == 0) return;
+        //
+        // if (_nextTimeToFire < Time.time)
+        // {
+        //     Fire();
+        //     _nextTimeToFire = Time.time + _fireRate;
+        // }
     }
 
     private void Fire()

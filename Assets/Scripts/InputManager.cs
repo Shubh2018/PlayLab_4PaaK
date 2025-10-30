@@ -3,22 +3,24 @@ using UnityEngine.InputSystem;
 
 public static class InputManager
 {
-    public enum Team : byte
+    public enum Player : byte
     {
-        None, Team1, Team2 
+        None, Player1, Player2, Player3, Player4 
     }
     
     private static InputSystem_Actions _inputActions;
 
-    private static Vector2 _team1Rotation = Vector2.one;
-    private static Vector2 _team1CannonRotation = Vector2.zero;
-    private static float _shootTeam1 = 0;
-    private static float _launchTeam1 = 0;
+    private static Vector2 _player1Rotation = Vector2.one;
+    private static float _launchPlayer1 = 0; 
     
-    private static Vector2 _team2Rotation = Vector2.one;
-    private static Vector2 _team2CannonRotation = Vector2.zero;
-    private static float _shootTeam2 = 0;
-    private static float _launchTeam2 = 0;
+    private static Vector2 _player2Rotation = Vector2.one;
+    private static float _launchPlayer2 = 0;
+    
+    private static Vector2 _player3Rotation = Vector2.one;
+    private static float _launchPlayer3 = 0;
+    
+    private static Vector2 _player4Rotation = Vector2.one;
+    private static float _launchPlayer4 = 0;
     
     
     //private static 
@@ -27,182 +29,188 @@ public static class InputManager
     {
         _inputActions = new InputSystem_Actions();
         
-        _inputActions.Team1.Enable();
-        _inputActions.Team2.Enable();
+        _inputActions.Player1.Enable();
+        _inputActions.Player2.Enable();
+        _inputActions.Player3.Enable();
+        _inputActions.Player4.Enable();
         
-    #region Team1 Delegates Subscribe
+    #region Player1 Delegates Subscribe
 
-        _inputActions.Team1.ShipControls_Rotation.started += ShipControls_Team1_Rotation_Started;
-        _inputActions.Team1.ShipControls_Rotation.canceled += ShipControls_Team1_Rotation_Canceled;
+        _inputActions.Player1.ShipControls_Rotation.started += ShipControls_Player1_Rotation_Started;
 
-        _inputActions.Team1.ShipControls_Cannons.performed += ShipControls_Team1_Cannons_Performed;
-        _inputActions.Team1.ShipControls_Cannons.canceled += ShipControls_Team1_Cannons_Canceled;
-
-        _inputActions.Team1.Launch.started += Launch_Team1_Started;
-        _inputActions.Team1.Launch.canceled += Launch_Team1_Canceled;
-        
-        _inputActions.Team1.Shoot.started += Shoot_Team1_Started;
-        _inputActions.Team1.Shoot.canceled += Shoot_Team1_Canceled;
+        _inputActions.Player1.Launch.started += Launch_Player1_Started;
+        _inputActions.Player1.Launch.canceled += Launch_Player1_Canceled;
         
     #endregion
         
-    #region Team2 Delegates Subscribe
+    #region Player2 Delegates Subscribe
 
-        _inputActions.Team2.ShipControls_Rotation.started += ShipControls_Team2_Rotation_Started;
-        _inputActions.Team2.ShipControls_Rotation.canceled += ShipControls_Team2_Rotation_Canceled;
+        _inputActions.Player2.ShipControls_Rotation.started += ShipControls_Player2_Rotation_Started;
         
-        _inputActions.Team2.ShipControls_Cannons.performed += ShipControls_Team2_Cannons_Performed;
-        _inputActions.Team2.ShipControls_Cannons.canceled += ShipControls_Team2_Cannons_Canceled;
+        _inputActions.Player2.Launch.started += Launch_Player2_Started;
+        _inputActions.Player2.Launch.canceled += Launch_Player2_Canceled;
         
-        _inputActions.Team2.Launch.started += Launch_Team2_Started;
-        _inputActions.Team2.Launch.canceled += Launch_Team2_Canceled;
+    #endregion
+    
+    #region Player3 Delegates Subscribe
+
+        _inputActions.Player3.ShipControls_Rotation.started += ShipControls_Player3_Rotation_Started;
+            
+        _inputActions.Player3.Launch.started += Launch_Player3_Started;
+        _inputActions.Player3.Launch.canceled += Launch_Player3_Canceled;
         
-        _inputActions.Team2.Shoot.started += Shoot_Team2_Started;
-        _inputActions.Team2.Shoot.canceled += Shoot_Team2_Canceled;
+    #endregion
+    
+    #region Player4 Delegates Subscribe
+
+        _inputActions.Player4.ShipControls_Rotation.started += ShipControls_Player4_Rotation_Started;
+                
+        _inputActions.Player4.Launch.started += Launch_Player4_Started;
+        _inputActions.Player4.Launch.canceled += Launch_Player4_Canceled;
         
     #endregion
     }
 
     public static void DisableInput()
     {
-    #region Team1 Delegates Unsubscribe
+    #region Player1 Delegates Unsubscribe
     
-        _inputActions.Team1.ShipControls_Rotation.started -= ShipControls_Team1_Rotation_Started;
-        _inputActions.Team1.ShipControls_Rotation.canceled -= ShipControls_Team1_Rotation_Canceled;
+        _inputActions.Player1.ShipControls_Rotation.started -= ShipControls_Player1_Rotation_Started;
         
-        _inputActions.Team1.ShipControls_Cannons.performed -= ShipControls_Team1_Cannons_Performed;
-        _inputActions.Team1.ShipControls_Cannons.canceled -= ShipControls_Team1_Cannons_Canceled;
-        
-        _inputActions.Team1.Launch.started -= Launch_Team1_Started;
-        _inputActions.Team1.Launch.canceled -= Launch_Team1_Canceled;
-        
-        _inputActions.Team1.Shoot.started -= Shoot_Team1_Started;
-        _inputActions.Team1.Shoot.canceled -= Shoot_Team1_Canceled;
+        _inputActions.Player1.Launch.started -= Launch_Player1_Started;
+        _inputActions.Player1.Launch.canceled -= Launch_Player1_Canceled;
         
     #endregion
     
-    #region Team2 Delegates Unsubscribe
-        _inputActions.Team2.ShipControls_Rotation.started -= ShipControls_Team2_Rotation_Started;
-        _inputActions.Team2.ShipControls_Rotation.canceled -= ShipControls_Team2_Rotation_Canceled;
+    #region Player2 Delegates Unsubscribe
+    
+        _inputActions.Player2.ShipControls_Rotation.started -= ShipControls_Player2_Rotation_Started;
         
-        _inputActions.Team2.ShipControls_Cannons.performed -= ShipControls_Team2_Cannons_Performed;
-        _inputActions.Team2.ShipControls_Cannons.canceled -= ShipControls_Team2_Cannons_Canceled;
+        _inputActions.Player2.Launch.started -= Launch_Player2_Started;
+        _inputActions.Player2.Launch.canceled -= Launch_Player2_Canceled;
         
-        _inputActions.Team2.Launch.started -= Launch_Team2_Started;
-        _inputActions.Team2.Launch.canceled -= Launch_Team2_Canceled;
+    #endregion
+    
+    #region Player3 Delegates Unsubscribe
+    
+        _inputActions.Player3.ShipControls_Rotation.started -= ShipControls_Player3_Rotation_Started;
+            
+        _inputActions.Player3.Launch.started -= Launch_Player3_Started;
+        _inputActions.Player3.Launch.canceled -= Launch_Player3_Canceled;
         
-        _inputActions.Team2.Shoot.started -= Shoot_Team2_Started;
-        _inputActions.Team2.Shoot.canceled -= Shoot_Team2_Canceled;
+    #endregion
+    
+    #region Player4 Delegates Unsubscribe
+    
+        _inputActions.Player4.ShipControls_Rotation.started -= ShipControls_Player4_Rotation_Started;
+                
+        _inputActions.Player4.Launch.started -= Launch_Player4_Started;
+        _inputActions.Player4.Launch.canceled -= Launch_Player4_Canceled;
+        
     #endregion
         
-        _inputActions.Team1.Disable();
-        _inputActions.Team2.Disable();
+        _inputActions.Player1.Disable();
+        _inputActions.Player2.Disable();
+        _inputActions.Player3.Disable();
+        _inputActions.Player4.Disable();
     }
 
-    public static float GetTeamRotationDirection(Team team)
+    public static float GetPlayerRotationDirection(Player Player)
     {
-        return team == Team.Team1 ? _team1Rotation.y : _team2Rotation.y;
+        return Player switch
+        {
+            Player.Player1 => _player1Rotation.y,
+            Player.Player2 => _player2Rotation.y,
+            Player.Player3 => _player3Rotation.y,
+            Player.Player4 => _player4Rotation.y,
+            Player.None => 0.0f
+        };
     }
 
-    public static float GetTeamCannonDirection(Team team)
+    public static float GetLaunchPressed(Player Player)
     {
-        return team == Team.Team1 ? _team1CannonRotation.x : _team2CannonRotation.x;
+        return Player switch
+        {
+            Player.Player1 => _launchPlayer1,
+            Player.Player2 => _launchPlayer2,
+            Player.Player3 => _launchPlayer3,
+            Player.Player4 => _launchPlayer4,
+            Player.None => 0.0f
+        };
     }
+    
+#region Player1 Methods
 
-    public static float GetShootPressed(Team team)
+    private static void ShipControls_Player1_Rotation_Started(InputAction.CallbackContext obj)
     {
-        return team == Team.Team1 ? _shootTeam1 : _shootTeam2;
-    }
-
-    public static float GetLaunchPressed(Team team)
-    {
-        return team == Team.Team1 ? _launchTeam1 : _launchTeam2;
+        _player1Rotation = obj.ReadValue<Vector2>();
     }
     
-#region Team1 Methods
-
-    private static void ShipControls_Team1_Rotation_Started(InputAction.CallbackContext obj)
+    private static void Launch_Player1_Started(InputAction.CallbackContext obj)
     {
-        _team1Rotation = obj.ReadValue<Vector2>();
+        _launchPlayer1 = obj.ReadValue<float>();
     }
     
-    private static void ShipControls_Team1_Rotation_Canceled(InputAction.CallbackContext obj)
+    private static void Launch_Player1_Canceled(InputAction.CallbackContext obj)
     {
-        //_team1Rotation = Vector2.zero;
-    }
-    
-    private static void ShipControls_Team1_Cannons_Performed(InputAction.CallbackContext obj)
-    {
-        _team1CannonRotation = obj.ReadValue<Vector2>();
-    }
-
-    private static void ShipControls_Team1_Cannons_Canceled(InputAction.CallbackContext obj)
-    {
-        _team1CannonRotation = Vector2.zero;
-    }
-    
-    private static void Launch_Team1_Started(InputAction.CallbackContext obj)
-    {
-        _launchTeam1 = obj.ReadValue<float>();
-    }
-    
-    private static void Launch_Team1_Canceled(InputAction.CallbackContext obj)
-    {
-        _launchTeam1 = 0;
-    }
-    
-    private static void Shoot_Team1_Started(InputAction.CallbackContext obj)
-    {
-        _shootTeam1  = obj.ReadValue<float>();
-    }
-        
-    private static void Shoot_Team1_Canceled(InputAction.CallbackContext obj)
-    {
-        _shootTeam1 = 0;
+        _launchPlayer1 = 0;
     }
     
 #endregion
 
-#region Team2 Methods
+#region Player2 Methods
 
-    private static void ShipControls_Team2_Rotation_Started(InputAction.CallbackContext obj)
+    private static void ShipControls_Player2_Rotation_Started(InputAction.CallbackContext obj)
     {
-        _team2Rotation = obj.ReadValue<Vector2>();
+        _player2Rotation = obj.ReadValue<Vector2>();
     }
-
-    private static void ShipControls_Team2_Rotation_Canceled(InputAction.CallbackContext obj)
+    
+    private static void Launch_Player2_Started(InputAction.CallbackContext obj)
     {
+        _launchPlayer2 = obj.ReadValue<float>();
+    }
+    
+    private static void Launch_Player2_Canceled(InputAction.CallbackContext obj)
+    {
+        _launchPlayer2 = 0;
+    }
+    
+#endregion
+
+#region Player3 Methods
+
+    private static void ShipControls_Player3_Rotation_Started(InputAction.CallbackContext obj)
+    {
+        _player3Rotation = obj.ReadValue<Vector2>();
+    }
         
+    private static void Launch_Player3_Started(InputAction.CallbackContext obj)
+    {
+        _launchPlayer3 = obj.ReadValue<float>();
+    }
+        
+    private static void Launch_Player3_Canceled(InputAction.CallbackContext obj)
+    {
+        _launchPlayer3 = 0;
     }
     
-    private static void ShipControls_Team2_Cannons_Performed(InputAction.CallbackContext obj)
-    {
-        _team2CannonRotation = obj.ReadValue<Vector2>();
-    }
+#endregion
 
-    private static void ShipControls_Team2_Cannons_Canceled(InputAction.CallbackContext obj)
+#region Player4 Methods
+
+    private static void ShipControls_Player4_Rotation_Started(InputAction.CallbackContext obj)
     {
-        _team2CannonRotation = Vector2.zero;
+        _player4Rotation = obj.ReadValue<Vector2>();
     }
-    
-    private static void Launch_Team2_Started(InputAction.CallbackContext obj)
+            
+    private static void Launch_Player4_Started(InputAction.CallbackContext obj)
     {
-        _launchTeam2 = obj.ReadValue<float>();
+        _launchPlayer4 = obj.ReadValue<float>();
     }
-    
-    private static void Launch_Team2_Canceled(InputAction.CallbackContext obj)
+            
+    private static void Launch_Player4_Canceled(InputAction.CallbackContext obj)
     {
-        _launchTeam2 = 0;
-    }
-    
-    private static void Shoot_Team2_Started(InputAction.CallbackContext obj)
-    {
-        _shootTeam2 = obj.ReadValue<float>();
-    }
-    
-    private static void Shoot_Team2_Canceled(InputAction.CallbackContext obj)
-    {
-        _shootTeam2 = 0;
+        _launchPlayer4 = 0;
     }
     
 #endregion

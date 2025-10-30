@@ -88,7 +88,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     ""name"": ""InputSystem_Actions"",
     ""maps"": [
         {
-            ""name"": ""Team1"",
+            ""name"": ""Player1"",
             ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
                 {
@@ -99,24 +99,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""ShipControls_Cannons"",
-                    ""type"": ""Value"",
-                    ""id"": ""6b9ffdf5-f95c-4322-8d68-d2baaf0f2c04"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""ac6166b9-85dd-4117-8976-0afc8bbfffec"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Launch"",
@@ -163,50 +145,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""ShipControl_Cannons"",
-                    ""id"": ""a60fc39b-497e-446f-8d01-1339874641ed"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShipControls_Cannons"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""441dcee0-1c33-4034-b52a-9bd95e49c224"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShipControls_Cannons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""711be958-1da1-4158-b236-f7198a259075"",
-                    ""path"": ""<Keyboard>/c"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShipControls_Cannons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4ec3ea48-057d-4f5a-ae35-c462316f7c80"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": """",
                     ""id"": ""8f24d412-253c-4f87-ad4d-1aed5cd490bc"",
                     ""path"": ""<Keyboard>/q"",
@@ -220,7 +158,147 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Team2"",
+            ""name"": ""Player2"",
+            ""id"": ""f549f529-842d-4ff8-8af0-800b6dbac159"",
+            ""actions"": [
+                {
+                    ""name"": ""ShipControls_Rotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""1ae94f72-0c8d-4926-b047-cfc82431041f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Launch"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c741540-3824-41cb-9762-92c7d7388c3f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""ShipControls_Rotation"",
+                    ""id"": ""709d1838-91e0-47a0-9629-d071a64dc611"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShipControls_Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a6699be5-dae0-4e34-9389-437834089bfd"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShipControls_Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""e1157c5d-e099-4252-b0c0-8f4e81139670"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShipControls_Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ca168f3-9aa5-4187-9eb9-4199b703ce50"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Launch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player3"",
+            ""id"": ""46f30bfa-947a-4335-bfb9-c91f169fcbd1"",
+            ""actions"": [
+                {
+                    ""name"": ""ShipControls_Rotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""7da8bb21-e252-42ff-8866-60e38bf6c1a0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Launch"",
+                    ""type"": ""Button"",
+                    ""id"": ""de63b523-9a92-4923-9db8-6509aed6ad25"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""ShipControls_Rotation"",
+                    ""id"": ""599de0b0-a0b2-4f25-8cb8-ae2d0406393e"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShipControls_Rotation"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ea0778c9-84ca-40ae-b84b-03197d6d3bea"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShipControls_Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""971a8bff-d479-4e43-8762-e4ad95f653d6"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShipControls_Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aaeb0dcf-dfca-42ca-a4c1-b983f54f8d7d"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Launch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player4"",
             ""id"": ""b23745fe-da73-4f26-9183-8970efd2df70"",
             ""actions"": [
                 {
@@ -231,24 +309,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""ShipControls_Cannons"",
-                    ""type"": ""Value"",
-                    ""id"": ""e1793ab7-bcf8-46b5-9e31-96735860e0b8"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""28ec3938-bb7f-474e-be1c-3d94b61242d6"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Launch"",
@@ -293,50 +353,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""ShipControls_Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""ShipControl_Cannons"",
-                    ""id"": ""a1e395c4-bf66-4b6d-9625-4dea8c4e98f1"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShipControls_Cannons"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bd16f469-d323-4dca-9d39-5d87d7a3ef1a"",
-                    ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShipControls_Cannons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""3867d492-eae7-46ab-be5f-f9299e4b46d0"",
-                    ""path"": ""<Keyboard>/m"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ShipControls_Cannons"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""386ee62f-9564-4aac-b0de-38f0816cb0ef"",
-                    ""path"": ""<Keyboard>/n"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -931,18 +947,22 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Team1
-        m_Team1 = asset.FindActionMap("Team1", throwIfNotFound: true);
-        m_Team1_ShipControls_Rotation = m_Team1.FindAction("ShipControls_Rotation", throwIfNotFound: true);
-        m_Team1_ShipControls_Cannons = m_Team1.FindAction("ShipControls_Cannons", throwIfNotFound: true);
-        m_Team1_Shoot = m_Team1.FindAction("Shoot", throwIfNotFound: true);
-        m_Team1_Launch = m_Team1.FindAction("Launch", throwIfNotFound: true);
-        // Team2
-        m_Team2 = asset.FindActionMap("Team2", throwIfNotFound: true);
-        m_Team2_ShipControls_Rotation = m_Team2.FindAction("ShipControls_Rotation", throwIfNotFound: true);
-        m_Team2_ShipControls_Cannons = m_Team2.FindAction("ShipControls_Cannons", throwIfNotFound: true);
-        m_Team2_Shoot = m_Team2.FindAction("Shoot", throwIfNotFound: true);
-        m_Team2_Launch = m_Team2.FindAction("Launch", throwIfNotFound: true);
+        // Player1
+        m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
+        m_Player1_ShipControls_Rotation = m_Player1.FindAction("ShipControls_Rotation", throwIfNotFound: true);
+        m_Player1_Launch = m_Player1.FindAction("Launch", throwIfNotFound: true);
+        // Player2
+        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
+        m_Player2_ShipControls_Rotation = m_Player2.FindAction("ShipControls_Rotation", throwIfNotFound: true);
+        m_Player2_Launch = m_Player2.FindAction("Launch", throwIfNotFound: true);
+        // Player3
+        m_Player3 = asset.FindActionMap("Player3", throwIfNotFound: true);
+        m_Player3_ShipControls_Rotation = m_Player3.FindAction("ShipControls_Rotation", throwIfNotFound: true);
+        m_Player3_Launch = m_Player3.FindAction("Launch", throwIfNotFound: true);
+        // Player4
+        m_Player4 = asset.FindActionMap("Player4", throwIfNotFound: true);
+        m_Player4_ShipControls_Rotation = m_Player4.FindAction("ShipControls_Rotation", throwIfNotFound: true);
+        m_Player4_Launch = m_Player4.FindAction("Launch", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -959,8 +979,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
 
     ~@InputSystem_Actions()
     {
-        UnityEngine.Debug.Assert(!m_Team1.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Team1.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Team2.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Team2.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Player1.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player1.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Player2.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player2.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Player3.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player3.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Player4.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player4.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystem_Actions.UI.Disable() has not been called.");
     }
 
@@ -1034,44 +1056,34 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Team1
-    private readonly InputActionMap m_Team1;
-    private List<ITeam1Actions> m_Team1ActionsCallbackInterfaces = new List<ITeam1Actions>();
-    private readonly InputAction m_Team1_ShipControls_Rotation;
-    private readonly InputAction m_Team1_ShipControls_Cannons;
-    private readonly InputAction m_Team1_Shoot;
-    private readonly InputAction m_Team1_Launch;
+    // Player1
+    private readonly InputActionMap m_Player1;
+    private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
+    private readonly InputAction m_Player1_ShipControls_Rotation;
+    private readonly InputAction m_Player1_Launch;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Team1".
+    /// Provides access to input actions defined in input action map "Player1".
     /// </summary>
-    public struct Team1Actions
+    public struct Player1Actions
     {
         private @InputSystem_Actions m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public Team1Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public Player1Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Team1/ShipControls_Rotation".
+        /// Provides access to the underlying input action "Player1/ShipControls_Rotation".
         /// </summary>
-        public InputAction @ShipControls_Rotation => m_Wrapper.m_Team1_ShipControls_Rotation;
+        public InputAction @ShipControls_Rotation => m_Wrapper.m_Player1_ShipControls_Rotation;
         /// <summary>
-        /// Provides access to the underlying input action "Team1/ShipControls_Cannons".
+        /// Provides access to the underlying input action "Player1/Launch".
         /// </summary>
-        public InputAction @ShipControls_Cannons => m_Wrapper.m_Team1_ShipControls_Cannons;
-        /// <summary>
-        /// Provides access to the underlying input action "Team1/Shoot".
-        /// </summary>
-        public InputAction @Shoot => m_Wrapper.m_Team1_Shoot;
-        /// <summary>
-        /// Provides access to the underlying input action "Team1/Launch".
-        /// </summary>
-        public InputAction @Launch => m_Wrapper.m_Team1_Launch;
+        public InputAction @Launch => m_Wrapper.m_Player1_Launch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Team1; }
+        public InputActionMap Get() { return m_Wrapper.m_Player1; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -1079,9 +1091,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="Team1Actions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="Player1Actions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(Team1Actions set) { return set.Get(); }
+        public static implicit operator InputActionMap(Player1Actions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -1089,20 +1101,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="Team1Actions" />
-        public void AddCallbacks(ITeam1Actions instance)
+        /// <seealso cref="Player1Actions" />
+        public void AddCallbacks(IPlayer1Actions instance)
         {
-            if (instance == null || m_Wrapper.m_Team1ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_Team1ActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_Player1ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player1ActionsCallbackInterfaces.Add(instance);
             @ShipControls_Rotation.started += instance.OnShipControls_Rotation;
             @ShipControls_Rotation.performed += instance.OnShipControls_Rotation;
             @ShipControls_Rotation.canceled += instance.OnShipControls_Rotation;
-            @ShipControls_Cannons.started += instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.performed += instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.canceled += instance.OnShipControls_Cannons;
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
             @Launch.started += instance.OnLaunch;
             @Launch.performed += instance.OnLaunch;
             @Launch.canceled += instance.OnLaunch;
@@ -1114,30 +1120,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="Team1Actions" />
-        private void UnregisterCallbacks(ITeam1Actions instance)
+        /// <seealso cref="Player1Actions" />
+        private void UnregisterCallbacks(IPlayer1Actions instance)
         {
             @ShipControls_Rotation.started -= instance.OnShipControls_Rotation;
             @ShipControls_Rotation.performed -= instance.OnShipControls_Rotation;
             @ShipControls_Rotation.canceled -= instance.OnShipControls_Rotation;
-            @ShipControls_Cannons.started -= instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.performed -= instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.canceled -= instance.OnShipControls_Cannons;
-            @Shoot.started -= instance.OnShoot;
-            @Shoot.performed -= instance.OnShoot;
-            @Shoot.canceled -= instance.OnShoot;
             @Launch.started -= instance.OnLaunch;
             @Launch.performed -= instance.OnLaunch;
             @Launch.canceled -= instance.OnLaunch;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Team1Actions.UnregisterCallbacks(ITeam1Actions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Player1Actions.UnregisterCallbacks(IPlayer1Actions)" />.
         /// </summary>
-        /// <seealso cref="Team1Actions.UnregisterCallbacks(ITeam1Actions)" />
-        public void RemoveCallbacks(ITeam1Actions instance)
+        /// <seealso cref="Player1Actions.UnregisterCallbacks(IPlayer1Actions)" />
+        public void RemoveCallbacks(IPlayer1Actions instance)
         {
-            if (m_Wrapper.m_Team1ActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_Player1ActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -1147,60 +1147,50 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="Team1Actions.AddCallbacks(ITeam1Actions)" />
-        /// <seealso cref="Team1Actions.RemoveCallbacks(ITeam1Actions)" />
-        /// <seealso cref="Team1Actions.UnregisterCallbacks(ITeam1Actions)" />
-        public void SetCallbacks(ITeam1Actions instance)
+        /// <seealso cref="Player1Actions.AddCallbacks(IPlayer1Actions)" />
+        /// <seealso cref="Player1Actions.RemoveCallbacks(IPlayer1Actions)" />
+        /// <seealso cref="Player1Actions.UnregisterCallbacks(IPlayer1Actions)" />
+        public void SetCallbacks(IPlayer1Actions instance)
         {
-            foreach (var item in m_Wrapper.m_Team1ActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_Player1ActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_Team1ActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_Player1ActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="Team1Actions" /> instance referencing this action map.
+    /// Provides a new <see cref="Player1Actions" /> instance referencing this action map.
     /// </summary>
-    public Team1Actions @Team1 => new Team1Actions(this);
+    public Player1Actions @Player1 => new Player1Actions(this);
 
-    // Team2
-    private readonly InputActionMap m_Team2;
-    private List<ITeam2Actions> m_Team2ActionsCallbackInterfaces = new List<ITeam2Actions>();
-    private readonly InputAction m_Team2_ShipControls_Rotation;
-    private readonly InputAction m_Team2_ShipControls_Cannons;
-    private readonly InputAction m_Team2_Shoot;
-    private readonly InputAction m_Team2_Launch;
+    // Player2
+    private readonly InputActionMap m_Player2;
+    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
+    private readonly InputAction m_Player2_ShipControls_Rotation;
+    private readonly InputAction m_Player2_Launch;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Team2".
+    /// Provides access to input actions defined in input action map "Player2".
     /// </summary>
-    public struct Team2Actions
+    public struct Player2Actions
     {
         private @InputSystem_Actions m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public Team2Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        public Player2Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Team2/ShipControls_Rotation".
+        /// Provides access to the underlying input action "Player2/ShipControls_Rotation".
         /// </summary>
-        public InputAction @ShipControls_Rotation => m_Wrapper.m_Team2_ShipControls_Rotation;
+        public InputAction @ShipControls_Rotation => m_Wrapper.m_Player2_ShipControls_Rotation;
         /// <summary>
-        /// Provides access to the underlying input action "Team2/ShipControls_Cannons".
+        /// Provides access to the underlying input action "Player2/Launch".
         /// </summary>
-        public InputAction @ShipControls_Cannons => m_Wrapper.m_Team2_ShipControls_Cannons;
-        /// <summary>
-        /// Provides access to the underlying input action "Team2/Shoot".
-        /// </summary>
-        public InputAction @Shoot => m_Wrapper.m_Team2_Shoot;
-        /// <summary>
-        /// Provides access to the underlying input action "Team2/Launch".
-        /// </summary>
-        public InputAction @Launch => m_Wrapper.m_Team2_Launch;
+        public InputAction @Launch => m_Wrapper.m_Player2_Launch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Team2; }
+        public InputActionMap Get() { return m_Wrapper.m_Player2; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -1208,9 +1198,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="Team2Actions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="Player2Actions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(Team2Actions set) { return set.Get(); }
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -1218,20 +1208,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="Team2Actions" />
-        public void AddCallbacks(ITeam2Actions instance)
+        /// <seealso cref="Player2Actions" />
+        public void AddCallbacks(IPlayer2Actions instance)
         {
-            if (instance == null || m_Wrapper.m_Team2ActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_Team2ActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
             @ShipControls_Rotation.started += instance.OnShipControls_Rotation;
             @ShipControls_Rotation.performed += instance.OnShipControls_Rotation;
             @ShipControls_Rotation.canceled += instance.OnShipControls_Rotation;
-            @ShipControls_Cannons.started += instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.performed += instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.canceled += instance.OnShipControls_Cannons;
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
             @Launch.started += instance.OnLaunch;
             @Launch.performed += instance.OnLaunch;
             @Launch.canceled += instance.OnLaunch;
@@ -1243,30 +1227,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="Team2Actions" />
-        private void UnregisterCallbacks(ITeam2Actions instance)
+        /// <seealso cref="Player2Actions" />
+        private void UnregisterCallbacks(IPlayer2Actions instance)
         {
             @ShipControls_Rotation.started -= instance.OnShipControls_Rotation;
             @ShipControls_Rotation.performed -= instance.OnShipControls_Rotation;
             @ShipControls_Rotation.canceled -= instance.OnShipControls_Rotation;
-            @ShipControls_Cannons.started -= instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.performed -= instance.OnShipControls_Cannons;
-            @ShipControls_Cannons.canceled -= instance.OnShipControls_Cannons;
-            @Shoot.started -= instance.OnShoot;
-            @Shoot.performed -= instance.OnShoot;
-            @Shoot.canceled -= instance.OnShoot;
             @Launch.started -= instance.OnLaunch;
             @Launch.performed -= instance.OnLaunch;
             @Launch.canceled -= instance.OnLaunch;
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Team2Actions.UnregisterCallbacks(ITeam2Actions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Player2Actions.UnregisterCallbacks(IPlayer2Actions)" />.
         /// </summary>
-        /// <seealso cref="Team2Actions.UnregisterCallbacks(ITeam2Actions)" />
-        public void RemoveCallbacks(ITeam2Actions instance)
+        /// <seealso cref="Player2Actions.UnregisterCallbacks(IPlayer2Actions)" />
+        public void RemoveCallbacks(IPlayer2Actions instance)
         {
-            if (m_Wrapper.m_Team2ActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -1276,21 +1254,235 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="Team2Actions.AddCallbacks(ITeam2Actions)" />
-        /// <seealso cref="Team2Actions.RemoveCallbacks(ITeam2Actions)" />
-        /// <seealso cref="Team2Actions.UnregisterCallbacks(ITeam2Actions)" />
-        public void SetCallbacks(ITeam2Actions instance)
+        /// <seealso cref="Player2Actions.AddCallbacks(IPlayer2Actions)" />
+        /// <seealso cref="Player2Actions.RemoveCallbacks(IPlayer2Actions)" />
+        /// <seealso cref="Player2Actions.UnregisterCallbacks(IPlayer2Actions)" />
+        public void SetCallbacks(IPlayer2Actions instance)
         {
-            foreach (var item in m_Wrapper.m_Team2ActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_Team2ActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="Team2Actions" /> instance referencing this action map.
+    /// Provides a new <see cref="Player2Actions" /> instance referencing this action map.
     /// </summary>
-    public Team2Actions @Team2 => new Team2Actions(this);
+    public Player2Actions @Player2 => new Player2Actions(this);
+
+    // Player3
+    private readonly InputActionMap m_Player3;
+    private List<IPlayer3Actions> m_Player3ActionsCallbackInterfaces = new List<IPlayer3Actions>();
+    private readonly InputAction m_Player3_ShipControls_Rotation;
+    private readonly InputAction m_Player3_Launch;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Player3".
+    /// </summary>
+    public struct Player3Actions
+    {
+        private @InputSystem_Actions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public Player3Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Player3/ShipControls_Rotation".
+        /// </summary>
+        public InputAction @ShipControls_Rotation => m_Wrapper.m_Player3_ShipControls_Rotation;
+        /// <summary>
+        /// Provides access to the underlying input action "Player3/Launch".
+        /// </summary>
+        public InputAction @Launch => m_Wrapper.m_Player3_Launch;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Player3; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="Player3Actions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(Player3Actions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="Player3Actions" />
+        public void AddCallbacks(IPlayer3Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player3ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Add(instance);
+            @ShipControls_Rotation.started += instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.performed += instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.canceled += instance.OnShipControls_Rotation;
+            @Launch.started += instance.OnLaunch;
+            @Launch.performed += instance.OnLaunch;
+            @Launch.canceled += instance.OnLaunch;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="Player3Actions" />
+        private void UnregisterCallbacks(IPlayer3Actions instance)
+        {
+            @ShipControls_Rotation.started -= instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.performed -= instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.canceled -= instance.OnShipControls_Rotation;
+            @Launch.started -= instance.OnLaunch;
+            @Launch.performed -= instance.OnLaunch;
+            @Launch.canceled -= instance.OnLaunch;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Player3Actions.UnregisterCallbacks(IPlayer3Actions)" />.
+        /// </summary>
+        /// <seealso cref="Player3Actions.UnregisterCallbacks(IPlayer3Actions)" />
+        public void RemoveCallbacks(IPlayer3Actions instance)
+        {
+            if (m_Wrapper.m_Player3ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="Player3Actions.AddCallbacks(IPlayer3Actions)" />
+        /// <seealso cref="Player3Actions.RemoveCallbacks(IPlayer3Actions)" />
+        /// <seealso cref="Player3Actions.UnregisterCallbacks(IPlayer3Actions)" />
+        public void SetCallbacks(IPlayer3Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player3ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player3ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="Player3Actions" /> instance referencing this action map.
+    /// </summary>
+    public Player3Actions @Player3 => new Player3Actions(this);
+
+    // Player4
+    private readonly InputActionMap m_Player4;
+    private List<IPlayer4Actions> m_Player4ActionsCallbackInterfaces = new List<IPlayer4Actions>();
+    private readonly InputAction m_Player4_ShipControls_Rotation;
+    private readonly InputAction m_Player4_Launch;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Player4".
+    /// </summary>
+    public struct Player4Actions
+    {
+        private @InputSystem_Actions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public Player4Actions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Player4/ShipControls_Rotation".
+        /// </summary>
+        public InputAction @ShipControls_Rotation => m_Wrapper.m_Player4_ShipControls_Rotation;
+        /// <summary>
+        /// Provides access to the underlying input action "Player4/Launch".
+        /// </summary>
+        public InputAction @Launch => m_Wrapper.m_Player4_Launch;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Player4; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="Player4Actions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(Player4Actions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="Player4Actions" />
+        public void AddCallbacks(IPlayer4Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player4ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player4ActionsCallbackInterfaces.Add(instance);
+            @ShipControls_Rotation.started += instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.performed += instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.canceled += instance.OnShipControls_Rotation;
+            @Launch.started += instance.OnLaunch;
+            @Launch.performed += instance.OnLaunch;
+            @Launch.canceled += instance.OnLaunch;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="Player4Actions" />
+        private void UnregisterCallbacks(IPlayer4Actions instance)
+        {
+            @ShipControls_Rotation.started -= instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.performed -= instance.OnShipControls_Rotation;
+            @ShipControls_Rotation.canceled -= instance.OnShipControls_Rotation;
+            @Launch.started -= instance.OnLaunch;
+            @Launch.performed -= instance.OnLaunch;
+            @Launch.canceled -= instance.OnLaunch;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="Player4Actions.UnregisterCallbacks(IPlayer4Actions)" />.
+        /// </summary>
+        /// <seealso cref="Player4Actions.UnregisterCallbacks(IPlayer4Actions)" />
+        public void RemoveCallbacks(IPlayer4Actions instance)
+        {
+            if (m_Wrapper.m_Player4ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="Player4Actions.AddCallbacks(IPlayer4Actions)" />
+        /// <seealso cref="Player4Actions.RemoveCallbacks(IPlayer4Actions)" />
+        /// <seealso cref="Player4Actions.UnregisterCallbacks(IPlayer4Actions)" />
+        public void SetCallbacks(IPlayer4Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player4ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player4ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="Player4Actions" /> instance referencing this action map.
+    /// </summary>
+    public Player4Actions @Player4 => new Player4Actions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1552,11 +1744,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         }
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Team1" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player1" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="Team1Actions.AddCallbacks(ITeam1Actions)" />
-    /// <seealso cref="Team1Actions.RemoveCallbacks(ITeam1Actions)" />
-    public interface ITeam1Actions
+    /// <seealso cref="Player1Actions.AddCallbacks(IPlayer1Actions)" />
+    /// <seealso cref="Player1Actions.RemoveCallbacks(IPlayer1Actions)" />
+    public interface IPlayer1Actions
     {
         /// <summary>
         /// Method invoked when associated input action "ShipControls_Rotation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -1565,20 +1757,6 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShipControls_Rotation(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ShipControls_Cannons" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnShipControls_Cannons(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Shoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnShoot(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Launch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1588,11 +1766,11 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnLaunch(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Team2" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player2" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="Team2Actions.AddCallbacks(ITeam2Actions)" />
-    /// <seealso cref="Team2Actions.RemoveCallbacks(ITeam2Actions)" />
-    public interface ITeam2Actions
+    /// <seealso cref="Player2Actions.AddCallbacks(IPlayer2Actions)" />
+    /// <seealso cref="Player2Actions.RemoveCallbacks(IPlayer2Actions)" />
+    public interface IPlayer2Actions
     {
         /// <summary>
         /// Method invoked when associated input action "ShipControls_Rotation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
@@ -1602,19 +1780,49 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShipControls_Rotation(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "ShipControls_Cannons" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Launch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnShipControls_Cannons(InputAction.CallbackContext context);
+        void OnLaunch(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player3" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="Player3Actions.AddCallbacks(IPlayer3Actions)" />
+    /// <seealso cref="Player3Actions.RemoveCallbacks(IPlayer3Actions)" />
+    public interface IPlayer3Actions
+    {
         /// <summary>
-        /// Method invoked when associated input action "Shoot" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ShipControls_Rotation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnShoot(InputAction.CallbackContext context);
+        void OnShipControls_Rotation(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Launch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLaunch(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Player4" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="Player4Actions.AddCallbacks(IPlayer4Actions)" />
+    /// <seealso cref="Player4Actions.RemoveCallbacks(IPlayer4Actions)" />
+    public interface IPlayer4Actions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "ShipControls_Rotation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShipControls_Rotation(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Launch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

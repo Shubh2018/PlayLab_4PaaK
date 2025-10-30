@@ -6,7 +6,7 @@ public class KeyboardSequenceController : MonoBehaviour
     
     [SerializeField] Island[] islandArray;
 
-    private char[] randomKeyboardSequence = new char[10];
+    private char[] randomKeyboardSequence = new char[Constants.SequenceLength];
     //private int arrayPointer = 0;
 
     void Start()
@@ -96,7 +96,7 @@ public class KeyboardSequenceController : MonoBehaviour
 
     public char[] GenerateRandomSequence()
     {
-        randomKeyboardSequence = new char[10];
+        randomKeyboardSequence = new char[Constants.SequenceLength];
         for (int i = 0; i < randomKeyboardSequence.Length; i++)
         {
             randomKeyboardSequence[i] =

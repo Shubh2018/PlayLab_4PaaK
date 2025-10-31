@@ -698,9 +698,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4746320292475554214, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
+      propertyPath: _speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746320292475554214, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
       propertyPath: _island
       value: 
       objectReference: {fileID: 540728711}
+    - target: {fileID: 4746320292475554214, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
+      propertyPath: _angularSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
       propertyPath: m_Name
       value: Player1

@@ -96,10 +96,6 @@ PrefabInstance:
       propertyPath: _teamColor.r
       value: 0.6117647
       objectReference: {fileID: 0}
-    - target: {fileID: 9187986020903685601, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
-      propertyPath: _angularSpeed
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

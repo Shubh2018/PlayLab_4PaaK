@@ -303,8 +303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _island: {fileID: 0}
-  _angularSpeed: 1
-  _speed: 2
+  _angularSpeed: 1.5
+  _speed: 4
   _player: 0
   _teamColor: {r: 0, g: 0, b: 0, a: 0}
   _cannon: {fileID: 5780864616045821027}

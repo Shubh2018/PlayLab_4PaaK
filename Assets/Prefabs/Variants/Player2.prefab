@@ -60,10 +60,34 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.6117647
       objectReference: {fileID: 0}
+    - target: {fileID: 857205269726275135, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_Name
+      value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142626809999499845, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142626809999499845, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2857299
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142626809999499845, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.014285701
+      objectReference: {fileID: 0}
+    - target: {fileID: 3142626809999499845, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5142857
+      objectReference: {fileID: 0}
     - target: {fileID: 5083508555873910602, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 5754246004559771354, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
     - target: {fileID: 5754246004559771354, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: m_Color.b
       value: 0.2235294

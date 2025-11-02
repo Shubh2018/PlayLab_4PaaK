@@ -3,24 +3,18 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class MainMenuEvents : MonoBehaviour
+public class SetupEvents : MonoBehaviour
 {
     private UIDocument document;
     private Button button;
-    private Button setupButton;
     private List<Button> menubuttons = new List<Button>();
-
-    [SerializeField] private GameObject setup;
 
     private void Awake()
     {
         document = GetComponent<UIDocument>();
 
-        button = document.rootVisualElement.Q("StartGame") as Button;
-        button.RegisterCallback<ClickEvent>(OnPlayGameClick);
-
-        setupButton = document.rootVisualElement.Q("Setup") as Button;
-        setupButton.RegisterCallback<ClickEvent>(OnSetupClick);
+        button = document.rootVisualElement.Q("Exit") as Button;
+        button.RegisterCallback<ClickEvent>(OnExitClick);
 
         menubuttons = document.rootVisualElement.Query<Button>().ToList();
         
@@ -33,23 +27,17 @@ public class MainMenuEvents : MonoBehaviour
 
     private void OnDisable()
     {
-        button.UnregisterCallback<ClickEvent>(OnPlayGameClick);
-        setupButton.UnregisterCallback<ClickEvent>(OnSetupClick);
-
+        button.UnregisterCallback<ClickEvent>(OnExitClick);
+        
         for (int i = 0; i < menubuttons.Count; ++i)
         {
             menubuttons[i].UnregisterCallback<ClickEvent>(AllButtonsClick);
         }
     }
 
-    private void OnPlayGameClick (ClickEvent evt)
+    private void OnExitClick (ClickEvent evt)
     {
-        SceneManager.LoadScene("SampleScene");
-    }
-
-    private void OnSetupClick(ClickEvent evt)
-    {
-        setup.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     private void AllButtonsClick(ClickEvent evt)

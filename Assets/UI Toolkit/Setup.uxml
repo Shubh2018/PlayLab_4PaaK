@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=fa6fa550c29974f4481dae4747076d00&amp;type=3#MainMenuStyle" />
+    <ui:Button class="image" style="height: 449px; width: 779px; background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/seating%20setup.PNG?fileID=2800000&amp;guid=3a8af17b5337bf4469eb7b0fc7498b7d&amp;type=3#seating setup&quot;);" />
+    <ui:Label text="Please sit like the image above&#10;&#10;Player 1 will be using the buttons: 1 Q A&#10;Player 2 will be using the buttons: Z X C&#10;Player 3 will be using the buttons: B N M&#10;Player 4 will be using the buttons: K O 0" class="text" style="height: 315px; width: 932px; -unity-text-align: upper-center;" />
+    <ui:Button text="Exit" name="Exit" class="button" />
+</ui:UXML>

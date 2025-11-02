@@ -6,6 +6,8 @@
     -unity-text-align: upper-center;
     -unity-text-outline-color: rgb(255, 255, 255);
     color: rgb(255, 255, 255);
+    align-self: stretch;
+    margin-top: 128px;
 }
 
 .button {
@@ -18,4 +20,10 @@
     border-bottom-left-radius: 16px;
     font-size: 64px;
     margin-top: 40px;
+    transition-duration: 0.35s;
+}
+
+.button:hover {
+    scale: 1.1 1.1;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }

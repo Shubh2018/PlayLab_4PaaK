@@ -19,49 +19,54 @@ public class Island : MonoBehaviour
     public Vector2 Center => transform.position;
     public float Radius => _radius;
     public char[] KeyboardSequence => keyboardSequence;
-    public int ArrayPointer{get; set;} = 0;
-    
+    public int ArrayPointer { get; set; } = 0;
+
     void Start()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        
+
         keyboardSequenceController = FindAnyObjectByType<KeyboardSequenceController>();
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
-        
+
         UpdateSequenceText(keyboardSequence);
     }
 
     private void UpdateSequenceText(char[] sequence)
     {
         _sequenceText.text = String.Empty;
-        
+
         if (sequence.Length == 0) return;
 
         foreach (char c in sequence)
         {
-            _sequenceText.text += c + " ";
+            _sequenceText.text += $"{c} ";
         }
     }
 
     public void ConquerIsland()
     {
         if (!_shipController) return;
-        
+
         _shipController.AddConquredIslandToList();
         ChangeAllegiance();
-        
+
         _currentlyControlledBy = _shipController;
         _renderer.color = _currentlyControlledBy.TeamColor;
-        
-        Debug.Log($"{this.name} Conquered");
-        
+
+        Debug.Log($"{this.name} Conquered by {_currentlyControlledBy.name}");
+
         //UpdateSequenceText(Array.Empty<char>());
+    }
+
+    public void SetShipController(ShipController shipController)
+    {
+        _shipController = shipController;
     }
 
     private void ChangeAllegiance()
     {
         if (!_currentlyControlledBy) return;
-            
+
         _currentlyControlledBy.RemoveConqueredIslandFromList(this);
     }
 
@@ -73,7 +78,6 @@ public class Island : MonoBehaviour
             _shipController = other.GetComponent<ShipController>();
             //UpdateSequenceText(keyboardSequence);
             _shipController.SetIsland(this);
-            return;
         }
     }
 

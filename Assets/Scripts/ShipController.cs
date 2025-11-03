@@ -21,9 +21,13 @@ public class ShipController : MonoBehaviour
 
     private List<Island> _conquredIslands = new List<Island>();
 
+    public Island TargetIsland => _island;
+
     void Start()
     {
         transform.position = _island.Center;
+        
+        SetIsland(_island);
     }
 
     private void Update()
@@ -38,19 +42,14 @@ public class ShipController : MonoBehaviour
         {
             transform.Translate(transform.up * (_speed * Time.deltaTime), Space.World);
 
-            if (transform.position.x >= 10 || transform.position.x <= -10)
+            if ((transform.position.x >= 10 || transform.position.x <= -10) || (transform.position.y >= 5 || transform.position.y <= -5))
             {
                 Vector3 pos = transform.position;
-                pos.x *= -1;
+                pos *= -1;
                 transform.position = pos;
             }
-            
-            if (transform.position.y >= 5 || transform.position.y <= -5)
-            {
-                Vector3 pos = transform.position;
-                pos.y *= -1;
-                transform.position = pos;
-            }
+
+            SetIsland(GameManager.Instance.ReturnClosestIsland(this));
                 
             return;
         }
@@ -85,9 +84,13 @@ public class ShipController : MonoBehaviour
 
     public void SetIsland(Island island)
     {
+        if (!island) return;
+        
         _island = island;
         Vector3 directionVector = transform.position - new Vector3(_island.Center.x, _island.Center.y, 0);
         _angle = Mathf.Atan2(directionVector.y, directionVector.x);
+        
+        _island.SetShipController(this);
     }
 
     public void AddConquredIslandToList()

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +18,26 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _islands = FindObjectsByType<Island>(FindObjectsSortMode.None);
+    }
+
+    public Island ReturnClosestIsland(ShipController ship)
+    {
+        if(ship.TargetIsland) return ship.TargetIsland;
+
+        Island newTarget = null;
+        
+        foreach (Island island in _islands)
+        {
+            float distance = Mathf.Abs(Vector3.Distance(island.Center, ship.transform.position));
+
+            if (distance <= island.Radius)
+            {
+                newTarget = island;
+                break;
+            }
+        }
+        
+        return newTarget;
     }
 
     private void OnDestroy()

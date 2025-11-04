@@ -7,6 +7,8 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float _angularSpeed = 180.0f;
     [SerializeField] private float _speed = 10.0f;
     [SerializeField] private InputManager.Player _player;
+    
+    public ShipController() {_points = 0;}
 
     public InputManager.Player Player => _player;
 
@@ -21,6 +23,9 @@ public class ShipController : MonoBehaviour
     public Color TeamColor => _teamColor;
 
     [SerializeField] private CannonController _cannon;
+
+    [SerializeField] private string _playerName;
+    public string PlayerName => _playerName;
 
     private List<Island> _conquredIslands = new List<Island>();
     public List<Island> ConqueredIslands => _conquredIslands;

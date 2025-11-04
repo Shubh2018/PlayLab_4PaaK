@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using System;
-
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text[] _pointTexts;
 
     [SerializeField] private TMP_Text _timerText;
+    private GameEndEvents _gameEndEvents;
+
+    [SerializeField] private WinnerNameSO winner;
 
     private static GameManager _instance;
     public static GameManager Instance { get { return _instance; } }
@@ -17,8 +20,9 @@ public class GameManager : MonoBehaviour
     private Island[] _islands;
 
     private float _pointCounter = 10;
-    private float _timer = 60;
+    private float _timer = 20;
     
+
     private void Awake()
     {
         if (_instance == null)
@@ -30,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _islands = FindObjectsByType<Island>(FindObjectsSortMode.None);
+        _gameEndEvents = GetComponent<GameEndEvents>();
     }
 
     private void Update()
@@ -89,9 +94,23 @@ public class GameManager : MonoBehaviour
 
     private void UpdateTime()
     {
-        if (_timer <= 0) {return;}
+        if (_timer <= 0) 
+        {
+            int randomNumber = UnityEngine.Random.Range(0, 4);
+
+            ShipController mostPoints = _ships[randomNumber];
+            foreach (var ship in _ships)
+            {
+                if (ship.Points > mostPoints.Points) {mostPoints = ship;}
+            }
+            winner._winnerName = mostPoints.PlayerName;
+            SceneManager.LoadScene("GameEndMenu");
+            
+        }
         
         _timer -= Time.deltaTime;
         _timerText.text = "" +  Mathf.RoundToInt(_timer); 
     }
+
+    
 }

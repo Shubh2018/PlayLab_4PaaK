@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: _player
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4746320292475554214, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
+      propertyPath: _playerName
+      value: Player 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -1216,6 +1220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264150890}
   - component: {fileID: 1264150889}
+  - component: {fileID: 1264150891}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1235,15 +1240,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c028daf4c2f62f4bb45452f6e445dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ship1: {fileID: 1969691556}
-  _ship2: {fileID: 577091841}
-  _ship3: {fileID: 1776216966}
-  _ship4: {fileID: 1278329900}
-  _pointsTextPlayer1: {fileID: 1957286970}
-  _pointsTextPlayer2: {fileID: 718224513}
-  _pointsTextPlayer3: {fileID: 1262276311}
-  _pointsTextPlayer4: {fileID: 2076315794}
+  _ships:
+  - {fileID: 1969691556}
+  - {fileID: 577091841}
+  - {fileID: 1776216966}
+  - {fileID: 1278329900}
+  _pointTexts:
+  - {fileID: 1957286970}
+  - {fileID: 718224513}
+  - {fileID: 1262276311}
+  - {fileID: 2076315794}
   _timerText: {fileID: 455519047}
+  winner: {fileID: 11400000, guid: 6e5df6ca8fdcfd94b86f82f908a7d321, type: 2}
 --- !u!4 &1264150890
 Transform:
   m_ObjectHideFlags: 0
@@ -1259,6 +1267,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1264150891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264150888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367b169a29edc7040984b658c9eaca92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerWhoWon: 
 --- !u!1001 &1278329899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1314,6 +1335,10 @@ PrefabInstance:
     - target: {fileID: 4746320292475554214, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: _player
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746320292475554214, guid: 58a284d94864f69439850ccec56204dc, type: 3}
+      propertyPath: _playerName
+      value: Player 4
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: m_Name
@@ -1745,6 +1770,10 @@ PrefabInstance:
       propertyPath: _player
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4746320292475554214, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
+      propertyPath: _playerName
+      value: Player 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
       propertyPath: m_Name
       value: Player3
@@ -2017,6 +2046,10 @@ PrefabInstance:
     - target: {fileID: 4746320292475554214, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: _player
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4746320292475554214, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
+      propertyPath: _playerName
+      value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: m_Name

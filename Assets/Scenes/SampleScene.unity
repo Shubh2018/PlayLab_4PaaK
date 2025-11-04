@@ -713,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
       propertyPath: m_Name
-      value: Player1
+      value: Player2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1317,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: m_Name
-      value: Player2
+      value: Player4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1747,7 +1747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
       propertyPath: m_Name
-      value: Player4
+      value: Player3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1988,15 +1988,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4098166921483956889, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4098166921483956889, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4098166921483956889, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4098166921483956889, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2020,7 +2020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: m_Name
-      value: Player3
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2200,10 +2200,10 @@ SceneRoots:
   - {fileID: 658989759}
   - {fileID: 76405691}
   - {fileID: 1601748883}
-  - {fileID: 577091840}
-  - {fileID: 1278329899}
   - {fileID: 1969691555}
+  - {fileID: 577091840}
   - {fileID: 1776216965}
+  - {fileID: 1278329899}
   - {fileID: 1622072474}
   - {fileID: 1517818659}
   - {fileID: 389993879}

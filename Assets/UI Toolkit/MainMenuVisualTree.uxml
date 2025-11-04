@@ -1,8 +1,8 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=fa6fa550c29974f4481dae4747076d00&amp;type=3#MainMenuStyle" />
     <ui:VisualElement name="Container" enabled="true" style="flex-grow: 1;">
-        <ui:Label text="4PaaK Pirates!" class="header" />
-        <ui:Button text="Start" name="StartGame" class="button" />
-        <ui:Button text="Setup" name="Setup" class="button" />
+        <ui:Button style="background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Art/MainTitle.png?fileID=2800000&amp;guid=ebda6a19f502a2c45bfbf8c98af11f16&amp;type=3#MainTitle&quot;); height: 476px; width: 496px; justify-content: center; align-self: center; border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0);" />
+        <ui:Button name="StartGame" display-tooltip-when-elided="true" class="button" style="background-image: url(&quot;project://database/Assets/Art/StartButtonWithText.png?fileID=2800000&amp;guid=f9bef992cd7778746a925331a9a3080f&amp;type=3#StartButtonWithText&quot;); background-position-x: center 0; scale: 1.5 1.5;" />
+        <ui:Button name="Setup" class="button" style="background-image: url(&quot;project://database/Assets/Art/SetupButtonWithText.png?fileID=2800000&amp;guid=15fdb4b5268a999438e00c99393798ed&amp;type=3#SetupButtonWithText&quot;); scale: 1.5 1.5;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -37,7 +37,7 @@ public class SetupEvents : MonoBehaviour
 
     private void OnExitClick (ClickEvent evt)
     {
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void AllButtonsClick(ClickEvent evt)

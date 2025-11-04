@@ -49,7 +49,7 @@ public class MainMenuEvents : MonoBehaviour
 
     private void OnSetupClick(ClickEvent evt)
     {
-        setup.SetActive(true);
+        SceneManager.LoadScene("SetupMenu");
     }
 
     private void AllButtonsClick(ClickEvent evt)

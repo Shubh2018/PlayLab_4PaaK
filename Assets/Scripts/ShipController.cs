@@ -82,7 +82,10 @@ public class ShipController : MonoBehaviour
     private void LeaveIsland()
     {
         if (InputManager.GetLaunchPressed((_player)) == 0) return;
+
+        if (!_island) return;
         
+        _island.UnsetShipController();
         _island = null;
     }
 

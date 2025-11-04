@@ -8,6 +8,7 @@ public class Island : MonoBehaviour
     [SerializeField] private KeyboardSequenceController keyboardSequenceController;
     [SerializeField] private char[] keyboardSequence;
     [SerializeField] private TMP_Text _sequenceText;
+    [SerializeField] private Transform _border;
 
     private SpriteRenderer _renderer;
 
@@ -29,6 +30,7 @@ public class Island : MonoBehaviour
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
 
         UpdateSequenceText(keyboardSequence);
+        UpdateBorderSize();
     }
 
     private void UpdateSequenceText(char[] sequence)
@@ -57,10 +59,25 @@ public class Island : MonoBehaviour
 
         //UpdateSequenceText(Array.Empty<char>());
     }
+    
+    public void UpdateBorderSize()
+    {
+        Vector3 scale = Vector3.zero;
+        scale.x = scale.y = scale.z = _radius * 2;
+        
+        _border.localScale = scale / transform.localScale.x;
+    }
 
     public void SetShipController(ShipController shipController)
     {
         _shipController = shipController;
+    }
+
+    public void UnsetShipController()
+    {
+        if (!_shipController) return;
+
+        _shipController = null;
     }
 
     private void ChangeAllegiance()
@@ -89,5 +106,11 @@ public class Island : MonoBehaviour
             UpdateSequenceText(keyboardSequence);
             return;
         }*/
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

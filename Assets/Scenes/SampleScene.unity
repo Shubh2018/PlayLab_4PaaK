@@ -1235,10 +1235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c028daf4c2f62f4bb45452f6e445dbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ship1: {fileID: 577091841}
-  _ship2: {fileID: 1278329900}
-  _ship3: {fileID: 1969691556}
-  _ship4: {fileID: 1776216966}
+  _ship1: {fileID: 1969691556}
+  _ship2: {fileID: 577091841}
+  _ship3: {fileID: 1776216966}
+  _ship4: {fileID: 1278329900}
   _pointsTextPlayer1: {fileID: 1957286970}
   _pointsTextPlayer2: {fileID: 718224513}
   _pointsTextPlayer3: {fileID: 1262276311}

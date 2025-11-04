@@ -14,12 +14,16 @@ public class ShipController : MonoBehaviour
     private Vector2 _tangentDir;
     private float _angle;
 
+    private int _points = 0;
+    public int Points => _points;
+
     [SerializeField] private Color _teamColor;
     public Color TeamColor => _teamColor;
 
     [SerializeField] private CannonController _cannon;
 
     private List<Island> _conquredIslands = new List<Island>();
+    public List<Island> ConqueredIslands => _conquredIslands;
 
     public Island TargetIsland => _island;
 
@@ -106,6 +110,8 @@ public class ShipController : MonoBehaviour
             return;
         
         _conquredIslands.Add(_island);
+
+        UpdatePoints(3);
     }
 
     public void RemoveConqueredIslandFromList(Island island)
@@ -113,6 +119,11 @@ public class ShipController : MonoBehaviour
         if (!_conquredIslands.Contains(island)) return;
         
         _conquredIslands.Remove(island);
+    }
+
+    public void UpdatePoints(int addedPoints)
+    {
+        _points += addedPoints;
     }
 
     private void OnDrawGizmos()
@@ -126,4 +137,6 @@ public class ShipController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, Vector3.back * 2.0f);
     }
+
+    
 }

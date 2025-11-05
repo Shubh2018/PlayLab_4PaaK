@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private Island[] _islands;
 
     private float _pointCounter = 10;
-    private float _timer = 20;
+    private float _timer = 60;
     
 
     private void Awake()

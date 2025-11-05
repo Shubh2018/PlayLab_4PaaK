@@ -13,6 +13,8 @@ public class Island : MonoBehaviour
     private SpriteRenderer _renderer;
 
     private ShipController _shipController;
+    public ShipController ShipController => _shipController;
+
     private ShipController _currentlyControlledBy;
 
     public ShipController CurrentlyControlledBy => _currentlyControlledBy;
@@ -32,6 +34,12 @@ public class Island : MonoBehaviour
         UpdateSequenceText(keyboardSequence);
         UpdateBorderSize();
     }
+
+    void Update()
+    {
+        UpdateSequenceText(KeyboardSequence);
+    }
+    
 
     private void UpdateSequenceText(char[] sequence)
     {
@@ -54,6 +62,8 @@ public class Island : MonoBehaviour
 
         _currentlyControlledBy = _shipController;
         _renderer.color = _currentlyControlledBy.TeamColor;
+
+        keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
 
         Debug.Log($"{this.name} Conquered by {_currentlyControlledBy.name}");
 
@@ -83,7 +93,6 @@ public class Island : MonoBehaviour
     private void ChangeAllegiance()
     {
         if (!_currentlyControlledBy) return;
-
         _currentlyControlledBy.RemoveConqueredIslandFromList(this);
     }
 

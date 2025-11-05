@@ -7,18 +7,9 @@ public class KeyboardSequenceController : MonoBehaviour
     [SerializeField] Island[] islandArray;
 
     private char[] randomKeyboardSequence = new char[Constants.SequenceLength];
-    //private int arrayPointer = 0;
 
     void Start()
     {
-        //island1.KeyboardSequence = GenerateRandomSequence();
-        //island2.KeyboardSequence = GenerateRandomSequence();
-        //island3.KeyboardSequence = GenerateRandomSequence();
-        //island4.KeyboardSequence = GenerateRandomSequence();
-        //island5.KeyboardSequence = GenerateRandomSequence();
-        //GenerateRandomSequence();
-        // Subscribe to text input
-
         islandArray = FindObjectsByType<Island>(FindObjectsSortMode.None);
         Keyboard.current.onTextInput += OnTextInput;
     }
@@ -31,34 +22,34 @@ public class KeyboardSequenceController : MonoBehaviour
 
     private void OnTextInput(char c)
     {
-        int count = 0;
         if (islandArray == null) {return;}
+        
         foreach (var island in islandArray)
         {
-            count++;
+            if (!island.ShipController) {continue;}
+           
             if (island.ArrayPointer >= island.KeyboardSequence.Length)
             {
-                return;
+                continue;
             }
             
             if (c == island.KeyboardSequence[island.ArrayPointer])
             {
                 Debug.Log($"Key typed: {c}");
                 
+               
+                island.KeyboardSequence[island.ArrayPointer] = '.';
+
                 island.ArrayPointer += 1;
+                
 
                 if (island.ArrayPointer == island.KeyboardSequence.Length)
                 {
                     Debug.Log("Full sequence completed!");
-
-                    foreach (var islandClear in islandArray)
-                    {
-                        islandClear.ArrayPointer = 0;
-                        Debug.Log(islandClear.ArrayPointer);
-                    }
-                    // Run "go to island" method
                     
                     island.ConquerIsland();
+                    
+                    island.ArrayPointer = 0;
 
                     return;
                 }
@@ -69,28 +60,6 @@ public class KeyboardSequenceController : MonoBehaviour
                 //Debug.Log(island.keyboardSequence[count]);
             }*/
         }
-
-        /*
-        // Only allow characters present in your sequence options
-        if (arrayPointer >= randomKeyboardSequence.Length)
-            return;
-
-        Debug.Log($"Key typed: {c}");
-
-        if (c == randomKeyboardSequence[arrayPointer])
-        {
-            Debug.Log($"Correct key! ({c})");
-            arrayPointer++;
-
-            if (arrayPointer == randomKeyboardSequence.Length)
-                Debug.Log("Full sequence completed!");
-        }
-        else
-        {
-            Debug.Log($"Wrong key! Expected {randomKeyboardSequence[arrayPointer]}, got {c}");
-            arrayPointer = 0; // reset sequence
-        }
-        */
 
     }
 

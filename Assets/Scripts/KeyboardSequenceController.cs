@@ -38,7 +38,7 @@ public class KeyboardSequenceController : MonoBehaviour
                 Debug.Log($"Key typed: {c}");
                 
                
-                island.KeyboardSequence[island.ArrayPointer] = '.';
+                island.KeyboardSequence[island.ArrayPointer] = ' ';
 
                 island.ArrayPointer += 1;
                 

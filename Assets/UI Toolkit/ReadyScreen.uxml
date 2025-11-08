@@ -1,0 +1,3 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="BG" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Title%20Screen-BG.png?fileID=2800000&amp;guid=00b1ea7d7fd6d21429f253ba4a8d3ddc&amp;type=3#Title Screen-BG&quot;);" />
+</ui:UXML>

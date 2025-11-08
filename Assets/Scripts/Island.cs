@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 
 public class Island : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Island : MonoBehaviour
     [SerializeField] private TMP_Text _sequenceText;
     [SerializeField] private Transform _border;
 
-    private SpriteRenderer _renderer;
+    [SerializeField] private SpriteRenderer _borderRenderer;
 
     private ShipController _shipController;
     public ShipController ShipController => _shipController;
@@ -24,22 +25,26 @@ public class Island : MonoBehaviour
     public char[] KeyboardSequence => keyboardSequence;
     public int ArrayPointer { get; set; } = 0;
 
+    private List<ShipController> _controllersNearIsland;
+ 
     void Start()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        //_borderRenderer = GetComponent<SpriteRenderer>();
+        
+        _controllersNearIsland = new List<ShipController>();
 
         keyboardSequenceController = FindAnyObjectByType<KeyboardSequenceController>();
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
 
+        keyboardSequence = Array.Empty<char>();
         UpdateSequenceText(keyboardSequence);
         UpdateBorderSize();
     }
 
     void Update()
     {
-        UpdateSequenceText(KeyboardSequence);
+        //UpdateSequenceText(KeyboardSequence);
     }
-    
 
     private void UpdateSequenceText(char[] sequence)
     {
@@ -61,9 +66,10 @@ public class Island : MonoBehaviour
         ChangeAllegiance();
 
         _currentlyControlledBy = _shipController;
-        _renderer.color = _currentlyControlledBy.TeamColor;
+        _borderRenderer.color = _currentlyControlledBy.TeamColor;
 
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+        UpdateSequenceText(keyboardSequence);
 
         Debug.Log($"{this.name} Conquered by {_currentlyControlledBy.name}");
 
@@ -80,14 +86,45 @@ public class Island : MonoBehaviour
 
     public void SetShipController(ShipController shipController)
     {
-        _shipController = shipController;
+        AddControllerToList(shipController);
+        _shipController = _controllersNearIsland[0];
+    }
+
+    public void AddControllerToList(ShipController shipController)
+    {
+        _controllersNearIsland.Add(shipController);
+        CanToggleSequence();
+    }
+
+    public void RemoveControllerFromList(ShipController shipController)
+    {
+        _controllersNearIsland.Remove(shipController);
+        CanToggleSequence();
+    }
+
+    public void CanToggleSequence()
+    {
+        if (_controllersNearIsland.Count == 1)
+            keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+        else
+            keyboardSequence = Array.Empty<char>();
+        
+        UpdateSequenceText(keyboardSequence);
     }
 
     public void UnsetShipController()
     {
         if (!_shipController) return;
+        
+        RemoveControllerFromList(_shipController);
 
-        _shipController = null;
+        if (_controllersNearIsland.Count <= 0)
+        {
+            _shipController = null;
+            return;
+        }
+        
+        _shipController = _controllersNearIsland[0];
     }
 
     private void ChangeAllegiance()
@@ -96,16 +133,16 @@ public class Island : MonoBehaviour
         _currentlyControlledBy.RemoveConqueredIslandFromList(this);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(Constants.Player))
-        {
-            //keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
-            _shipController = other.GetComponent<ShipController>();
-            //UpdateSequenceText(keyboardSequence);
-            _shipController.SetIsland(this);
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag(Constants.Player))
+    //     {
+    //         //keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+    //         _shipController = other.GetComponent<ShipController>();
+    //         //UpdateSequenceText(keyboardSequence);
+    //         _shipController.SetIsland(this);
+    //     }
+    // }
 
     private void OnTriggerExit2D(Collider2D other)
     {

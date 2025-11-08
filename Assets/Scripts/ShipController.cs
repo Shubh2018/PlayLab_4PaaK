@@ -8,7 +8,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float _speed = 10.0f;
     [SerializeField] private InputManager.Player _player;
     
-    public ShipController() {_points = 0;}
+    public ShipController() { _points = 0; }
 
     public InputManager.Player Player => _player;
 

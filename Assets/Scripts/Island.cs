@@ -10,7 +10,7 @@ public class Island : MonoBehaviour
     [SerializeField] private TMP_Text _sequenceText;
     [SerializeField] private Transform _border;
 
-    private SpriteRenderer _renderer;
+    [SerializeField] private SpriteRenderer _renderer;
 
     private ShipController _shipController;
     public ShipController ShipController => _shipController;
@@ -26,7 +26,7 @@ public class Island : MonoBehaviour
 
     void Start()
     {
-        _renderer = GetComponent<SpriteRenderer>();
+        //_renderer = GetComponent<SpriteRenderer>();
 
         keyboardSequenceController = FindAnyObjectByType<KeyboardSequenceController>();
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();

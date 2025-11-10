@@ -627,7 +627,7 @@ MonoBehaviour:
   keyboardSequence: 
   _sequenceText: {fileID: 6146304132523644180}
   _border: {fileID: 8210283303890671866}
-  _borderRenderer: {fileID: 1048049178862743999}
+  _renderer: {fileID: 1048049178862743999}
 --- !u!58 &8625910648762386034
 CircleCollider2D:
   m_ObjectHideFlags: 0

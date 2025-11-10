@@ -27,7 +27,7 @@ public class Island : MonoBehaviour
 
     private List<ShipController> _controllersNearIsland;
  
-    void Start()
+    void Awake()
     {
         //_borderRenderer = GetComponent<SpriteRenderer>();
         
@@ -112,11 +112,11 @@ public class Island : MonoBehaviour
         UpdateSequenceText(keyboardSequence);
     }
 
-    public void UnsetShipController()
+    public void UnsetShipController(ShipController shipController)
     {
-        if (!_shipController) return;
+        if (!shipController) return;
         
-        RemoveControllerFromList(_shipController);
+        RemoveControllerFromList(shipController);
 
         if (_controllersNearIsland.Count <= 0)
         {

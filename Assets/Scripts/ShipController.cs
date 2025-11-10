@@ -90,7 +90,7 @@ public class ShipController : MonoBehaviour
 
         if (!_island) return;
         
-        _island.UnsetShipController();
+        _island.UnsetShipController(this);
         _island = null;
     }
 

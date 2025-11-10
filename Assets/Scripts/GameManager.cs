@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WinnerNameSO winner;
 
     private static GameManager _instance;
-    public static GameManager Instance { get { return _instance; } }
+    public static GameManager Instance => _instance;
 
     private Island[] _islands;
 
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         {
             float distance = Mathf.Abs(Vector3.Distance(island.Center, ship.transform.position));
 
-            if (distance <= island.Radius)
+            if (distance <= island.Radius + 0.01f)
             {
                 newTarget = island;
                 break;

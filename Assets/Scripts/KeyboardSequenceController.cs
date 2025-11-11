@@ -39,6 +39,7 @@ public class KeyboardSequenceController : MonoBehaviour
                 
                
                 island.KeyboardSequence[island.ArrayPointer] = ' ';
+                island.SequenceKeyPressed();
 
                 island.ArrayPointer += 1;
                 

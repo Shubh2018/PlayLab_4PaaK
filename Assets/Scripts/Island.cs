@@ -68,12 +68,17 @@ public class Island : MonoBehaviour
         _currentlyControlledBy = _shipController;
         _borderRenderer.color = _currentlyControlledBy.TeamColor;
 
-        keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+        keyboardSequence = Array.Empty<char>();
         UpdateSequenceText(keyboardSequence);
 
         Debug.Log($"{this.name} Conquered by {_currentlyControlledBy.name}");
 
         //UpdateSequenceText(Array.Empty<char>());
+    }
+
+    public void SequenceKeyPressed()
+    {
+        UpdateSequenceText(KeyboardSequence);
     }
     
     public void UpdateBorderSize()
@@ -105,7 +110,12 @@ public class Island : MonoBehaviour
     public void CanToggleSequence()
     {
         if (_controllersNearIsland.Count == 1)
-            keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+        {
+            if(_currentlyControlledBy == _controllersNearIsland[0])
+                keyboardSequence = Array.Empty<char>();
+            else
+                keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+        }
         else
             keyboardSequence = Array.Empty<char>();
         

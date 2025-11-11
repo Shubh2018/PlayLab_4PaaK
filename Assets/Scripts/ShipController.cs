@@ -50,11 +50,17 @@ public class ShipController : MonoBehaviour
         if (!_island)
         {
             transform.Translate(transform.up * (_speed * Time.deltaTime), Space.World);
+            Vector3 pos = transform.position;
 
-            if ((transform.position.x >= 10 || transform.position.x <= -10) || (transform.position.y >= 5 || transform.position.y <= -5))
+            if (transform.position.x > 10 || transform.position.x < -10)
             {
-                Vector3 pos = transform.position;
-                pos *= -1;
+                pos.x *= -1;
+                transform.position = pos;
+            }
+
+            if (transform.position.y > 5 || transform.position.y < -5)
+            {
+                pos.y *= -1;
                 transform.position = pos;
             }
 

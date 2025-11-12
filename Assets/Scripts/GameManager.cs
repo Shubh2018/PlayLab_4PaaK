@@ -108,8 +108,14 @@ public class GameManager : MonoBehaviour
         }
         
         _timer -= Time.deltaTime;
-        _timerText.text = "" +  Mathf.RoundToInt(_timer); 
+        _timerText.text = GetMinAndSec(_timer); 
     }
 
-    
+    private string GetMinAndSec(float timeInSec)
+    {
+        int min = (int)(timeInSec / 60);
+        int sec = (int)(timeInSec % 60);
+
+        return $"{min:00} : {sec:00}";
+    }
 }

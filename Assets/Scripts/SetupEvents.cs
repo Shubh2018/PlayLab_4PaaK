@@ -7,6 +7,7 @@ public class SetupEvents : MonoBehaviour
 {
     private UIDocument document;
     private Button button;
+    private Button startButton;
     private List<Button> menubuttons = new List<Button>();
 
     private void Awake()
@@ -15,6 +16,9 @@ public class SetupEvents : MonoBehaviour
 
         button = document.rootVisualElement.Q("Exit") as Button;
         button.RegisterCallback<ClickEvent>(OnExitClick);
+        
+        startButton = document.rootVisualElement.Q("Start") as Button;
+        startButton.RegisterCallback<ClickEvent>(StartGame);
 
         menubuttons = document.rootVisualElement.Query<Button>().ToList();
         
@@ -22,11 +26,16 @@ public class SetupEvents : MonoBehaviour
         {
             menubuttons[i].RegisterCallback<ClickEvent>(AllButtonsClick);
         }
+    }
 
+    private void StartGame(ClickEvent e)
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 
     private void OnDisable()
     {
+        startButton.UnregisterCallback<ClickEvent>(StartGame);
         button.UnregisterCallback<ClickEvent>(OnExitClick);
         
         for (int i = 0; i < menubuttons.Count; ++i)

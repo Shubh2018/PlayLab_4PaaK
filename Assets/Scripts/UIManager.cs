@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
 
     private void OnStartPressed(ClickEvent e)
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     private void OnSetupPressed(ClickEvent e)

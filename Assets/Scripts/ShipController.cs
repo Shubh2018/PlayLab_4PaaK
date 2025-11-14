@@ -7,6 +7,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float _angularSpeed = 180.0f;
     [SerializeField] private float _speed = 10.0f;
     [SerializeField] private InputManager.Player _player;
+    [SerializeField] private Transform _shipGFX;
     
     public ShipController() { _points = 0; }
 
@@ -31,6 +32,8 @@ public class ShipController : MonoBehaviour
     public List<Island> ConqueredIslands => _conquredIslands;
 
     public Island TargetIsland => _island;
+
+    private Vector3 _dir;
 
     void Start()
     {
@@ -87,7 +90,7 @@ public class ShipController : MonoBehaviour
         Vector3 currentPosition = new Vector3(offset.x, offset.y, 0.0f);
         
         transform.position = currentPosition;
-        transform.up = Vector3.Normalize(_tangentDir);
+        _dir = Vector3.Normalize(_tangentDir);
     }
 
     private void LeaveIsland()

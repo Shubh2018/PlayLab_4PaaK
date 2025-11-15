@@ -7,7 +7,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float _angularSpeed = 180.0f;
     [SerializeField] private float _speed = 10.0f;
     [SerializeField] private InputManager.Player _player;
-    [SerializeField] private Transform _shipGFX;
+    [SerializeField] private SpriteRenderer _shipGFX;
     
     public ShipController() { _points = 0; }
 
@@ -74,8 +74,10 @@ public class ShipController : MonoBehaviour
         
         Vector2 center = _island.Center;
         float radius = _island.Radius;
-
+        
         float angularSpeed = _angularSpeed * InputManager.GetPlayerRotationDirection(_player);
+        
+        //_shipGFX.flipX = !(angularSpeed < 0);
         
         _angle += angularSpeed * Time.deltaTime;
 
@@ -90,7 +92,7 @@ public class ShipController : MonoBehaviour
         Vector3 currentPosition = new Vector3(offset.x, offset.y, 0.0f);
         
         transform.position = currentPosition;
-        _dir = Vector3.Normalize(_tangentDir);
+        transform.up = Vector3.Normalize(_tangentDir);
     }
 
     private void LeaveIsland()

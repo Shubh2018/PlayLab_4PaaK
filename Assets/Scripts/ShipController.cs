@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Mathematics;
 
 public class ShipController : MonoBehaviour
 {
@@ -88,6 +89,15 @@ public class ShipController : MonoBehaviour
         
         transform.position = currentPosition;
         transform.up = Vector3.Normalize(_tangentDir);
+    }
+
+    private void EllipseEquation()
+    {
+        Vector2 center = _island.Center;
+        float radius = _island.Radius;
+
+        Vector2 ellipseAxis = new Vector2(2f, 1f);
+        //equation of ellipse = ((x2 - h) / a2) + ((y2 - k) / b2) = 1 
     }
 
     private void LeaveIsland()

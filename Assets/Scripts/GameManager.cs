@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private Island[] _islands;
 
     private float _pointCounter = 10;
-    private float _timer = 120;
+    private float _timer = 150;
 
     private void Awake()
     {
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < _ships.Length; i++)
         {
-            _pointTexts[i].text = "Player " + (i+1) + ": " + _ships[i].Points;
+            _pointTexts[i].text = $"{_ships[i].Points}";
         }
     }
 

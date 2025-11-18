@@ -30,7 +30,7 @@
     border-bottom-color: rgba(255, 234, 234, 0);
     transform-origin: center;
     background-color: rgba(255, 255, 255, 0);
-    scale: 1.1 1.1;
+    scale: 1 1;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -42,7 +42,7 @@
 }
 
 .button:hover {
-    scale: 1.5 1.5;
+    scale: 1.2 1.2;
     -unity-background-image-tint-color: rgb(255, 255, 255);
     transition-property: all;
     transition-duration: 0.35s;

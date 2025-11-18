@@ -8,6 +8,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float _angularSpeed = 180.0f;
     [SerializeField] private float _speed = 10.0f;
     [SerializeField] private InputManager.Player _player;
+    [SerializeField] private SpriteRenderer _shipGFX;
     
     public ShipController() { _points = 0; }
 
@@ -32,6 +33,8 @@ public class ShipController : MonoBehaviour
     public List<Island> ConqueredIslands => _conquredIslands;
 
     public Island TargetIsland => _island;
+
+    private Vector3 _dir;
 
     void Start()
     {
@@ -72,8 +75,10 @@ public class ShipController : MonoBehaviour
         
         Vector2 center = _island.Center;
         float radius = _island.Radius;
-
+        
         float angularSpeed = _angularSpeed * InputManager.GetPlayerRotationDirection(_player);
+        
+        //_shipGFX.flipX = !(angularSpeed < 0);
         
         _angle += angularSpeed * Time.deltaTime;
 

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private Island[] _islands;
 
     private float _pointCounter = 10;
-    private float _timer = 150;
+    private float _timer = 90;
 
     private void Awake()
     {
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         {
             float distance = Mathf.Abs(Vector3.Distance(island.Center, ship.transform.position));
 
-            if (distance <= island.Radius + 0.01f)
+            if (distance < island.Axes.x || distance < island.Axes.y)
             {
                 newTarget = island;
                 break;

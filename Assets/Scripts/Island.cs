@@ -12,6 +12,7 @@ public class Island : MonoBehaviour
     [SerializeField] private Transform _border;
 
     [SerializeField] private SpriteRenderer _borderRenderer;
+    [SerializeField] private Vector2 _rotationAxis;
 
     private ShipController _shipController;
     public ShipController ShipController => _shipController;
@@ -22,6 +23,7 @@ public class Island : MonoBehaviour
 
     public Vector2 Center => transform.position;
     public float Radius => _radius;
+    public Vector2 Axes => _rotationAxis;
     public char[] KeyboardSequence => keyboardSequence;
     public int ArrayPointer { get; set; } = 0;
 
@@ -84,7 +86,7 @@ public class Island : MonoBehaviour
     public void UpdateBorderSize()
     {
         Vector3 scale = Vector3.zero;
-        scale.x = scale.y = scale.z = _radius * 2;
+        scale = (_rotationAxis * 2) + new Vector2(1, 1);
         
         _border.localScale = scale / transform.localScale.x;
     }

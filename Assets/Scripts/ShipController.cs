@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 
 public class ShipController : MonoBehaviour
 {
@@ -45,7 +46,8 @@ public class ShipController : MonoBehaviour
 
     private void Update()
     {
-        CircleIsland();
+        //CircleIsland();
+        EllipticalMovement();
         LeaveIsland();
     }
 
@@ -96,13 +98,53 @@ public class ShipController : MonoBehaviour
         transform.up = Vector3.Normalize(_tangentDir);
     }
 
-    private void EllipseEquation()
+    private void EllipticalMovement()
     {
-        Vector2 center = _island.Center;
-        float radius = _island.Radius;
+        if (!_island)
+        {
+            transform.Translate(Vector3.Normalize(_tangentDir) * (_speed * Time.deltaTime), Space.World);
+            Vector3 pos = transform.position;
 
-        Vector2 ellipseAxis = new Vector2(2f, 1f);
-        //equation of ellipse = ((x2 - h) / a2) + ((y2 - k) / b2) = 1 
+            if (transform.position.x > 10 || transform.position.x < -10)
+            {
+                pos.x *= -1;
+                transform.position = pos;
+            }
+
+            if (transform.position.y > 5 || transform.position.y < -5)
+            {
+                pos.y *= -1;
+                transform.position = pos;
+            }
+
+            SetIsland(GameManager.Instance.ReturnClosestIsland(this));
+                
+            return;
+        }
+        
+        Vector2 center = _island.Center;
+        //float radius = _island.Radius;
+
+        Vector2 ellipseAxis = _island.Axes;
+        
+        float angularSpeed = _angularSpeed * InputManager.GetPlayerRotationDirection(_player);
+        
+        _angle += angularSpeed * Time.deltaTime;
+        //equation of ellipse = ((x - h)2 / a2) + ((y - k)2 / b2) = 1 
+        
+        if (_angle >= 2 * Mathf.PI)
+            _angle = 0;
+        
+        Vector2 positionOnEllipse = center + new Vector2(ellipseAxis.x * Mathf.Cos(_angle), ellipseAxis.y * Mathf.Sin(_angle));
+        transform.position = positionOnEllipse;
+        
+        Vector3 centerDir = positionOnEllipse - center;
+
+        _tangentDir = Vector3.Cross(centerDir, Vector3.back) *
+                      angularSpeed;
+        
+        float angleInDegrees = _angle * Mathf.Rad2Deg;
+        _shipGFX.transform.localScale = new Vector2(FlipShip() * FlipShipByPosition(_angle), 1f);
     }
 
     private void LeaveIsland()
@@ -155,17 +197,30 @@ public class ShipController : MonoBehaviour
         _points += addedPoints;
     }
 
+    private float FlipShip()
+    {
+        return InputManager.GetPlayerRotationDirection(_player);
+    }
+
+    private float FlipShipByPosition(float angle)
+    {
+        float scale = 1;
+        
+        if (angle >= 0 && angle < Mathf.PI)
+            scale = -1;
+        
+        return scale;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, _island.Center - new Vector2(transform.position.x, transform.position.y));
 
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position, transform.up * 2.0f);
+        Gizmos.DrawRay(transform.position, _tangentDir * 2.0f);
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, Vector3.back * 2.0f);
     }
-
-    
 }

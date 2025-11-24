@@ -42,6 +42,13 @@ public class DestinationIsland : Island
             {
                 _fill[(int)controller.Player - 1].fillAmount += fillPerTap;
                 InputManager.SetTapToFalse(controller.Player);
+                
+                if (_fill[(int)controller.Player - 1].fillAmount >= 0.98)
+                {
+                    _fill[(int)controller.Player - 1].fillAmount = 1;
+                    GameManager.Instance.WinScreen(controller.name);
+                    break;
+                }
             }
 
             else

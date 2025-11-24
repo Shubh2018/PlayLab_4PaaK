@@ -123,13 +123,18 @@ public class GameManager : MonoBehaviour
             {
                 if (ship.Points > mostPoints.Points) {mostPoints = ship;}
             }
-            InputManager.ResetInput();
-            winner._winnerName = mostPoints.PlayerName;
-            SceneManager.LoadScene("GameEndMenu");
+
         }
         
         _timer -= Time.deltaTime;
         _timerText.text = GetMinAndSec(_timer); 
+    }
+
+    public void WinScreen(string winnerName)
+    {
+        InputManager.ResetInput();
+        winner._winnerName = winnerName;
+        SceneManager.LoadScene("GameEndMenu");
     }
 
     private string GetMinAndSec(float timeInSec)

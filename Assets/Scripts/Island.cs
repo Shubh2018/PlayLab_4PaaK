@@ -25,9 +25,9 @@ public class Island : MonoBehaviour
     public char[] KeyboardSequence => keyboardSequence;
     public int ArrayPointer { get; set; } = 0;
 
-    private List<ShipController> _controllersNearIsland;
+    protected List<ShipController> _controllersNearIsland;
  
-    void Awake()
+    protected virtual void Awake()
     {
         //_borderRenderer = GetComponent<SpriteRenderer>();
         
@@ -93,6 +93,7 @@ public class Island : MonoBehaviour
     {
         AddControllerToList(shipController);
         _shipController = _controllersNearIsland[0];
+        Debug.Log($"ShipCount: {_controllersNearIsland.Count}");
     }
 
     public void AddControllerToList(ShipController shipController)
@@ -162,6 +163,11 @@ public class Island : MonoBehaviour
             UpdateSequenceText(keyboardSequence);
             return;
         }*/
+    }
+
+    public virtual void EnableFillImages()
+    {
+        
     }
 
     private void OnDrawGizmos()

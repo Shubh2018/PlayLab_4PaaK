@@ -102,9 +102,9 @@ public class GameManager : MonoBehaviour
             {
                 if (ship.Points > mostPoints.Points) {mostPoints = ship;}
             }
+            InputManager.ResetInput();
             winner._winnerName = mostPoints.PlayerName;
             SceneManager.LoadScene("GameEndMenu");
-            
         }
         
         _timer -= Time.deltaTime;

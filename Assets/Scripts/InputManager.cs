@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +22,11 @@ public static class InputManager
     
     private static Vector2 _player4Rotation = Vector2.one;
     private static float _launchPlayer4 = 0;
+
+    private static bool _player1Tap = false;
+    private static bool _player2Tap = false;
+    private static bool _player3Tap = false;
+    private static bool _player4Tap = false;
     
     
     //private static 
@@ -41,6 +47,9 @@ public static class InputManager
         _inputActions.Player1.Launch.started += Launch_Player1_Started;
         _inputActions.Player1.Launch.canceled += Launch_Player1_Canceled;
         
+        _inputActions.Player1.Tap.started += Tap_Player1_Started;
+        _inputActions.Player1.Tap.canceled += Tap_Player1_Canceled;
+        
     #endregion
         
     #region Player2 Delegates Subscribe
@@ -49,6 +58,9 @@ public static class InputManager
         
         _inputActions.Player2.Launch.started += Launch_Player2_Started;
         _inputActions.Player2.Launch.canceled += Launch_Player2_Canceled;
+        
+        _inputActions.Player2.Tap.started += Tap_Player2_Started;
+        _inputActions.Player2.Tap.canceled += Tap_Player2_Canceled;
         
     #endregion
     
@@ -59,6 +71,9 @@ public static class InputManager
         _inputActions.Player3.Launch.started += Launch_Player3_Started;
         _inputActions.Player3.Launch.canceled += Launch_Player3_Canceled;
         
+        _inputActions.Player3.Tap.started += Tap_Player3_Started;
+        _inputActions.Player3.Tap.canceled += Tap_Player3_Canceled;
+        
     #endregion
     
     #region Player4 Delegates Subscribe
@@ -67,6 +82,9 @@ public static class InputManager
                 
         _inputActions.Player4.Launch.started += Launch_Player4_Started;
         _inputActions.Player4.Launch.canceled += Launch_Player4_Canceled;
+        
+        _inputActions.Player4.Tap.started += Tap_Player4_Started;
+        _inputActions.Player4.Tap.canceled += Tap_Player4_Canceled;
         
     #endregion
     }
@@ -80,6 +98,9 @@ public static class InputManager
         _inputActions.Player1.Launch.started -= Launch_Player1_Started;
         _inputActions.Player1.Launch.canceled -= Launch_Player1_Canceled;
         
+        _inputActions.Player1.Tap.started -= Tap_Player1_Started;
+        _inputActions.Player1.Tap.canceled -= Tap_Player1_Canceled;
+        
     #endregion
     
     #region Player2 Delegates Unsubscribe
@@ -88,6 +109,9 @@ public static class InputManager
         
         _inputActions.Player2.Launch.started -= Launch_Player2_Started;
         _inputActions.Player2.Launch.canceled -= Launch_Player2_Canceled;
+        
+        _inputActions.Player2.Tap.started -= Tap_Player2_Started;
+        _inputActions.Player2.Tap.canceled -= Tap_Player2_Canceled;
         
     #endregion
     
@@ -98,6 +122,9 @@ public static class InputManager
         _inputActions.Player3.Launch.started -= Launch_Player3_Started;
         _inputActions.Player3.Launch.canceled -= Launch_Player3_Canceled;
         
+        _inputActions.Player3.Tap.started -= Tap_Player3_Started;
+        _inputActions.Player3.Tap.canceled -= Tap_Player3_Canceled;
+        
     #endregion
     
     #region Player4 Delegates Unsubscribe
@@ -106,6 +133,9 @@ public static class InputManager
                 
         _inputActions.Player4.Launch.started -= Launch_Player4_Started;
         _inputActions.Player4.Launch.canceled -= Launch_Player4_Canceled;
+        
+        _inputActions.Player4.Tap.started -= Tap_Player4_Started;
+        _inputActions.Player4.Tap.canceled -= Tap_Player4_Canceled;
         
     #endregion
         
@@ -138,6 +168,48 @@ public static class InputManager
             Player.None => 0.0f
         };
     }
+
+    public static bool GetTapPressed(Player player)
+    {
+        return player switch
+        {
+            Player.Player1 => _player1Tap,
+            Player.Player2 => _player2Tap,
+            Player.Player3 => _player3Tap,
+            Player.Player4 => _player4Tap,
+            Player.None => false,
+        };
+    }
+
+    public static void SetTapToFalse(Player Player)
+    {
+        switch (Player)
+        {
+            case Player.Player1: _player1Tap = false; break;
+            case Player.Player2: _player2Tap = false; break;    
+            case Player.Player3: _player3Tap = false; break;
+            case Player.Player4: _player4Tap = false; break;
+            default: break;
+        }
+    }
+
+    public static void ResetInput()
+    {
+        _player1Tap = false;
+        _player2Tap = false;
+        _player3Tap = false;
+        _player4Tap = false;
+        
+        _player1Rotation = Vector2.zero;
+        _player2Rotation = Vector2.zero;
+        _player3Rotation = Vector2.zero;
+        _player4Rotation = Vector2.zero;
+        
+        _launchPlayer1 = 0;
+        _launchPlayer2 = 0;
+        _launchPlayer3 = 0;
+        _launchPlayer4 = 0;
+    }
     
 #region Player1 Methods
 
@@ -154,6 +226,17 @@ public static class InputManager
     private static void Launch_Player1_Canceled(InputAction.CallbackContext obj)
     {
         _launchPlayer1 = 0;
+    }
+
+
+    private static void Tap_Player1_Started(InputAction.CallbackContext context)
+    {
+        _player1Tap = true;
+    }
+    
+    private static void Tap_Player1_Canceled(InputAction.CallbackContext context)
+    {
+        _player1Tap = false;
     }
     
 #endregion
@@ -175,6 +258,16 @@ public static class InputManager
         _launchPlayer2 = 0;
     }
     
+    private static void Tap_Player2_Started(InputAction.CallbackContext context)
+    {
+        _player2Tap = true;
+    }
+    
+    private static void Tap_Player2_Canceled(InputAction.CallbackContext context)
+    {
+        _player2Tap = false;
+    }
+    
 #endregion
 
 #region Player3 Methods
@@ -194,6 +287,16 @@ public static class InputManager
         _launchPlayer3 = 0;
     }
     
+    private static void Tap_Player3_Started(InputAction.CallbackContext context)
+    {
+        _player3Tap = true;
+    }
+    
+    private static void Tap_Player3_Canceled(InputAction.CallbackContext context)
+    {
+        _player3Tap = false;
+    }
+    
 #endregion
 
 #region Player4 Methods
@@ -211,6 +314,16 @@ public static class InputManager
     private static void Launch_Player4_Canceled(InputAction.CallbackContext obj)
     {
         _launchPlayer4 = 0;
+    }
+    
+    private static void Tap_Player4_Started(InputAction.CallbackContext context)
+    {
+        _player4Tap = true;
+    }
+    
+    private static void Tap_Player4_Canceled(InputAction.CallbackContext context)
+    {
+        _player4Tap = false;
     }
     
 #endregion

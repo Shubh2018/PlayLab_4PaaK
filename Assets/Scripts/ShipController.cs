@@ -120,10 +120,17 @@ public class ShipController : MonoBehaviour
         if (!island) return;
         
         _island = island;
+        
         Vector3 directionVector = transform.position - new Vector3(_island.Center.x, _island.Center.y, 0);
         _angle = Mathf.Atan2(directionVector.y, directionVector.x);
         
         _island.SetShipController(this);
+
+        if (_island is DestinationIsland)
+        {
+            _island = (DestinationIsland)_island;
+            _island.EnableFillImages();
+        }
     }
 
     public void AddConquredIslandToList()
@@ -166,6 +173,4 @@ public class ShipController : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, Vector3.back * 2.0f);
     }
-
-    
 }

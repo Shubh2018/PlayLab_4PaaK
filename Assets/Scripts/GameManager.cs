@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         UpdatePointsText();
-        UpdatePointCounter();
+        //UpdatePointCounter(); // The following method ensured to update points over time depending on amount of conquered islands
         UpdateTime();
     }
 
@@ -57,6 +57,27 @@ public class GameManager : MonoBehaviour
             {
                 newTarget = island;
                 break;
+            }
+        }
+        
+        return newTarget;
+    }
+
+    public Island ReturnClosestIslandOnWallCollision(ShipController ship)
+    {
+        if(ship.TargetIsland) return ship.TargetIsland;
+
+        float tempClosestDistance = 10000f;
+        Island newTarget = null;
+        
+        foreach (Island island in _islands)
+        {
+            float distance = Mathf.Abs(Vector3.Distance(island.Center, ship.transform.position));
+
+            if (distance <= tempClosestDistance)
+            {
+                newTarget = island;
+                tempClosestDistance = distance;
             }
         }
         

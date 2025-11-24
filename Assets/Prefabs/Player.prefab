@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3142626809999499845}
   - component: {fileID: 5754246004559771354}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5976347720098784308}
   - component: {fileID: 611702881870194896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,8 @@ GameObject:
   - component: {fileID: 469364650502092510}
   - component: {fileID: 9187986020903685601}
   - component: {fileID: 2900736975336897543}
-  m_Layer: 0
+  - component: {fileID: -8959396754220558055}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -244,7 +245,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -274,6 +275,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8413738, y: 1.9312884}
   m_EdgeRadius: 0
+--- !u!50 &-8959396754220558055
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5083508555873910602}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6158041141515634984
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3107740439192465126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShipGFX
   m_TagString: Player
   m_Icon: {fileID: 0}

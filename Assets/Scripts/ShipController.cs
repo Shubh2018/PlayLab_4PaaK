@@ -162,6 +162,13 @@ public class ShipController : MonoBehaviour
         _points += addedPoints;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Island closestIsland = GameManager.Instance.ReturnClosestIslandOnWallCollision(this);
+
+        transform.position = closestIsland.transform.position;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

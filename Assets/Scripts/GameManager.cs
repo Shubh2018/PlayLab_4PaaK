@@ -1,7 +1,7 @@
-using System;
 using UnityEngine;
 using TMPro;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance;
 
-    private Island[] _islands;
+    private List<Island> _islands = new List<Island>();
+    public List<Island> Islands => _islands;
 
     private float _pointCounter = 10;
     private float _timer = 150;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _islands = FindObjectsByType<Island>(FindObjectsSortMode.None);
+        _islands = FindObjectsByType<Island>(FindObjectsSortMode.None).ToList();
         _gameEndEvents = GetComponent<GameEndEvents>();
     }
 
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         UpdatePointsText();
         //UpdatePointCounter(); // The following method ensured to update points over time depending on amount of conquered islands
-        UpdateTime();
+        //UpdateTime();
     }
 
     public Island ReturnClosestIsland(ShipController ship)
@@ -110,6 +111,11 @@ public class GameManager : MonoBehaviour
 
             _pointCounter = 5;
         }
+    }
+
+    public void AddIsland(Island island)
+    {
+        _islands.Add(island);
     }
 
     private void UpdateTime()

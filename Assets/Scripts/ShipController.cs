@@ -107,7 +107,8 @@ public class ShipController : MonoBehaviour
 
     private void LeaveIsland()
     {
-        if (InputManager.GetLaunchPressed((_player)) == 0) return;
+        Debug.Log($"{InputManager.GetLaunchPressed(_player) == 0} : {!_conquredIslands.Contains(_island)}");
+        if (InputManager.GetLaunchPressed(_player) == 0 || !_conquredIslands.Contains(_island)) return;
 
         if (!_island) return;
         

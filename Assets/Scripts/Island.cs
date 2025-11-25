@@ -46,7 +46,7 @@ public class Island : MonoBehaviour
         //UpdateSequenceText(KeyboardSequence);
     }
 
-    private void UpdateSequenceText(char[] sequence)
+    protected virtual void UpdateSequenceText(char[] sequence)
     {
         _sequenceText.text = String.Empty;
 
@@ -58,7 +58,7 @@ public class Island : MonoBehaviour
         }
     }
 
-    public void ConquerIsland()
+    public virtual void ConquerIsland()
     {
         if (!_shipController) return;
 

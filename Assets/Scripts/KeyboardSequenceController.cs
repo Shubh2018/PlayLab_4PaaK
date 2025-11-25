@@ -1,16 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class KeyboardSequenceController : MonoBehaviour
 {
-    
-    [SerializeField] Island[] islandArray;
-
     private char[] randomKeyboardSequence = new char[Constants.SequenceLength];
 
     void Start()
     {
-        islandArray = FindObjectsByType<Island>(FindObjectsSortMode.None);
         Keyboard.current.onTextInput += OnTextInput;
     }
 
@@ -22,9 +19,11 @@ public class KeyboardSequenceController : MonoBehaviour
 
     private void OnTextInput(char c)
     {
-        if (islandArray == null) {return;}
+        List<Island> islands = GameManager.Instance.Islands;
         
-        foreach (var island in islandArray)
+        if (islands == null) {return;}
+        
+        foreach (var island in islands)
         {
             if (!island.ShipController) {continue;}
            
@@ -36,7 +35,6 @@ public class KeyboardSequenceController : MonoBehaviour
             if (c == island.KeyboardSequence[island.ArrayPointer])
             {
                 Debug.Log($"Key typed: {c}");
-                
                
                 island.KeyboardSequence[island.ArrayPointer] = ' ';
                 island.SequenceKeyPressed();

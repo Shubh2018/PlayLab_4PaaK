@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _island: {fileID: -6148365421933678925, guid: 577c80b63df048644b67a7a2a441e939, type: 3}
+  _checkpointIsland: {fileID: 757324419184994410, guid: c8e8a3031ce1bdf43a0fe86e3c392a20, type: 3}

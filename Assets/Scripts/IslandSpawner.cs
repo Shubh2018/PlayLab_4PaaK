@@ -3,11 +3,19 @@ using UnityEngine;
 public class IslandSpawner : MonoBehaviour
 {
     [SerializeField] private Island _island;
+    [SerializeField] private Island _checkpointIsland;
 
-    public void SpawnIsland()
+    public void SpawnIsland(int currentLevel)
     {
-        Island island = Instantiate(_island, transform.position, Quaternion.identity);
+        Island island = null;
+        
+        if(currentLevel < GameManager.Instance.IslandLevels - 1)
+            island = _checkpointIsland;
+        else
+            island = _island;
+        
+        Island spawnedIsland = Instantiate(island, transform.position, Quaternion.identity);
         Debug.Log($"{island.ShipController}");
-        GameManager.Instance.AddIsland(island);
+        GameManager.Instance.AddIsland(spawnedIsland);
     }
 }

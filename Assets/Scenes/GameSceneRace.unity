@@ -1305,12 +1305,9 @@ MonoBehaviour:
   - {fileID: 1969691556}
   - {fileID: 1776216966}
   - {fileID: 1278329900}
-  _pointTexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _pointTexts: []
   _timerText: {fileID: 0}
+  _islandLevels: 3
   winner: {fileID: 11400000, guid: 6e5df6ca8fdcfd94b86f82f908a7d321, type: 2}
 --- !u!4 &1264150890
 Transform:

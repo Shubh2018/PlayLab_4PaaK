@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text _timerText;
     private GameEndEvents _gameEndEvents;
+    
+    [SerializeField] private int _islandLevels = 4;
+    public int IslandLevels => _islandLevels;
 
     [SerializeField] private WinnerNameSO winner;
 
@@ -22,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private float _pointCounter = 10;
     private float _timer = 150;
-
+    
     private void Awake()
     {
         if (_instance == null)
@@ -92,6 +95,8 @@ public class GameManager : MonoBehaviour
 
     private void UpdatePointsText()
     {
+        if (_pointTexts.Length <= 0) return;
+        
         for (int i = 0; i < _ships.Length; i++)
         {
             _pointTexts[i].text = $"{_ships[i].Points}";

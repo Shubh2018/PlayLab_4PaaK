@@ -10,6 +10,8 @@ public class ShipController : MonoBehaviour
     [SerializeField] private InputManager.Player _player;
     [SerializeField] private SpriteRenderer _shipGFX;
     
+    public int CurrentLevel { private set; get; } = 0;
+    
     public ShipController() { _points = 0; }
 
     public InputManager.Player Player => _player;
@@ -170,6 +172,14 @@ public class ShipController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         transform.position = mostRecentIsland.transform.position;
+    }
+    
+    public void NextLevel()
+    {
+        if (CurrentLevel >= GameManager.Instance.IslandLevels - 1)
+            return;
+        
+        CurrentLevel += 1;
     }
 
     private void OnDrawGizmos()

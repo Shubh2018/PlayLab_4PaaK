@@ -9,7 +9,7 @@ public class IslandSpawner : MonoBehaviour
     {
         Island island = null;
         
-        if(currentLevel < GameManager.Instance.IslandLevels - 1)
+        if(currentLevel < GameManager.Instance.IslandCount)
             island = _checkpointIsland;
         else
             island = _island;

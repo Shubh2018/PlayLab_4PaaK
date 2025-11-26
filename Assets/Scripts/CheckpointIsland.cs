@@ -16,11 +16,10 @@ public class CheckpointIsland : Island
         if (_islandSpawner.Length <= 0)
             return;
         
-        ShipController.NextLevel();
-
+        /*
         foreach (var spawner in _islandSpawner)
         {
             spawner.SpawnIsland(ShipController.CurrentLevel);
-        }
+        }*/
     }
 }

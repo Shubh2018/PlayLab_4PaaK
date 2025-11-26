@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _timerText;
     private GameEndEvents _gameEndEvents;
     
-    [SerializeField] private int _islandLevels = 4;
-    public int IslandLevels => _islandLevels;
+    [SerializeField] private int _islandCount = 4;
+    public int IslandCount => _islandCount;
 
     [SerializeField] private WinnerNameSO winner;
 

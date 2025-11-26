@@ -11,7 +11,7 @@ public class Gate : MonoBehaviour
 
     void UpdatePlayerConquerCount()
     {
-        if (ship.ConqueredIslands.Count == 2)
+        if (ship.CurrentIslandCount >= GameManager.Instance.IslandCount)
         {
             gameObject.SetActive(false);
         }

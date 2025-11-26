@@ -70,6 +70,8 @@ public class Island : MonoBehaviour
 
         keyboardSequence = Array.Empty<char>();
         UpdateSequenceText(keyboardSequence);
+        
+        ShipController.NextLevel();
 
         Debug.Log($"{this.name} Conquered by {_currentlyControlledBy.name}");
 

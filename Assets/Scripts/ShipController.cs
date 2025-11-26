@@ -10,7 +10,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private InputManager.Player _player;
     [SerializeField] private SpriteRenderer _shipGFX;
     
-    public int CurrentLevel { private set; get; } = 0;
+    public int CurrentIslandCount { private set; get; } = 0;
     
     public ShipController() { _points = 0; }
 
@@ -112,7 +112,7 @@ public class ShipController : MonoBehaviour
     private void LeaveIsland()
     {
         Debug.Log($"{InputManager.GetLaunchPressed(_player) == 0} : {!_conquredIslands.Contains(_island)}");
-        if (InputManager.GetLaunchPressed(_player) == 0 || !_conquredIslands.Contains(_island)) return;
+        if (InputManager.GetLaunchPressed(_player) == 0) return;
 
         if (!_island) return;
         
@@ -176,10 +176,11 @@ public class ShipController : MonoBehaviour
     
     public void NextLevel()
     {
-        if (CurrentLevel >= GameManager.Instance.IslandLevels - 1)
+        Debug.Log($"{CurrentIslandCount} : {GameManager.Instance.IslandCount}");
+        if (CurrentIslandCount >= GameManager.Instance.IslandCount)
             return;
         
-        CurrentLevel += 1;
+        CurrentIslandCount += 1;
     }
 
     private void OnDrawGizmos()

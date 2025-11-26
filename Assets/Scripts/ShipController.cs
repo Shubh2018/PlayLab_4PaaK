@@ -170,7 +170,7 @@ public class ShipController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   
         transform.position = mostRecentIsland.transform.position;
     }
     

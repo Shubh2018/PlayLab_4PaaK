@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 8625910648762386034}
   - component: {fileID: 676239494304339926}
   m_Layer: 0
-  m_Name: Island
+  m_Name: IslandRace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2946451160674997546}
@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdce684f26cfd6418bb204054c8915a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 1.5
+  _radius: 0.8
   keyboardSequenceController: {fileID: 0}
   keyboardSequence: 
   _sequenceText: {fileID: 6146304132523644180}

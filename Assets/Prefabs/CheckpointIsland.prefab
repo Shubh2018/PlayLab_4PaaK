@@ -695,7 +695,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.6}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7649032896290607693
@@ -753,8 +753,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.3
-  m_fontSizeBase: 0.3
+  m_fontSize: 0.5
+  m_fontSizeBase: 0.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -805,6 +805,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5688151578356962152}
     m_Modifications:
+    - target: {fileID: 483106261833089663, guid: e71d8759f0d4acf469e7e7626cb01486, type: 3}
+      propertyPath: _checkpointIsland
+      value: 
+      objectReference: {fileID: 757324419184994410}
     - target: {fileID: 5256643420356576182, guid: e71d8759f0d4acf469e7e7626cb01486, type: 3}
       propertyPath: m_Name
       value: Spawner

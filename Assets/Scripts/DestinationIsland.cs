@@ -56,7 +56,7 @@ public class DestinationIsland : Island
                 if (_fill[(int)controller.Player - 1].fillAmount <= 0.0f)
                     continue;
             
-                _fill[(int)controller.Player - 1].fillAmount -= fillPerTap * Time.deltaTime;
+                _fill[(int)controller.Player - 1].fillAmount -= decreasePerSec * Time.deltaTime;
             }
         }
     }

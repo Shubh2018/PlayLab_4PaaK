@@ -204,10 +204,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2870990481051320094, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
-      propertyPath: _radius
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2870990481051320094, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
       propertyPath: keyboardSequenceController
       value: 
       objectReference: {fileID: 1483283961}

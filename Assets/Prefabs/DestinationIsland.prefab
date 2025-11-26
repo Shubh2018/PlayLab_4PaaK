@@ -1196,7 +1196,7 @@ MonoBehaviour:
   - {fileID: 258278414549650612}
   - {fileID: 6233495885032133718}
   fillPerTap: 0.1
-  decreasePerSec: 0.01
+  decreasePerSec: 0.4
 --- !u!1 &7959084411407037955
 GameObject:
   m_ObjectHideFlags: 0

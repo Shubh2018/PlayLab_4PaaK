@@ -10,7 +10,7 @@ public class InteractionTest : MonoBehaviour
 
     private float fillPerTap = 0.1f;
 
-    private float decreasePerSec = 0.01f;
+    private float decreasePerSec = 0.4f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,7 +31,7 @@ public class InteractionTest : MonoBehaviour
             if (_fill.fillAmount <= 0.0f)
                 return;
             
-            _fill.fillAmount -= fillPerTap * Time.deltaTime;
+            _fill.fillAmount -= decreasePerSec * Time.deltaTime;
         }
     }
 

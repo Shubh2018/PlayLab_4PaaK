@@ -33,6 +33,8 @@ public class ShipController : MonoBehaviour
     public List<Island> ConqueredIslands => _conquredIslands;
 
     public Island TargetIsland => _island;
+    
+    private Island mostRecentIsland;
 
     private Vector3 _dir;
 
@@ -132,6 +134,8 @@ public class ShipController : MonoBehaviour
             _island = (DestinationIsland)_island;
             _island.EnableFillImages();
         }
+
+        mostRecentIsland = island;
     }
 
     public void AddConquredIslandToList()
@@ -165,9 +169,7 @@ public class ShipController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Island closestIsland = GameManager.Instance.ReturnClosestIslandOnWallCollision(this);
-
-        transform.position = closestIsland.transform.position;
+        transform.position = mostRecentIsland.transform.position;
     }
 
     private void OnDrawGizmos()

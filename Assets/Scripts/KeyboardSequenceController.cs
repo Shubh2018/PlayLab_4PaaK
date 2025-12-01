@@ -19,6 +19,8 @@ public class KeyboardSequenceController : MonoBehaviour
 
     private void OnTextInput(char c)
     {
+        c = char.ToLower(c);
+        
         List<Island> islands = GameManager.Instance.Islands;
         
         if (islands == null) {return;}

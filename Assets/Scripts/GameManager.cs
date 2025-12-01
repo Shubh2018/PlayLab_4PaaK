@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
         
         foreach (Island island in _islands)
         {
+            if (island == ship.MostRecentIsland) continue;
+            
             float distance = Mathf.Abs(Vector3.Distance(island.Center, ship.transform.position));
 
             if (distance < island.Axes.x || distance < island.Axes.y)

@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.Mathematics;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class ShipController : MonoBehaviour
 {
@@ -37,6 +40,7 @@ public class ShipController : MonoBehaviour
     public Island TargetIsland => _island;
     
     private Island mostRecentIsland;
+    public Island MostRecentIsland => mostRecentIsland;
 
     private Vector3 _dir;
 
@@ -140,14 +144,14 @@ public class ShipController : MonoBehaviour
         
         Vector2 positionOnEllipse = center + new Vector2(ellipseAxis.x * Mathf.Cos(_angle), ellipseAxis.y * Mathf.Sin(_angle));
         transform.position = positionOnEllipse;
-        
-        Vector3 centerDir = positionOnEllipse - ellipseAxis;
 
-        _tangentDir = Vector3.Cross(centerDir, Vector3.back) *
-                      angularSpeed;
+        float tangentX = -ellipseAxis.x * Mathf.Sin(_angle);
+        float tangentY = ellipseAxis.y * Mathf.Cos(_angle);
+
+        _tangentDir = new Vector3(tangentX, tangentY, 0.0f);
         
         float angleInDegrees = _angle * Mathf.Rad2Deg;
-        _shipGFX.transform.localScale = new Vector2(FlipShip() * FlipShipByPosition(_angle), 1f);
+        _shipGFX.transform.localScale = new Vector2(FlipShip() * FlipShipByPosition(angleInDegrees), 1f);
     }
 
     private void LeaveIsland()
@@ -157,6 +161,7 @@ public class ShipController : MonoBehaviour
 
         if (!_island) return;
         
+        InputManager.SetLaunchPressedFalse(_player);
         _island.UnsetShipController(this);
         _island = null;
     }
@@ -211,8 +216,12 @@ public class ShipController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {   
-        transform.position = mostRecentIsland.transform.position;
+    {
+        if (collision.transform.CompareTag(Constants.WallTag))
+        {
+            transform.position = mostRecentIsland.transform.position;
+            SetIsland(mostRecentIsland);
+        }
     }
     
     public void NextLevel()
@@ -233,7 +242,7 @@ public class ShipController : MonoBehaviour
     {
         float scale = 1;
         
-        if (angle is >= 0 and < Mathf.PI)
+        if (angle is >= 0 and < 180.0f)
             scale = -1;
         
         return scale;
@@ -242,7 +251,8 @@ public class ShipController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, _island. - new Vector2(transform.position.x, transform.position.y));
+        Gizmos.DrawRay(transform.position, _island.Center - new Vector2(_island.Axes.x / 2, 0) - new Vector2(transform.position.x, transform.position.y));
+        Gizmos.DrawRay(transform.position, _island.Center + new Vector2(_island.Axes.x / 2, 0) - new Vector2(transform.position.x, transform.position.y));
 
         Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, _tangentDir * 2.0f);

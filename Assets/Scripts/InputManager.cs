@@ -169,6 +169,21 @@ public static class InputManager
         };
     }
 
+    public static void SetLaunchPressedFalse(Player player)
+    {
+        switch(player)
+        {
+            case Player.Player1 : _launchPlayer1 = 0;
+                break;
+            case Player.Player2 : _launchPlayer2 = 0;
+                break;
+            case Player.Player3 : _launchPlayer3 = 0;
+                break;
+            case Player.Player4 : _launchPlayer4 = 0;
+                break;
+        };
+    }
+
     public static bool GetTapPressed(Player player)
     {
         return player switch

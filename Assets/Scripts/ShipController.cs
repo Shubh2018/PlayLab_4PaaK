@@ -148,7 +148,7 @@ public class ShipController : MonoBehaviour
         float tangentX = -ellipseAxis.x * Mathf.Sin(_angle);
         float tangentY = ellipseAxis.y * Mathf.Cos(_angle);
 
-        _tangentDir = new Vector3(tangentX, tangentY, 0.0f);
+        _tangentDir = Vector3.Normalize(new Vector3(tangentX, tangentY, 0.0f) * InputManager.GetPlayerRotationDirection(_player));
         
         float angleInDegrees = _angle * Mathf.Rad2Deg;
         _shipGFX.transform.localScale = new Vector2(FlipShip() * FlipShipByPosition(angleInDegrees), 1f);

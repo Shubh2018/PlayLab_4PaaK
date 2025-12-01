@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ public class GameManager : MonoBehaviour
         {
             float distance = Mathf.Abs(Vector3.Distance(island.Center, ship.transform.position));
 
-            if (distance <= island.Radius + 0.01f)
+            if (distance < island.Axes.x || distance < island.Axes.y)
             {
                 newTarget = island;
                 break;
@@ -134,7 +135,9 @@ public class GameManager : MonoBehaviour
             {
                 if (ship.Points > mostPoints.Points) {mostPoints = ship;}
             }
-
+            winner._winnerName = mostPoints.PlayerName;
+            SceneManager.LoadScene("GameEndMenu");
+            
         }
         
         _timer -= Time.deltaTime;

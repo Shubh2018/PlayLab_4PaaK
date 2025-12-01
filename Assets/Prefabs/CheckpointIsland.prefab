@@ -596,6 +596,7 @@ MonoBehaviour:
   _sequenceText: {fileID: 6146304132523644180}
   _border: {fileID: 8210283303890671866}
   _borderRenderer: {fileID: 5016972053386694682}
+  _rotationAxis: {x: 1, y: 0.5}
   _islandSpawner:
   - {fileID: 4250676428863651591}
 --- !u!58 &8625910648762386034

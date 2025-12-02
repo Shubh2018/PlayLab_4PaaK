@@ -7,7 +7,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class ShipController : MonoBehaviour
 {
-    [SerializeField] private Island _island;
+    private Island _island;
     [SerializeField] private float _angularSpeed = 180.0f;
     [SerializeField] private float _speed = 10.0f;
     [SerializeField] private InputManager.Player _player;
@@ -43,13 +43,6 @@ public class ShipController : MonoBehaviour
     public Island MostRecentIsland => mostRecentIsland;
 
     private Vector3 _dir;
-
-    void Start()
-    {
-        transform.position = _island.Center;
-        
-        SetIsland(_island);
-    }
 
     private void Update()
     {
@@ -107,6 +100,8 @@ public class ShipController : MonoBehaviour
 
     private void EllipticalMovement()
     {
+        if (_island is DestinationIsland) return;
+            
         if (!_island)
         {
             transform.Translate(Vector3.Normalize(_tangentDir) * (_speed * Time.deltaTime), Space.World);

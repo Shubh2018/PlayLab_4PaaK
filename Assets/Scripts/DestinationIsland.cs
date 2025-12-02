@@ -12,9 +12,9 @@ public class DestinationIsland : Island
     [SerializeField] private float fillPerTap = 0.1f;
     [SerializeField] private float decreasePerSec = 0.01f;
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         
         _fill = new Image[_fillImages.Length];
         

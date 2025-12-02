@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Island : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class Island : MonoBehaviour
 
     protected List<ShipController> _controllersNearIsland;
  
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         //_borderRenderer = GetComponent<SpriteRenderer>();
         
@@ -39,8 +40,9 @@ public class Island : MonoBehaviour
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
 
         keyboardSequence = Array.Empty<char>();
-        UpdateSequenceText(keyboardSequence);
         UpdateBorderSize();
+
+        StartCoroutine(SetSequence());
     }
 
     void Update()
@@ -48,16 +50,25 @@ public class Island : MonoBehaviour
         //UpdateSequenceText(KeyboardSequence);
     }
 
-    protected virtual void UpdateSequenceText(char[] sequence)
+    public IEnumerator SetSequence()
     {
-        _sequenceText.text = String.Empty;
+        yield return new WaitWhile(() => !GameManager.Instance.StartGame);
+        
+        UpdateSequenceText(keyboardSequence);
+    }
 
-        if (sequence.Length == 0) return;
-
-        foreach (char c in sequence)
-        {
-            _sequenceText.text += $"{c} ";
-        }
+    private void UpdateSequenceText(char[] sequence)
+    {
+        GameManager.Instance.SetSeqeunce(_shipController, sequence);
+        
+        // _sequenceText.text = String.Empty;
+        //
+        // if (sequence.Length == 0) return;
+        //
+        // foreach (char c in sequence)
+        // {
+        //     _sequenceText.text += $"{c} ";
+        // }
     }
 
     public virtual void ConquerIsland()
@@ -82,7 +93,7 @@ public class Island : MonoBehaviour
 
     public void SequenceKeyPressed()
     {
-        UpdateSequenceText(KeyboardSequence);
+        UpdateSequenceText(keyboardSequence);
     }
     
     public void UpdateBorderSize()
@@ -114,12 +125,16 @@ public class Island : MonoBehaviour
 
     public void CanToggleSequence()
     {
+        Debug.Log("CanToggleSequence Called!");
+        
         if (_controllersNearIsland.Count == 1)
         {
             if(_currentlyControlledBy == _controllersNearIsland[0])
                 keyboardSequence = Array.Empty<char>();
             else
                 keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+            
+            Debug.Log($"CanToggleSequence Called In IF! : {keyboardSequence.Length}");
         }
         else
             keyboardSequence = Array.Empty<char>();

@@ -4,9 +4,9 @@ public class CheckpointIsland : Island
 {
     [SerializeField] private IslandSpawner[] _islandSpawner;
     
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
     }
 
     public override void ConquerIsland()

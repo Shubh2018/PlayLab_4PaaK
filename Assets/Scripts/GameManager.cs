@@ -81,10 +81,16 @@ public class GameManager : MonoBehaviour
 
         foreach (StartPositions position in startPosition)
         {
+            position.SequencePanel.ToggleText(false);
             position.Player.SetIsland(position.StartingIsland);
         }
 
         yield return new WaitUntil(() => StartGame);
+        
+        foreach (StartPositions position in startPosition)
+        {
+            position.SequencePanel.ToggleText(true);
+        }
 
         yield return new WaitForSeconds(1f);
         

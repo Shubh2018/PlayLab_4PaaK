@@ -106,8 +106,10 @@ public class Island : MonoBehaviour
 
     public void SetShipController(ShipController shipController)
     {
-        AddControllerToList(shipController);
-        _shipController = _controllersNearIsland[0];
+        //AddControllerToList(shipController);
+        _shipController = shipController;
+        keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
+        UpdateSequenceText(keyboardSequence);
         Debug.Log($"ShipCount: {_controllersNearIsland.Count}");
     }
 

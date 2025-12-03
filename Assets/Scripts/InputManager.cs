@@ -28,8 +28,8 @@ public static class InputManager
     private static bool _player3Tap = false;
     private static bool _player4Tap = false;
 
-    private static float paused = 0f;
-    public static float Paused => paused;
+    private static bool paused = false;
+    public static bool Paused => paused;
 
 
     //private static 
@@ -97,12 +97,13 @@ public static class InputManager
 
     private static void Cancel_canceled(InputAction.CallbackContext context)
     {
-        paused = 0f;
+        
     }
 
     private static void Cancel_started(InputAction.CallbackContext obj)
     {
-        paused = obj.ReadValue<float>();
+        paused = !paused;
+        GameManager.Instance.TogglePauseScreen(paused);
     }
 
     public static void DisableInput()
@@ -245,7 +246,7 @@ public static class InputManager
         _launchPlayer3 = 0;
         _launchPlayer4 = 0;
 
-        paused = 0;
+        paused = false;
     }
     
 #region Player1 Methods

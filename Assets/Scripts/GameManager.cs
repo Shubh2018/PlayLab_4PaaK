@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private UIDocument _pauseScreen;
 
-    private bool paused = false;
-
     private float _pointCounter = 10;
     private float _timer = 150;
     
@@ -48,14 +46,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        TogglePauseScreen(InputManager.Paused);
-        if (InputManager.Paused != 0 && paused)
-        {
-            return;
-        } 
         UpdatePointsText();
-        
-        
         //UpdatePointCounter(); // The following method ensured to update points over time depending on amount of conquered islands
         //UpdateTime();
     }
@@ -173,16 +164,8 @@ public class GameManager : MonoBehaviour
         return $"{min:00} : {sec:00}";
     }
 
-    void TogglePauseScreen (float toggle)
+    public void TogglePauseScreen (bool paused)
     {
-        if (toggle != 0)
-        {
-            paused = true;
-        }
-        else
-        {
-            paused = false;
-        }
         _pauseScreen.gameObject.SetActive(paused);
     }
 }

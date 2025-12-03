@@ -27,8 +27,11 @@ public static class InputManager
     private static bool _player2Tap = false;
     private static bool _player3Tap = false;
     private static bool _player4Tap = false;
-    
-    
+
+    private static float paused = 0f;
+    public static float Paused => paused;
+
+
     //private static 
 
     public static void EnableInput()
@@ -39,8 +42,11 @@ public static class InputManager
         _inputActions.Player2.Enable();
         _inputActions.Player3.Enable();
         _inputActions.Player4.Enable();
-        
-    #region Player1 Delegates Subscribe
+        _inputActions.UI.Enable();
+        _inputActions.UI.Cancel.started += Cancel_started;
+        //_inputActions.UI.Cancel.canceled += Cancel_canceled;
+
+        #region Player1 Delegates Subscribe
 
         _inputActions.Player1.ShipControls_Rotation.started += ShipControls_Player1_Rotation_Started;
 
@@ -87,6 +93,16 @@ public static class InputManager
         _inputActions.Player4.Tap.canceled += Tap_Player4_Canceled;
         
     #endregion
+    }
+
+    private static void Cancel_canceled(InputAction.CallbackContext context)
+    {
+        paused = 0f;
+    }
+
+    private static void Cancel_started(InputAction.CallbackContext obj)
+    {
+        paused = obj.ReadValue<float>();
     }
 
     public static void DisableInput()
@@ -143,6 +159,10 @@ public static class InputManager
         _inputActions.Player2.Disable();
         _inputActions.Player3.Disable();
         _inputActions.Player4.Disable();
+        _inputActions.UI.Cancel.started -= Cancel_started;
+        //_inputActions.UI.Cancel.canceled -= Cancel_canceled;
+        _inputActions.UI.Disable();
+
     }
 
     public static float GetPlayerRotationDirection(Player Player)
@@ -224,6 +244,8 @@ public static class InputManager
         _launchPlayer2 = 0;
         _launchPlayer3 = 0;
         _launchPlayer4 = 0;
+
+        paused = 0;
     }
     
 #region Player1 Methods

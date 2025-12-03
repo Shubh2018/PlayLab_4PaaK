@@ -29,8 +29,6 @@ public class ShipController : MonoBehaviour
     [SerializeField] private Color _teamColor;
     public Color TeamColor => _teamColor;
 
-    [SerializeField] private CannonController _cannon;
-
     [SerializeField] private string _playerName;
     public string PlayerName => _playerName;
 

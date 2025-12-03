@@ -1264,7 +1264,7 @@ PrefabInstance:
     - target: {fileID: 4746320292475554214, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
       propertyPath: _island
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1863206272}
     - target: {fileID: 4746320292475554214, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
       propertyPath: _player
       value: 1
@@ -1917,6 +1917,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5688151578356962152, guid: c8e8a3031ce1bdf43a0fe86e3c392a20, type: 3}
   m_PrefabInstance: {fileID: 1041895726}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &967899926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 967899928}
+  - component: {fileID: 967899927}
+  m_Layer: 5
+  m_Name: PauseScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &967899927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967899926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 6f95d353f64fb704f8f83ba60ee7abc5, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 2147ae184206d194bbb1beda7676c9ee, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!4 &967899928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967899926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &988871732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2472,7 +2523,6 @@ GameObject:
   - component: {fileID: 1217965024}
   - component: {fileID: 1217965026}
   - component: {fileID: 1217965025}
-  - component: {fileID: 1217965027}
   m_Layer: 5
   m_Name: Player1Sequence
   m_TagString: Untagged
@@ -2491,13 +2541,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1775760796}
+  m_Children: []
   m_Father: {fileID: 1292431794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 75, y: -25}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217965025
@@ -2538,20 +2587,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217965023}
   m_CullTransparentMesh: 1
---- !u!114 &1217965027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1217965023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4764ddf6bce4661478e7cd285bf3f433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sequenceText: {fileID: 1775760797}
-  _player: 1
 --- !u!1001 &1230527589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2712,27 +2747,8 @@ MonoBehaviour:
   _ships: []
   _pointTexts: []
   _timerText: {fileID: 0}
-  _countdownText: {fileID: 421459756}
   _islandCount: 4
   winner: {fileID: 0}
-  startPosition:
-  - Player: {fileID: 577091841}
-    StartingIsland: {fileID: 1863206272}
-    SequencePanel: {fileID: 1217965027}
-  - Player: {fileID: 1969691556}
-    StartingIsland: {fileID: 2019667709}
-    SequencePanel: {fileID: 1907037136}
-  - Player: {fileID: 1776216966}
-    StartingIsland: {fileID: 833020615}
-    SequencePanel: {fileID: 2055317552}
-  - Player: {fileID: 1278329900}
-    StartingIsland: {fileID: 292267319}
-    SequencePanel: {fileID: 1327243703}
-  _sequences:
-  - {fileID: 1217965027}
-  - {fileID: 1907037136}
-  - {fileID: 2055317552}
-  - {fileID: 1327243703}
 --- !u!4 &1264150890
 Transform:
   m_ObjectHideFlags: 0
@@ -2799,7 +2815,7 @@ PrefabInstance:
     - target: {fileID: 4746320292475554214, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: _island
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 292267319}
     - target: {fileID: 4746320292475554214, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: _player
       value: 4
@@ -2980,7 +2996,6 @@ GameObject:
   - component: {fileID: 1327243700}
   - component: {fileID: 1327243702}
   - component: {fileID: 1327243701}
-  - component: {fileID: 1327243703}
   m_Layer: 5
   m_Name: Player4Sequence
   m_TagString: Untagged
@@ -2999,13 +3014,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 292655254}
+  m_Children: []
   m_Father: {fileID: 1292431794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -75, y: -25}
+  m_AnchoredPosition: {x: -50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327243701
@@ -3046,20 +3060,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327243699}
   m_CullTransparentMesh: 1
---- !u!114 &1327243703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327243699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4764ddf6bce4661478e7cd285bf3f433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sequenceText: {fileID: 292655255}
-  _player: 4
 --- !u!1001 &1337735236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3573,7 +3573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1613382293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3632,7 +3632,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3650,7 +3650,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1292431794}
-  - {fileID: 82724991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4124,7 +4123,7 @@ PrefabInstance:
     - target: {fileID: 4746320292475554214, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
       propertyPath: _island
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 833020615}
     - target: {fileID: 4746320292475554214, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
       propertyPath: _player
       value: 3
@@ -4385,7 +4384,6 @@ GameObject:
   - component: {fileID: 1907037133}
   - component: {fileID: 1907037135}
   - component: {fileID: 1907037134}
-  - component: {fileID: 1907037136}
   m_Layer: 5
   m_Name: Player2Sequence
   m_TagString: Untagged
@@ -4404,13 +4402,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2117786408}
+  m_Children: []
   m_Father: {fileID: 1292431794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 75, y: 25}
+  m_AnchoredPosition: {x: 50, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1907037134
@@ -4451,20 +4448,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907037132}
   m_CullTransparentMesh: 1
---- !u!114 &1907037136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907037132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4764ddf6bce4661478e7cd285bf3f433, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sequenceText: {fileID: 2117786409}
-  _player: 2
 --- !u!4 &1909192885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5688151578356962152, guid: c8e8a3031ce1bdf43a0fe86e3c392a20, type: 3}
@@ -4753,7 +4736,7 @@ PrefabInstance:
     - target: {fileID: 4746320292475554214, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: _island
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2019667709}
     - target: {fileID: 4746320292475554214, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: _player
       value: 2
@@ -4969,7 +4952,6 @@ GameObject:
   - component: {fileID: 2055317549}
   - component: {fileID: 2055317551}
   - component: {fileID: 2055317550}
-  - component: {fileID: 2055317552}
   m_Layer: 5
   m_Name: Player3Sequence
   m_TagString: Untagged
@@ -4988,13 +4970,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1082164177}
+  m_Children: []
   m_Father: {fileID: 1292431794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -75, y: 25}
+  m_AnchoredPosition: {x: -50, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055317550
@@ -5207,3 +5188,4 @@ SceneRoots:
   - {fileID: 1278329899}
   - {fileID: 1613382296}
   - {fileID: 1116462460}
+  - {fileID: 967899928}

@@ -4,6 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private List<Island> _islands = new List<Island>();
     public List<Island> Islands => _islands;
+
+    [SerializeField] private UIDocument _pauseScreen;
 
     private float _pointCounter = 10;
     private float _timer = 150;
@@ -223,6 +226,11 @@ public class GameManager : MonoBehaviour
                 position.SequencePanel.SetText(sequence);
             }
         }
+    }
+
+    public void TogglePauseScreen (bool paused)
+    {
+        _pauseScreen.gameObject.SetActive(paused);
     }
 }
 

@@ -39,16 +39,26 @@ public class GameManager : MonoBehaviour
     public bool StartGame { private set; get; } = false;
     private float startUpTime = 0;
 
+    private Button _resumeButton;
+    private Button _mainMenuButton;
+
     private void Awake()
     {
         if (_instance == null)
             _instance = this;
 
         InputManager.EnableInput();
+
+        
+
     }
 
     private void Start()
-    {
+    {        
+        Debug.Log("Starting to setup buttons");
+        
+
+        TogglePauseScreen(false);  
         startUpTime = Constants.CountDown + 1;
         StartCoroutine(StartGameCoroutine(Constants.CountDown));
     }
@@ -60,7 +70,7 @@ public class GameManager : MonoBehaviour
             startUpTime -= Time.deltaTime;
             
             _countdownText.text = ((int)startUpTime).ToString();
-            Debug.Log($"Start Up Time: {startUpTime}");
+            //Debug.Log($"Start Up Time: {startUpTime}");
 
             if (startUpTime < 1)
             {
@@ -69,10 +79,22 @@ public class GameManager : MonoBehaviour
             }
         }
         
+
+
         UpdatePointsText();
         //UpdatePointCounter(); // The following method ensured to update points over time depending on amount of conquered islands
         //UpdateTime();
     }
+
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            Debug.Log("Game lost focus → Pausing");
+            TogglePauseScreen(true);
+        }
+    }
+
 
     private IEnumerator StartGameCoroutine(float startUpTime)
     {
@@ -231,6 +253,26 @@ public class GameManager : MonoBehaviour
     public void TogglePauseScreen (bool paused)
     {
         _pauseScreen.gameObject.SetActive(paused);
+    }
+
+    public void SetupPauseMenuButtons()
+    {
+        _resumeButton = _pauseScreen.rootVisualElement.Q<Button>("ResumeGame");
+        _mainMenuButton = _pauseScreen.rootVisualElement.Q<Button>("MainMenu");
+
+        _resumeButton.RegisterCallback<ClickEvent>(OnResumePressed);
+        _mainMenuButton.RegisterCallback<ClickEvent>(OnMainMenuPressed);
+    }
+
+    private void OnResumePressed(ClickEvent e)
+    {
+        Debug.Log($"Resume Pressed!");
+        TogglePauseScreen(false);
+        InputManager.SetPaused();
+    }
+    private void OnMainMenuPressed(ClickEvent e)
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
 

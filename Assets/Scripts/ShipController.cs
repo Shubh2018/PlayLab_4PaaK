@@ -44,6 +44,7 @@ public class ShipController : MonoBehaviour
 
     private void Update()
     {
+        if (InputManager.Paused) return;
         //CircleIsland();
         EllipticalMovement();
         LeaveIsland();
@@ -149,7 +150,7 @@ public class ShipController : MonoBehaviour
 
     private void LeaveIsland()
     {
-        Debug.Log($"{InputManager.GetLaunchPressed(_player) == 0} : {!_conquredIslands.Contains(_island)}");
+        //Debug.Log($"{InputManager.GetLaunchPressed(_player) == 0} : {!_conquredIslands.Contains(_island)}");
         if (InputManager.GetLaunchPressed(_player) == 0) return;
 
         if (!_island) return;

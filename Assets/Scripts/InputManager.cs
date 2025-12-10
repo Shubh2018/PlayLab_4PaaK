@@ -32,6 +32,8 @@ public static class InputManager
     public static bool Paused => paused;
 
 
+
+
     //private static 
 
     public static void EnableInput()
@@ -107,7 +109,7 @@ public static class InputManager
     }
 
     public static void DisableInput()
-    {
+    { 
     #region Player1 Delegates Unsubscribe
     
         _inputActions.Player1.ShipControls_Rotation.started -= ShipControls_Player1_Rotation_Started;
@@ -249,6 +251,16 @@ public static class InputManager
         paused = false;
     }
     
+    public static void SetPaused()
+    {
+        if (paused)
+        {
+            paused = false;
+        }
+
+    }
+
+
 #region Player1 Methods
 
     private static void ShipControls_Player1_Rotation_Started(InputAction.CallbackContext obj)

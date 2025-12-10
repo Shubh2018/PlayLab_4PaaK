@@ -19,6 +19,8 @@ public class KeyboardSequenceController : MonoBehaviour
 
     private void OnTextInput(char c)
     {
+        if (InputManager.Paused) return;
+
         c = char.ToLower(c);
         
         List<Island> islands = GameManager.Instance.Islands;
@@ -73,7 +75,7 @@ public class KeyboardSequenceController : MonoBehaviour
                 Constants.KeyboardSequenceOptions[Random.Range(0, Constants.KeyboardSequenceOptions.Length)];
         }
 
-        Debug.Log("Random sequence: " + new string(randomKeyboardSequence));
+        //Debug.Log("Random sequence: " + new string(randomKeyboardSequence));
 
         return randomKeyboardSequence;
     }

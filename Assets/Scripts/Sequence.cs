@@ -19,4 +19,9 @@ public class Sequence : MonoBehaviour
             _sequenceText.text += $"{c} ";
         }
     }
+
+    public void ToggleText(bool toggle)
+    {
+        _sequenceText.gameObject.SetActive(toggle);
+    }
 }

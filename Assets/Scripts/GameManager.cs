@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
         return $"{min:00} : {sec:00}";
     }
 
-    public void SetSeqeunce(ShipController player, char[] sequence)
+    public void SetSequence(ShipController player, char[] sequence)
     {
         foreach (StartPositions position in startPosition)
         {

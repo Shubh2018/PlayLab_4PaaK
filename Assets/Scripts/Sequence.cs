@@ -1,11 +1,15 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 
 public class Sequence : MonoBehaviour
 {
     [SerializeField] private TMP_Text _sequenceText;
     [SerializeField] private InputManager.Player _player;
+
+
     public InputManager.Player Player => _player;
 
     public void SetText(char[] sequence)

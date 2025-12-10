@@ -88,10 +88,12 @@ public class GameManager : MonoBehaviour
 
     void OnApplicationFocus(bool hasFocus)
     {
+        InputManager.TogglePause(!hasFocus);
+        TogglePauseScreen(!hasFocus);
+        
         if (!hasFocus)
         {
             Debug.Log("Game lost focus → Pausing");
-            TogglePauseScreen(true);
         }
     }
 
@@ -268,7 +270,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"Resume Pressed!");
         TogglePauseScreen(false);
-        InputManager.SetPaused();
+        InputManager.TogglePause(false);
     }
     private void OnMainMenuPressed(ClickEvent e)
     {

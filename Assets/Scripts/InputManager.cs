@@ -251,13 +251,9 @@ public static class InputManager
         paused = false;
     }
     
-    public static void SetPaused()
+    public static void TogglePause(bool isPaused)
     {
-        if (paused)
-        {
-            paused = false;
-        }
-
+        paused = isPaused;
     }
 
 

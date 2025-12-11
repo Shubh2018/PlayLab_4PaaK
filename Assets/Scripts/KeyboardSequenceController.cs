@@ -9,6 +9,7 @@ public class KeyboardSequenceController : MonoBehaviour
     void Start()
     {
         Keyboard.current.onTextInput += OnTextInput;
+        Keyboard.current.aKey.IsPressed();
     }
 
     void OnDestroy()

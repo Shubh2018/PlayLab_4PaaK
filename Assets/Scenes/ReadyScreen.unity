@@ -221,6 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 394092245}
   - component: {fileID: 394092244}
+  - component: {fileID: 394092246}
   m_Layer: 5
   m_Name: ReadyScreen
   m_TagString: Untagged
@@ -262,6 +263,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &394092246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394092243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28e1f0b6bbaaeb243a821d6c3e72160d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _readyScreen: {fileID: 394092244}
+  buttonVisuals:
+  - {fileID: 2800000, guid: 251d5af653662fc4dada6d470da3c188, type: 3}
+  - {fileID: 2800000, guid: 490e73cfc5f9a9d409b1ecbd619346c7, type: 3}
+  - {fileID: 2800000, guid: bce4243c788fb1843995fd14163bf689, type: 3}
+  - {fileID: 2800000, guid: 40e1d04cf8affbd40a423b371dea1947, type: 3}
+  - {fileID: 2800000, guid: faff90f96c711094d9340546daeaedfa, type: 3}
+  - {fileID: 2800000, guid: 7809e62e60eadeb499797734d5ee4fb8, type: 3}
+  - {fileID: 2800000, guid: a801e03c27deaa149b99a7afa7bd5c4d, type: 3}
+  - {fileID: 2800000, guid: fe77b3650514d0640aa265f65fe02289, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

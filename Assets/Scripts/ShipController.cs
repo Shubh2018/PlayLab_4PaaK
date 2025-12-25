@@ -43,6 +43,9 @@ public class ShipController : MonoBehaviour
 
     private Vector3 _dir;
 
+    [SerializeField] private Sprite _flagSprite;
+    public Sprite FlagSprite => _flagSprite;
+
     private void Update()
     {
         if (InputManager.Paused) return;
@@ -174,9 +177,9 @@ public class ShipController : MonoBehaviour
         
         _island.SetShipController(this);
 
-        if (_island is DestinationIsland)
+        if (_island is DestinationIsland destinationIsland)
         {
-            _island = (DestinationIsland)_island;
+            _island = destinationIsland;
             _island.EnableFillImages();
         }
 

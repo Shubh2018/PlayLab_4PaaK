@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -27,7 +28,7 @@ public class GameEndEvents : MonoBehaviour
         _mainMenuButton.RegisterCallback<ClickEvent>(OnMainMenuClick);
 
         _playerWonText = _gameEndDocument.rootVisualElement.Q("PlayerWonText") as Label;
-        _playerWonText.text = "" + winner._winnerName + " Has Won The Game";
+        _playerWonText.text = "" + Constants.WinnerName + " Has Won The Game";
         _gameEndMenuButtons = _gameEndDocument.rootVisualElement.Query<Button>().ToList();
         
         for (int i = 0; i < _gameEndMenuButtons.Count; ++i) 
@@ -35,6 +36,7 @@ public class GameEndEvents : MonoBehaviour
             _gameEndMenuButtons[i].RegisterCallback<ClickEvent>(AllButtonsClick);
         }
 
+        Constants.WinnerName = String.Empty;
     }
 
     private void OnDisable()
@@ -65,7 +67,8 @@ public class GameEndEvents : MonoBehaviour
 
     public void SetPlayerWhoWon(ShipController player)
     {
-        _playerWhoWon = player.PlayerName;
+        _playerWhoWon = Constants.WinnerName;
+        Constants.WinnerName = String.Empty;
     }
 }
 

@@ -1,4 +1,4 @@
-using UnityEngine;
+using System;
 
 public static class Constants
 {
@@ -7,4 +7,6 @@ public static class Constants
     public const int SequenceLength = 4;
     public const float CountDown = 3;
     public static readonly char[] KeyboardSequenceOptions = {'s','d','f','g','h','j','w','e','t','u','i','2','3','4','6','8','9'};
+
+    public static string WinnerName = String.Empty;
 }

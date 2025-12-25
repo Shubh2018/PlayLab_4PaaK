@@ -127,6 +127,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1355494980}
     m_Modifications:
+    - target: {fileID: 348659241598676680, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625950669878121013, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 790720226281178675, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2084801134341411173, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
       propertyPath: m_FillAmount
       value: 1
@@ -139,6 +151,10 @@ PrefabInstance:
       propertyPath: keyboardSequenceController
       value: 
       objectReference: {fileID: 1483283961}
+    - target: {fileID: 3073457994292255170, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5688151578356962152, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -179,9 +195,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6560135075418314649, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6934913487612940675, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
       propertyPath: m_Name
       value: DestinationIsland
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959084411407037955, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351969510297696386, guid: 44b4a48b32556a84aa004d8ef8340818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2734,7 +2762,7 @@ MonoBehaviour:
   _timerText: {fileID: 0}
   _countdownText: {fileID: 421459756}
   _islandCount: 4
-  winner: {fileID: 0}
+  winner: {fileID: 11400000, guid: 6e5df6ca8fdcfd94b86f82f908a7d321, type: 2}
   startPosition:
   - Player: {fileID: 577091841}
     StartingIsland: {fileID: 1863206272}
@@ -3092,7 +3120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -45}
+  m_AnchoredPosition: {x: -200, y: 40}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327243701
@@ -5282,7 +5310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 40}
+  m_AnchoredPosition: {x: -200, y: -45}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055317550

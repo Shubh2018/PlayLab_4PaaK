@@ -3,6 +3,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
+using Random = UnityEngine.Random;
 
 public class Island : MonoBehaviour
 {
@@ -29,10 +31,52 @@ public class Island : MonoBehaviour
     public int ArrayPointer { get; set; } = 0;
 
     protected List<ShipController> _controllersNearIsland;
+    
+    [Header("Generation")]
+    [SerializeField] private SpriteRenderer _islandBase;
+    
+    [SerializeField] private Transform _islandContent1;
+    [SerializeField] private Transform _islandContent2;
+    
+    private SpriteRenderer _islandContent1SpriteRenderer;
+    
+    private SpriteRenderer[] _islandContent2SpriteRenderers;
+
+    [SerializeField] private Sprite[] _islandBaseSprites;
+
+    [SerializeField] private Sprite[] _contentSprites;
+    
+    [SerializeField] private SpriteRenderer _flagSpriteRenderer;
  
     protected virtual void Start()
     {
         //_borderRenderer = GetComponent<SpriteRenderer>();
+
+        if (_islandBaseSprites.Length > 0 && _contentSprites.Length > 0)
+        {
+            _islandBase.sprite = _islandBaseSprites[Random.Range(0, _islandBaseSprites.Length - 1)];
+            
+            int randomNum = Random.Range(0, 2);
+
+            if (randomNum == 0)
+            {
+                _islandContent1.gameObject.SetActive(true);
+                _islandContent1SpriteRenderer = _islandContent1.GetComponentInChildren<SpriteRenderer>(true);
+            
+                _islandContent1SpriteRenderer.sprite = _contentSprites[Random.Range(0, _contentSprites.Length - 1)];
+            }
+
+            else
+            {
+                _islandContent2.gameObject.SetActive(true);
+                _islandContent2SpriteRenderers = _islandContent2.GetComponentsInChildren<SpriteRenderer>(true);
+
+                foreach (var spriteRenderer in _islandContent2SpriteRenderers)
+                {
+                    spriteRenderer.sprite = _contentSprites[Random.Range(0, _islandBaseSprites.Length - 1)];
+                }
+            }
+        }
         
         _controllersNearIsland = new List<ShipController>();
 
@@ -79,7 +123,8 @@ public class Island : MonoBehaviour
         ChangeAllegiance();
 
         _currentlyControlledBy = _shipController;
-        _borderRenderer.color = _currentlyControlledBy.TeamColor;
+        _flagSpriteRenderer.gameObject.SetActive(true);
+        _flagSpriteRenderer.sprite = _currentlyControlledBy.FlagSprite;
 
         keyboardSequence = Array.Empty<char>();
         UpdateSequenceText(keyboardSequence);
@@ -106,7 +151,7 @@ public class Island : MonoBehaviour
 
     public void SetShipController(ShipController shipController)
     {
-        //AddControllerToList(shipController);
+        AddControllerToList(shipController);
         _shipController = shipController;
         keyboardSequence = keyboardSequenceController.GenerateRandomSequence();
         UpdateSequenceText(keyboardSequence);

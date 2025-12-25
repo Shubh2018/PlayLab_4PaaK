@@ -29,13 +29,13 @@ public class DestinationIsland : Island
 
     private void Update()
     {
+        if (_controllersNearIsland.Count <= 0) return;
+        
         CheckTaps();
     }
 
     private void CheckTaps()
     {
-        if (_controllersNearIsland.Count <= 0) return;
-        
         foreach (ShipController controller in _controllersNearIsland)
         {
             if (InputManager.GetTapPressed(controller.Player))

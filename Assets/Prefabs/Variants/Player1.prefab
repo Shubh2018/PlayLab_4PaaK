@@ -343,6 +343,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8180553373775114909}
     - target: {fileID: 9187986020903685601, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: _flagSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da9eb2b7fae17f7468558f2e7fd64648, type: 3}
+    - target: {fileID: 9187986020903685601, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: _teamColor.a
       value: 1
       objectReference: {fileID: 0}

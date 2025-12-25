@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
     public void WinScreen(string winnerName)
     {
         InputManager.ResetInput();
-        winner._winnerName = winnerName;
+        Constants.WinnerName = winnerName;
         SceneManager.LoadScene("GameEndMenu");
     }
 

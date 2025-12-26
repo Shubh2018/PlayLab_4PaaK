@@ -181,6 +181,8 @@ public class ShipController : MonoBehaviour
         {
             _island = destinationIsland;
             _island.EnableFillImages();
+            GameManager.Instance.DisableSequence(this);
+            InputManager.PauseLaunch(_player);
         }
 
         mostRecentIsland = island;

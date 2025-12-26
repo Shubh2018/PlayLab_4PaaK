@@ -249,6 +249,27 @@ public static class InputManager
         _launchPlayer4 = 0;
 
         paused = false;
+        
+        ResumeLaunch();
+    }
+
+    public static void PauseLaunch(Player player)
+    {
+        switch (player)
+        {
+            case Player.Player1 : _inputActions.Player1.Launch.Disable(); break;
+            case Player.Player2 : _inputActions.Player2.Launch.Disable(); break;
+            case Player.Player3 : _inputActions.Player3.Launch.Disable(); break;
+            case Player.Player4 : _inputActions.Player4.Launch.Disable(); break;
+        }
+    }
+
+    private static void ResumeLaunch()
+    {
+        _inputActions.Player1.Launch.Enable();
+        _inputActions.Player2.Launch.Enable();
+        _inputActions.Player3.Launch.Enable();
+        _inputActions.Player4.Launch.Enable();
     }
     
     public static void TogglePause(bool isPaused)

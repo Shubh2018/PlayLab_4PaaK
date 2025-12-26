@@ -48,9 +48,6 @@ public class GameManager : MonoBehaviour
             _instance = this;
 
         InputManager.EnableInput();
-
-        
-
     }
 
     private void Start()
@@ -79,8 +76,6 @@ public class GameManager : MonoBehaviour
             }
         }
         
-
-
         UpdatePointsText();
         //UpdatePointCounter(); // The following method ensured to update points over time depending on amount of conquered islands
         //UpdateTime();
@@ -96,7 +91,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game lost focus → Pausing");
         }
     }
-
 
     private IEnumerator StartGameCoroutine(float startUpTime)
     {
@@ -224,6 +218,18 @@ public class GameManager : MonoBehaviour
 
         _timer -= Time.deltaTime;
         _timerText.text = GetMinAndSec(_timer);
+    }
+
+    public void DisableSequence(ShipController player)
+    {
+        foreach (StartPositions position in startPosition)
+        {
+            if (position.Player.Player == player.Player)
+            {
+                position.SequencePanel.gameObject.SetActive(false);
+                break;
+            }
+        }
     }
 
     public void WinScreen(string winnerName)

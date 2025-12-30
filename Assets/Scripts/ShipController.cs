@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Numerics;
@@ -13,6 +14,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private InputManager.Player _player;
     [SerializeField] private SpriteRenderer _shipGFX;
     [SerializeField] private SpriteRenderer _arrowSprite;
+    [SerializeField] private TrailRenderer _trailRenderer;
     
     public int CurrentIslandCount { private set; get; } = 0;
     
@@ -45,6 +47,11 @@ public class ShipController : MonoBehaviour
 
     [SerializeField] private Sprite _flagSprite;
     public Sprite FlagSprite => _flagSprite;
+
+    private void Start()
+    {
+        _trailRenderer.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -164,6 +171,8 @@ public class ShipController : MonoBehaviour
         InputManager.SetLaunchPressedFalse(_player);
         _island.UnsetShipController(this);
         _island = null;
+        
+        _trailRenderer.gameObject.SetActive(true);
     }
 
     public void SetIsland(Island island)
@@ -186,6 +195,7 @@ public class ShipController : MonoBehaviour
         }
 
         mostRecentIsland = island;
+        _trailRenderer.gameObject.SetActive(false);
     }
 
     public void AddConquredIslandToList()

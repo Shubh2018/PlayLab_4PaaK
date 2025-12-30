@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
     {        
         Debug.Log("Starting to setup buttons");
         
-
         TogglePauseScreen(false);  
         startUpTime = Constants.CountDown + 1;
         StartCoroutine(StartGameCoroutine(Constants.CountDown));
@@ -94,6 +93,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGameCoroutine(float startUpTime)
     {
+        InputManager.DisableInput();
+        
         yield return new WaitForEndOfFrame();
         
         _islands = FindObjectsByType<Island>(FindObjectsSortMode.None).ToList();
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
         }
 
         yield return new WaitUntil(() => StartGame);
+        InputManager.EnableInput();
         
         foreach (StartPositions position in startPosition)
         {

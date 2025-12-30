@@ -251,7 +251,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.1
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -472,6 +472,7 @@ MonoBehaviour:
   _player: 0
   _shipGFX: {fileID: 3107740439192465126}
   _arrowSprite: {fileID: 6583281639283501170}
+  _trailRenderer: {fileID: 2811122886821544604}
   _teamColor: {r: 0, g: 0, b: 0, a: 0}
   _playerName: 
   _flagSprite: {fileID: 0}

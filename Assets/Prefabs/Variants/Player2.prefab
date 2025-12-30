@@ -243,10 +243,6 @@ PrefabInstance:
       value: Circle
       objectReference: {fileID: 0}
     - target: {fileID: 2811122886821544604, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
-      propertyPath: m_Time
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2811122886821544604, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: bd9de56f1f5e1b043acef91c185e6fc2, type: 2}

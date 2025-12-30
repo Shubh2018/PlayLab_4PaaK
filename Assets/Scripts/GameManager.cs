@@ -42,6 +42,12 @@ public class GameManager : MonoBehaviour
     private Button _resumeButton;
     private Button _mainMenuButton;
 
+    [SerializeField] private UnityEngine.UI.Image[] _fillImage;
+    public UnityEngine.UI.Image[] FillImage => _fillImage;
+    
+    [SerializeField] private Animator[] _buttonImage;
+    public Animator[] ButtonImage => _buttonImage;
+
     private void Awake()
     {
         if (_instance == null)
@@ -224,14 +230,14 @@ public class GameManager : MonoBehaviour
 
     public void DisableSequence(ShipController player)
     {
-        foreach (StartPositions position in startPosition)
-        {
-            if (position.Player.Player == player.Player)
-            {
-                position.SequencePanel.gameObject.SetActive(false);
-                break;
-            }
-        }
+        // foreach (StartPositions position in startPosition)
+        // {
+        //     if (position.Player.Player == player.Player)
+        //     {
+        //         position.SequencePanel.gameObject.SetActive(false);
+        //         break;
+        //     }
+        // }
     }
 
     public void WinScreen(string winnerName)

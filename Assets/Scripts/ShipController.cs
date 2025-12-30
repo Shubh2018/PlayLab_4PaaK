@@ -190,7 +190,8 @@ public class ShipController : MonoBehaviour
         {
             _island = destinationIsland;
             _island.EnableFillImages();
-            GameManager.Instance.DisableSequence(this);
+            //GameManager.Instance.DisableSequence(this);
+            _island.UpdateSequenceText(Array.Empty<char>());
             InputManager.PauseLaunch(_player);
         }
 
@@ -260,6 +261,7 @@ public class ShipController : MonoBehaviour
         return scale;
     }
 
+    /*
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -271,5 +273,5 @@ public class ShipController : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawRay(transform.position, Vector3.back * 2.0f);
-    }
+    }*/
 }

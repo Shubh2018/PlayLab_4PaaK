@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 public class DestinationIsland : Island
 {
-    [SerializeField] private Image[] _fillImages = new Image[4];
-
-    private Image[] _fill;
+    private Image[] _fillImages;
+    private Animator[] _buttonAnimator;
     
     [SerializeField] private float fillPerTap = 0.1f;
     [SerializeField] private float decreasePerSec = 0.01f;
@@ -15,15 +14,19 @@ public class DestinationIsland : Island
     protected override void Start()
     {
         base.Start();
-        
-        _fill = new Image[_fillImages.Length];
+
+        _fillImages = new Image[GameManager.Instance.FillImage.Length];
+        _buttonAnimator = new Animator[GameManager.Instance.ButtonImage.Length];
         
         for (int i = 0; i < _fillImages.Length; i++)
         {
-            _fillImages[i].fillAmount = 0;
-            _fill[i] = _fillImages[i].transform.GetChild(0).GetComponent<Image>();
-            _fill[i].fillAmount = 0;
-            _fillImages[i].gameObject.SetActive(false);
+            _fillImages[i] = GameManager.Instance.FillImage[i];
+        }
+
+        for (int i = 0; i < _fillImages.Length; i++)
+        {
+            _buttonAnimator[i] = GameManager.Instance.ButtonImage[i];
+            _buttonAnimator[i].gameObject.SetActive(false);
         }
     }
 
@@ -40,12 +43,12 @@ public class DestinationIsland : Island
         {
             if (InputManager.GetTapPressed(controller.Player))
             {
-                _fill[(int)controller.Player - 1].fillAmount += fillPerTap;
+                _fillImages[(int)controller.Player - 1].fillAmount += fillPerTap;
                 InputManager.SetTapToFalse(controller.Player);
                 
-                if (_fill[(int)controller.Player - 1].fillAmount >= 0.98)
+                if (_fillImages[(int)controller.Player - 1].fillAmount >= 0.98)
                 {
-                    _fill[(int)controller.Player - 1].fillAmount = 1;
+                    _fillImages[(int)controller.Player - 1].fillAmount = 1;
                     GameManager.Instance.WinScreen(controller.name);
                     break;
                 }
@@ -53,10 +56,10 @@ public class DestinationIsland : Island
 
             else
             {
-                if (_fill[(int)controller.Player - 1].fillAmount <= 0.0f)
+                if (_fillImages[(int)controller.Player - 1].fillAmount <= 0.0f)
                     continue;
             
-                _fill[(int)controller.Player - 1].fillAmount -= decreasePerSec * Time.deltaTime;
+                _fillImages[(int)controller.Player - 1].fillAmount -= decreasePerSec * Time.deltaTime;
             }
         }
     }
@@ -71,14 +74,18 @@ public class DestinationIsland : Island
         
         foreach (ShipController controller in _controllersNearIsland)
         {
-            switch (controller.Player)
-            {
-                case InputManager.Player.Player1: _fillImages[(int)controller.Player - 1].gameObject.SetActive(true); break;
-                case InputManager.Player.Player2: _fillImages[(int)controller.Player - 1].gameObject.SetActive(true); break;
-                case InputManager.Player.Player3: _fillImages[(int)controller.Player - 1].gameObject.SetActive(true); break;
-                case InputManager.Player.Player4: _fillImages[(int)controller.Player - 1].gameObject.SetActive(true); break;
-                default: break;
-            }
+            _fillImages[(int)controller.Player - 1].fillAmount = 0;
+            _buttonAnimator[(int)controller.Player - 1].gameObject.SetActive(true);
+            
+            // switch (controller.Player)
+            // {
+            //     case InputManager.Player.Player1: 
+            //         break;
+            //     case InputManager.Player.Player2: _fillImages[(int)controller.Player - 1].fillAmount = 0; break;
+            //     case InputManager.Player.Player3: _fillImages[(int)controller.Player - 1].fillAmount = 0; break;
+            //     case InputManager.Player.Player4: _fillImages[(int)controller.Player - 1].fillAmount = 0; break;
+            //     default: break;
+            // }
         }
     }
 }

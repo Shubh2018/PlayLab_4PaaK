@@ -101,7 +101,7 @@ public class Island : MonoBehaviour
         UpdateSequenceText(keyboardSequence);
     }
 
-    private void UpdateSequenceText(char[] sequence)
+    public void UpdateSequenceText(char[] sequence)
     {
         if (_currentlyControlledBy)
         {
@@ -242,9 +242,9 @@ public class Island : MonoBehaviour
         
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.black;
-        Gizmos.DrawWireSphere(transform.position, _radius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.black;
+    //     Gizmos.DrawWireSphere(transform.position, _radius);
+    // }
 }

@@ -238,6 +238,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2811122886821544604, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_Time
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811122886821544604, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 18146c445495d7d4a83b052a19f2cad6, type: 2}
     - target: {fileID: 2900736975336897543, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -297,6 +305,14 @@ PrefabInstance:
     - target: {fileID: 5083508555873910602, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217095705060243805, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217095705060243805, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5754246004559771354, guid: 430d594ac9a2e5444b3a5b1806762433, type: 3}
       propertyPath: m_Sprite

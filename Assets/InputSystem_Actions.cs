@@ -426,7 +426,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ddb787cb-57e6-4fd7-a46c-2d242562e99d"",
-                    ""path"": ""<Keyboard>/7"",
+                    ""path"": ""<Keyboard>/6"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

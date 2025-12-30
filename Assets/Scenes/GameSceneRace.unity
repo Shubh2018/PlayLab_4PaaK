@@ -1272,7 +1272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 0516e073ba95fc64680e1b077dbc0b65, type: 3}
       propertyPath: m_Name
-      value: Player1
+      value: Player 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2770,12 +2770,12 @@ MonoBehaviour:
   - Player: {fileID: 1969691556}
     StartingIsland: {fileID: 2019667709}
     SequencePanel: {fileID: 1907037136}
-  - Player: {fileID: 1776216966}
-    StartingIsland: {fileID: 833020615}
-    SequencePanel: {fileID: 2055317552}
   - Player: {fileID: 1278329900}
-    StartingIsland: {fileID: 292267319}
+    StartingIsland: {fileID: 833020615}
     SequencePanel: {fileID: 1327243703}
+  - Player: {fileID: 1776216966}
+    StartingIsland: {fileID: 292267319}
+    SequencePanel: {fileID: 2055317552}
   _sequences: []
   _pauseScreen: {fileID: 967899927}
 --- !u!4 &1264150890
@@ -2847,15 +2847,15 @@ PrefabInstance:
       objectReference: {fileID: 292267319}
     - target: {fileID: 4746320292475554214, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: _player
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4746320292475554214, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: _playerName
-      value: Player 4
+      value: Player 3
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 58a284d94864f69439850ccec56204dc, type: 3}
       propertyPath: m_Name
-      value: Player4
+      value: Player 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2905,8 +2905,8 @@ RectTransform:
   m_Children:
   - {fileID: 1217965024}
   - {fileID: 1907037133}
-  - {fileID: 2055317549}
   - {fileID: 1327243700}
+  - {fileID: 2055317549}
   m_Father: {fileID: 1613382296}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3097,7 +3097,7 @@ GameObject:
   - component: {fileID: 1327243701}
   - component: {fileID: 1327243703}
   m_Layer: 5
-  m_Name: Player4Sequence
+  m_Name: Player3Sequence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3120,7 +3120,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 40}
+  m_AnchoredPosition: {x: -200, y: -45}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1327243701
@@ -4440,15 +4440,15 @@ PrefabInstance:
       objectReference: {fileID: 833020615}
     - target: {fileID: 4746320292475554214, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
       propertyPath: _player
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4746320292475554214, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
       propertyPath: _playerName
-      value: Player 3
+      value: Player 4
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: b7de775cdb13b6844af8ab3cd6d3e573, type: 3}
       propertyPath: m_Name
-      value: Player3
+      value: Player 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5056,7 +5056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705556668995746573, guid: 36e7adced7fa5514a8cc3c9a4f319909, type: 3}
       propertyPath: m_Name
-      value: Player2
+      value: Player 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5287,7 +5287,7 @@ GameObject:
   - component: {fileID: 2055317550}
   - component: {fileID: 2055317552}
   m_Layer: 5
-  m_Name: Player3Sequence
+  m_Name: Player4Sequence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5310,7 +5310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -45}
+  m_AnchoredPosition: {x: -200, y: 40}
   m_SizeDelta: {x: 100, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055317550
@@ -5520,7 +5520,7 @@ SceneRoots:
   - {fileID: 1355494980}
   - {fileID: 577091840}
   - {fileID: 1969691555}
-  - {fileID: 1776216965}
   - {fileID: 1278329899}
+  - {fileID: 1776216965}
   - {fileID: 1613382296}
   - {fileID: 1116462460}

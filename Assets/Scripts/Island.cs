@@ -103,6 +103,12 @@ public class Island : MonoBehaviour
 
     private void UpdateSequenceText(char[] sequence)
     {
+        if (_currentlyControlledBy)
+        {
+            _sequenceText.text = String.Empty;
+            return;
+        }
+        
         GameManager.Instance.SetSequence(_shipController, sequence);
         
         // _sequenceText.text = String.Empty;

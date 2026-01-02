@@ -285,10 +285,17 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Resume Pressed!");
         TogglePauseScreen(false);
         InputManager.TogglePause(false);
+        
+        if(AudioManager.Instance)
+            AudioManager.Instance.Click();
     }
+    
     private void OnMainMenuPressed(ClickEvent e)
     {
         SceneManager.LoadScene("MainMenu");
+        
+        if(AudioManager.Instance)
+            AudioManager.Instance.Click();
     }
 }
 

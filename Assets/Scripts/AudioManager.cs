@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource _sfxAudioSource;
     
     [Header("Sounds")]
+    [SerializeField] private AudioClip _musicClip;
     [SerializeField] private AudioClip _clickAudio;
     [SerializeField] private AudioClip _captureAudio;
 
@@ -37,5 +38,13 @@ public class AudioManager : MonoBehaviour
     {
         if (!_sfxAudioSource.isPlaying)
             _sfxAudioSource.PlayOneShot(_captureAudio);
+    }
+
+    public void PlayMusic()
+    {
+        _musicAudioSource.clip = _musicClip;
+        
+        if(!_musicAudioSource.isPlaying)
+            _musicAudioSource.Play();
     }
 }

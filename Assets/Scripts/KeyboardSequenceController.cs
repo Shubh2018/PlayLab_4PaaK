@@ -67,6 +67,11 @@ public class KeyboardSequenceController : MonoBehaviour
 
     }
 
+    public void ResetPointer(Island island)
+    {
+        island.ArrayPointer = 0;    
+    }
+    
     public char[] GenerateRandomSequence()
     {
         randomKeyboardSequence = new char[Constants.SequenceLength];

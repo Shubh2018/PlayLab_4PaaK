@@ -199,6 +199,7 @@ public class Island : MonoBehaviour
     public void UnsetShipController(ShipController shipController)
     {
         if (!shipController) return;
+        keyboardSequenceController.ResetPointer(this);
         
         RemoveControllerFromList(shipController);
 

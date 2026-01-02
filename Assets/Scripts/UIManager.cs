@@ -55,17 +55,23 @@ public class UIManager : MonoBehaviour
 
     private void OnStartPressed(ClickEvent e)
     {
-        SceneManager.LoadScene("GameScene");
+        AudioManager.Instance.Click();
+        
+        SceneManager.LoadScene("GameSceneRace");
     }
 
     private void OnSetupPressed(ClickEvent e)
     {
+        AudioManager.Instance.Click();
+        
         _mainMenuDocument.gameObject.SetActive(false);
         _setupDocument.gameObject.SetActive(true);
     }
 
     private void OnBackPressed(ClickEvent e)
     {
+        AudioManager.Instance.Click();
+        
         _mainMenuDocument.gameObject.SetActive(true);
         _setupDocument.gameObject.SetActive(false);
     }

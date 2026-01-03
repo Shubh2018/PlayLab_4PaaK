@@ -49,8 +49,10 @@ MonoBehaviour:
   _audioMixer: {fileID: 24100000, guid: e8c1b70541363854db0ba6469c40576d, type: 2}
   _musicAudioSource: {fileID: 5638000071169483821}
   _sfxAudioSource: {fileID: 1865879074393546183}
+  _musicClip: {fileID: 0}
   _clickAudio: {fileID: 8300000, guid: 3bea2a5d8f8de284aab2f69c5bdc7b16, type: 3}
   _captureAudio: {fileID: 8300000, guid: c0188a6cec6d2224aaecede8b3dfea09, type: 3}
+  _hurtAudio: {fileID: 8300000, guid: b607678e883b4b24ab5dc5c33cd436a4, type: 3}
 --- !u!1 &2590658828908047558
 GameObject:
   m_ObjectHideFlags: 0

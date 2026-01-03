@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _musicClip;
     [SerializeField] private AudioClip _clickAudio;
     [SerializeField] private AudioClip _captureAudio;
+    [SerializeField] private AudioClip _hurtAudio;
+
 
     private static AudioManager _instance;
     public static AudioManager Instance => _instance;
@@ -39,6 +41,13 @@ public class AudioManager : MonoBehaviour
         if (!_sfxAudioSource.isPlaying)
             _sfxAudioSource.PlayOneShot(_captureAudio);
     }
+
+    public void Hurt() 
+    { 
+        if (!_sfxAudioSource.isPlaying)
+            _sfxAudioSource.PlayOneShot(_hurtAudio);
+    }
+        
 
     public void PlayMusic()
     {

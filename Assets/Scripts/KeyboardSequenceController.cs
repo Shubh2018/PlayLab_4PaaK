@@ -1,10 +1,12 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
 
 public class KeyboardSequenceController : MonoBehaviour
 {
     private char[] randomKeyboardSequence = new char[Constants.SequenceLength];
+    [SerializeField] ParticleSystem particle; 
 
     void Start()
     {
@@ -42,6 +44,8 @@ public class KeyboardSequenceController : MonoBehaviour
                 Debug.Log($"Key typed: {c}");
                
                 island.KeyboardSequence[island.ArrayPointer] = ' ';
+                //island.Test(island.ArrayPointer);
+                //particle.Play();
                 island.SequenceKeyPressed();
 
                 island.ArrayPointer += 1;

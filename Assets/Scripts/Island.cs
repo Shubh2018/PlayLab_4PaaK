@@ -147,7 +147,18 @@ public class Island : MonoBehaviour
     {
         UpdateSequenceText(keyboardSequence);
     }
-    
+
+    //public void Test(int pointer)
+    //{
+    //    // The informations of the text.
+    //    TMP_TextInfo textInfo = _sequenceText.textInfo;
+    //    // The informations of the character at given index inside the text.
+    //    TMP_CharacterInfo charInfo = textInfo.characterInfo[pointer];
+    //    // The bottom right position of the character.
+    //    Vector3 bottomRight = charInfo.bottomRight;
+    //    Debug.Log(bottomRight);
+    //}
+
     public void UpdateBorderSize()
     {
         Vector3 scale = Vector3.zero;

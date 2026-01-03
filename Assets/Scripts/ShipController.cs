@@ -233,6 +233,7 @@ public class ShipController : MonoBehaviour
         if (collision.transform.CompareTag(Constants.WallTag))
         {
             transform.position = mostRecentIsland.transform.position;
+            AudioManager.Instance.Hurt();
             SetIsland(mostRecentIsland);
         }
     }

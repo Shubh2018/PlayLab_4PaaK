@@ -15,6 +15,7 @@ public class ShipController : MonoBehaviour
     [SerializeField] private SpriteRenderer _shipGFX;
     [SerializeField] private SpriteRenderer _arrowSprite;
     [SerializeField] private TrailRenderer _trailRenderer;
+    [SerializeField] private GameObject _explosion;
     
     public int CurrentIslandCount { private set; get; } = 0;
     
@@ -232,9 +233,13 @@ public class ShipController : MonoBehaviour
     {
         if (collision.transform.CompareTag(Constants.WallTag))
         {
+            ParticleSystem _explosionParticle = _explosion.GetComponent<ParticleSystem>();
+            ParticleSystem.MainModule _ep = _explosionParticle.main;
+            _ep.startColor = TeamColor;
+            Instantiate(_explosion, transform.position, transform.rotation);
             transform.position = mostRecentIsland.transform.position;
-            AudioManager.Instance.Hurt();
             SetIsland(mostRecentIsland);
+            AudioManager.Instance.Hurt();
         }
     }
     

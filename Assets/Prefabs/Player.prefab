@@ -473,6 +473,7 @@ MonoBehaviour:
   _shipGFX: {fileID: 3107740439192465126}
   _arrowSprite: {fileID: 6583281639283501170}
   _trailRenderer: {fileID: 2811122886821544604}
+  _explosion: {fileID: 151496776527442277, guid: 3b91d5cf8796a90429a8ad0085cfcb87, type: 3}
   _teamColor: {r: 0, g: 0, b: 0, a: 0}
   _playerName: 
   _flagSprite: {fileID: 0}

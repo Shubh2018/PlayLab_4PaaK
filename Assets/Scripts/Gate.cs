@@ -24,7 +24,7 @@ public class Gate : MonoBehaviour
 
     void UpdatePlayerConquerCount()
     {
-        if (true)//(ship.CurrentIslandCount >= GameManager.Instance.IslandCount)
+        if (ship.CurrentIslandCount >= GameManager.Instance.IslandCount)
         {
             StartCoroutine("Tremble");
         }

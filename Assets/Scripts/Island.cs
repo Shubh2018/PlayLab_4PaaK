@@ -139,7 +139,7 @@ public class Island : MonoBehaviour
 
         Debug.Log($"{this.name} Conquered by {_currentlyControlledBy.name}");
 
-        AudioManager.Instance.Capture();
+        AudioManager.Instance.Capture(_shipController.Player);
         //UpdateSequenceText(Array.Empty<char>());
     }
 

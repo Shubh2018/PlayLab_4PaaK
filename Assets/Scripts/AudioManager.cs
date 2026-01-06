@@ -7,14 +7,18 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioMixer _audioMixer;
     
     [SerializeField] private AudioSource _musicAudioSource;
+    
     [SerializeField] private AudioSource _sfxAudioSource;
+    [SerializeField] private AudioSource _sfxAudioSourcePlayer1;
+    [SerializeField] private AudioSource _sfxAudioSourcePlayer2;
+    [SerializeField] private AudioSource _sfxAudioSourcePlayer3;
+    [SerializeField] private AudioSource _sfxAudioSourcePlayer4;
     
     [Header("Sounds")]
     [SerializeField] private AudioClip _musicClip;
     [SerializeField] private AudioClip _clickAudio;
     [SerializeField] private AudioClip _captureAudio;
     [SerializeField] private AudioClip _hurtAudio;
-
 
     private static AudioManager _instance;
     public static AudioManager Instance => _instance;
@@ -36,16 +40,27 @@ public class AudioManager : MonoBehaviour
             _sfxAudioSource.PlayOneShot(_clickAudio);
     }
 
-    public void Capture()
+    public void Capture(InputManager.Player player)
     {
-        if (!_sfxAudioSource.isPlaying)
-            _sfxAudioSource.PlayOneShot(_captureAudio);
+        AudioSource source;
+        
+        switch (player)
+        {
+            case InputManager.Player.Player1: source = _sfxAudioSourcePlayer1; break;
+            case InputManager.Player.Player2: source = _sfxAudioSourcePlayer2; break;
+            case InputManager.Player.Player3: source = _sfxAudioSourcePlayer3; break;
+            case InputManager.Player.Player4: source = _sfxAudioSourcePlayer4; break;
+            default: source = _sfxAudioSourcePlayer1; break;
+        }
+        
+        if (!source.isPlaying)
+            source.PlayOneShot(_captureAudio);
     }
 
     public void Hurt() 
     { 
-        if (!_sfxAudioSource.isPlaying)
-            _sfxAudioSource.PlayOneShot(_hurtAudio);
+        if (!_sfxAudioSourcePlayer1.isPlaying)
+            _sfxAudioSourcePlayer1.PlayOneShot(_hurtAudio);
     }
         
 

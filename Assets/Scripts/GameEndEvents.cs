@@ -52,7 +52,7 @@ public class GameEndEvents : MonoBehaviour
 
     private void OnPlayAgainClick (ClickEvent evt)
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameSceneRace");
     }
 
     private void OnMainMenuClick(ClickEvent evt)

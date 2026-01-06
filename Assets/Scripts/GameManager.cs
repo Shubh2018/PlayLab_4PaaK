@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _countdownText;
-    private GameEndEvents _gameEndEvents;
 
     [SerializeField] private int _islandCount = 4;
     public int IslandCount => _islandCount;
@@ -52,13 +51,14 @@ public class GameManager : MonoBehaviour
     {
         if (_instance == null)
             _instance = this;
-
-        InputManager.EnableInput();
+        
+        InputManager.SetDefaults();
     }
 
     private void Start()
     {        
         Debug.Log("Starting to setup buttons");
+        
         
         TogglePauseScreen(false);  
         startUpTime = Constants.CountDown + 1;
@@ -99,12 +99,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGameCoroutine(float startUpTime)
     {
-        InputManager.DisableInput();
-        
         yield return new WaitForEndOfFrame();
         
         _islands = FindObjectsByType<Island>(FindObjectsSortMode.None).ToList();
-        _gameEndEvents = GetComponent<GameEndEvents>();
+
         _keyboardSequenceController = FindAnyObjectByType<KeyboardSequenceController>();
 
         foreach (StartPositions position in startPosition)

@@ -30,10 +30,7 @@ public static class InputManager
 
     private static bool paused = false;
     public static bool Paused => paused;
-
-
-
-
+    
     //private static 
 
     public static void EnableInput()
@@ -48,7 +45,7 @@ public static class InputManager
         _inputActions.UI.Cancel.started += Cancel_started;
         //_inputActions.UI.Cancel.canceled += Cancel_canceled;
 
-        #region Player1 Delegates Subscribe
+    #region Player1 Delegates Subscribe
 
         _inputActions.Player1.ShipControls_Rotation.started += ShipControls_Player1_Rotation_Started;
 
@@ -166,6 +163,14 @@ public static class InputManager
         //_inputActions.UI.Cancel.canceled -= Cancel_canceled;
         _inputActions.UI.Disable();
 
+    }
+
+    public static void SetDefaults()
+    {
+        _player1Rotation = Vector2.one;
+        _player2Rotation = Vector2.one;
+        _player3Rotation = Vector2.one;
+        _player4Rotation = Vector2.one;
     }
 
     public static float GetPlayerRotationDirection(Player Player)

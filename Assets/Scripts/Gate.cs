@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Search;
 
 public class Gate : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class Gate : MonoBehaviour
     [SerializeField] private float dim;
     private Vector3 startPosition;
     Vector3 direction = Vector3.left;
-    private bool particle_started = false;
+
+    private bool _disappear = false;
+
+    [SerializeField] private Collider2D _collider;
+    [SerializeField] private SpriteRenderer _wallGFX;
 
     private void Start()
     {
-        startPosition = transform.position;
+        startPosition = _wallGFX.transform.position;
+        StartCoroutine(Tremble());
     }
 
     void Update()
@@ -26,23 +32,36 @@ public class Gate : MonoBehaviour
     {
         if (ship.CurrentIslandCount >= GameManager.Instance.IslandCount)
         {
-            StartCoroutine("Tremble");
+            _disappear = true;
         }
-        
     }
 
     private IEnumerator Tremble()
     {
-        if (particle_started == false)
+        yield return new WaitUntil(() => _disappear);
+        
+        _collider.gameObject.SetActive(false);
+
+        float t = 0;
+
+        while (t <= 1)
         {
-            particle_started = true;
-            _particle.Play();
+            t += Time.deltaTime;
+            
+            float alpha = Mathf.Lerp(1, 0, t);
+            _wallGFX.transform.position = startPosition + direction * (Mathf.Sin(speed * Time.time) * amount);
+            
+            yield return new WaitForEndOfFrame();
+            
+            Color color = _wallGFX.color;
+            _wallGFX.color = new Color(color.r, color.g, color.b, alpha);
         }
-        transform.position = startPosition + direction * Mathf.Sin(speed * Time.time) * amount;
-        Color color = gameObject.GetComponentInChildren<SpriteRenderer>().color;
-        color.a -= (Time.time) * dim;
-        gameObject.GetComponentInChildren<SpriteRenderer>().color = color;
+        
+        if (!_particle.isPlaying)
+            _particle.Play();
+        
         yield return new WaitForSeconds(2f);
+        
         gameObject.SetActive(false);
     }
 }

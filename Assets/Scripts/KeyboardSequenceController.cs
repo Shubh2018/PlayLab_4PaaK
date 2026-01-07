@@ -49,7 +49,7 @@ public class KeyboardSequenceController : MonoBehaviour
                 island.SequenceKeyPressed();
 
                 island.ArrayPointer += 1;
-                
+                AudioManager.Instance.KeyPress();
 
                 if (island.ArrayPointer == island.KeyboardSequence.Length)
                 {

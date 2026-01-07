@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioClip _musicClip;
     [SerializeField] private AudioClip _clickAudio;
+    [SerializeField] private AudioClip _keyPress;
     [SerializeField] private AudioClip _captureAudio;
     [SerializeField] private AudioClip _hurtAudio;
 
@@ -38,6 +39,12 @@ public class AudioManager : MonoBehaviour
     {
         if(!_sfxAudioSource.isPlaying)
             _sfxAudioSource.PlayOneShot(_clickAudio);
+    }
+    
+    public void KeyPress()
+    {
+        if(!_sfxAudioSource.isPlaying)
+            _sfxAudioSource.PlayOneShot(_keyPress);
     }
 
     public void Capture(InputManager.Player player)

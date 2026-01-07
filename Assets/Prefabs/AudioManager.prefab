@@ -188,6 +188,7 @@ MonoBehaviour:
   _sfxAudioSourcePlayer4: {fileID: 2452208160054157286}
   _musicClip: {fileID: 0}
   _clickAudio: {fileID: 8300000, guid: 3bea2a5d8f8de284aab2f69c5bdc7b16, type: 3}
+  _keyPress: {fileID: 8300000, guid: 87b4e0622346272459f7171deff80a18, type: 3}
   _captureAudio: {fileID: 8300000, guid: c0188a6cec6d2224aaecede8b3dfea09, type: 3}
   _hurtAudio: {fileID: 8300000, guid: b607678e883b4b24ab5dc5c33cd436a4, type: 3}
 --- !u!1 &2590658828908047558

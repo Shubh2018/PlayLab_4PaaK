@@ -53,6 +53,7 @@ public class DestinationIsland : Island
 
                     SpriteRenderer _winnerSpriteRenderer = controller.GetComponentInChildren<SpriteRenderer>();
                     Sprite _winnerSprite = _winnerSpriteRenderer.sprite;
+                    GameManager.Instance.GameEnd = true;
                     GameManager.Instance.WinScreen(controller.name, controller.TeamColor, _winnerSprite);
                     
                     break;

@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject fireworks;
 
+    public bool GameEnd { get; set; } = false;
+
     private void Awake()
     {
         if (_instance == null)
@@ -66,6 +68,8 @@ public class GameManager : MonoBehaviour
         TogglePauseScreen(false);  
         startUpTime = Constants.CountDown + 1;
         StartCoroutine(StartGameCoroutine(Constants.CountDown));
+        
+        StartCoroutine(WinDisplay());
     }
 
     private void Update()
@@ -247,7 +251,6 @@ public class GameManager : MonoBehaviour
         Constants.WinnerName = winnerName;
         Constants.WinnerColor = winnerColor;
         Constants.WinnerSprite = WinnerSprite;
-        StartCoroutine("WinDisplay");
     }
 
     private string GetMinAndSec(float timeInSec)
@@ -303,15 +306,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WinDisplay()
     {
+        yield return new WaitUntil(() => GameEnd);
+        
         bool firework_spawned = false;
-
-        if (firework_spawned == false)
-        {
+        
             ParticleSystem.MainModule firework_color = fireworks.GetComponent<ParticleSystem>().main;
             firework_color.startColor = Constants.WinnerColor;
             Instantiate(fireworks, new Vector3 (0, 0, 0), fireworks.transform.rotation);
-            firework_spawned = true;
-        }
+
         yield return new WaitForSeconds(5);
 
         SceneManager.LoadScene("GameEndMenu");

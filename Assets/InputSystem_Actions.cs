@@ -404,7 +404,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""e8075707-57ae-4b97-bc15-2e21e9bb7351"",
-                    ""path"": ""<Keyboard>/0"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -415,7 +415,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""8668b83c-6e16-427e-b5b8-1a267e733c43"",
-                    ""path"": ""<Keyboard>/k"",
+                    ""path"": ""<Keyboard>/0"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -56,6 +56,8 @@ public class DestinationIsland : Island
                     GameManager.Instance.GameEnd = true;
                     GameManager.Instance.WinScreen(controller.name, controller.TeamColor, _winnerSprite);
                     
+                    InputManager.DisableInput();
+                    
                     break;
                 }
             }

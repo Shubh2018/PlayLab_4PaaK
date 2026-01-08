@@ -308,11 +308,9 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitUntil(() => GameEnd);
         
-        bool firework_spawned = false;
-        
-            ParticleSystem.MainModule firework_color = fireworks.GetComponent<ParticleSystem>().main;
-            firework_color.startColor = Constants.WinnerColor;
-            Instantiate(fireworks, new Vector3 (0, 0, 0), fireworks.transform.rotation);
+        ParticleSystem.MainModule firework_color = fireworks.GetComponent<ParticleSystem>().main;
+        firework_color.startColor = Constants.WinnerColor;
+        Instantiate(fireworks, new Vector3 (0, 0, 0), fireworks.transform.rotation);
 
         yield return new WaitForSeconds(5);
 

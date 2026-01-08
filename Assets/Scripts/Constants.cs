@@ -9,4 +9,5 @@ public static class Constants
     public static readonly char[] KeyboardSequenceOptions = {'s','d','f','g','h','j','w','e','t','u','i','2','3','4','6','8','9'};
 
     public static string WinnerName = String.Empty;
+    public static UnityEngine.Color WinnerColor;
 }

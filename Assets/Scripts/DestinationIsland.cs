@@ -48,8 +48,10 @@ public class DestinationIsland : Island
                 
                 if (_fillImages[(int)controller.Player - 1].fillAmount >= 0.98)
                 {
+                    decreasePerSec = 0f;
                     _fillImages[(int)controller.Player - 1].fillAmount = 1;
-                    GameManager.Instance.WinScreen(controller.name);
+                    GameManager.Instance.WinScreen(controller.name, controller.TeamColor);
+                    
                     break;
                 }
             }

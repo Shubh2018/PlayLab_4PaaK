@@ -7778,6 +7778,7 @@ MonoBehaviour:
   - {fileID: 1620367048}
   - {fileID: 1005441353}
   - {fileID: 36551783}
+  fireworks: {fileID: 819039201318639197, guid: 2dd934973eaf3b44dab31965ddfc7e17, type: 3}
 --- !u!4 &1264150890
 Transform:
   m_ObjectHideFlags: 0

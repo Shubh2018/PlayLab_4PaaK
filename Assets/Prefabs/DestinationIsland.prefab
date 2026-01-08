@@ -1197,11 +1197,6 @@ MonoBehaviour:
   _islandBaseSprites: []
   _contentSprites: []
   _flagSpriteRenderer: {fileID: 0}
-  _fillImages:
-  - {fileID: 6135279623673749811}
-  - {fileID: 3094150817933470086}
-  - {fileID: 258278414549650612}
-  - {fileID: 6233495885032133718}
   fillPerTap: 0.1
   decreasePerSec: 0.4
 --- !u!1 &7959084411407037955

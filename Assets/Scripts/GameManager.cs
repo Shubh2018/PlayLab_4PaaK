@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private Animator[] _buttonImage;
     public Animator[] ButtonImage => _buttonImage;
+
+    [SerializeField] private GameObject fireworks;
 
     private void Awake()
     {
@@ -238,11 +241,12 @@ public class GameManager : MonoBehaviour
         // }
     }
 
-    public void WinScreen(string winnerName)
+    public void WinScreen(string winnerName, UnityEngine.Color winnerColor)
     {
         InputManager.ResetInput();
         Constants.WinnerName = winnerName;
-        SceneManager.LoadScene("GameEndMenu");
+        Constants.WinnerColor = winnerColor;
+        StartCoroutine("WinDisplay");
     }
 
     private string GetMinAndSec(float timeInSec)
@@ -294,6 +298,22 @@ public class GameManager : MonoBehaviour
         
         if(AudioManager.Instance)
             AudioManager.Instance.Click();
+    }
+
+    private IEnumerator WinDisplay()
+    {
+        bool firework_spawned = false;
+
+        if (firework_spawned == false)
+        {
+            ParticleSystem.MainModule firework_color = fireworks.GetComponent<ParticleSystem>().main;
+            firework_color.startColor = Constants.WinnerColor;
+            Instantiate(fireworks, new Vector3 (0, 0, 0), fireworks.transform.rotation);
+            firework_spawned = true;
+        }
+        yield return new WaitForSeconds(5);
+
+        SceneManager.LoadScene("GameEndMenu");
     }
 }
 

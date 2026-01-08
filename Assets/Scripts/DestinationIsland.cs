@@ -50,7 +50,10 @@ public class DestinationIsland : Island
                 {
                     decreasePerSec = 0f;
                     _fillImages[(int)controller.Player - 1].fillAmount = 1;
-                    GameManager.Instance.WinScreen(controller.name, controller.TeamColor);
+
+                    SpriteRenderer _winnerSpriteRenderer = controller.GetComponentInChildren<SpriteRenderer>();
+                    Sprite _winnerSprite = _winnerSpriteRenderer.sprite;
+                    GameManager.Instance.WinScreen(controller.name, controller.TeamColor, _winnerSprite);
                     
                     break;
                 }

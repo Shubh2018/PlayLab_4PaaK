@@ -10,6 +10,7 @@ public class GameEndEvents : MonoBehaviour
     private Button _playAgainButton;
     private Button _mainMenuButton;
     private Label _playerWonText;
+    private VisualElement _playerWonSprite;
     private List<Button> _gameEndMenuButtons = new List<Button>();
 
     [SerializeField] private WinnerNameSO winner;
@@ -29,6 +30,8 @@ public class GameEndEvents : MonoBehaviour
 
         _playerWonText = _gameEndDocument.rootVisualElement.Q("PlayerWonText") as Label;
         _playerWonText.text = "" + Constants.WinnerName + " Has Won The Game";
+        _playerWonSprite = _gameEndDocument.rootVisualElement.Q("PlayerWonSprite") as VisualElement;
+        _playerWonSprite.style.backgroundImage = new StyleBackground(Constants.WinnerSprite);
         _gameEndMenuButtons = _gameEndDocument.rootVisualElement.Query<Button>().ToList();
         
         for (int i = 0; i < _gameEndMenuButtons.Count; ++i) 

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public static class Constants
 {
@@ -10,4 +11,5 @@ public static class Constants
 
     public static string WinnerName = String.Empty;
     public static UnityEngine.Color WinnerColor;
+    public static Sprite WinnerSprite;
 }

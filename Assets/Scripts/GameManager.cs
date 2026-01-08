@@ -241,11 +241,12 @@ public class GameManager : MonoBehaviour
         // }
     }
 
-    public void WinScreen(string winnerName, UnityEngine.Color winnerColor)
+    public void WinScreen(string winnerName, UnityEngine.Color winnerColor, Sprite WinnerSprite)
     {
         InputManager.ResetInput();
         Constants.WinnerName = winnerName;
         Constants.WinnerColor = winnerColor;
+        Constants.WinnerSprite = WinnerSprite;
         StartCoroutine("WinDisplay");
     }
 
